@@ -3,47 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bret's Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Bret's Portfolio - Software Developer & Engineering Student</title>
+    <meta name="description" content="Portfolio of Bret Muchoni, Software Developer & Engineering Student specializing in web and mobile applications.">
+    
+    <!-- CSS Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bret's Portfolio - Software Developer">
+    <meta property="og:description" content="Software Developer & Engineering Student specializing in web and mobile applications.">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/assets/profile.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bret's Portfolio - Software Developer">
+    <meta name="twitter:description" content="Software Developer & Engineering Student specializing in web and mobile applications.">
+    <meta name="twitter:image" content="https://yourwebsite.com/assets/profile.jpg">
 </head>
 <body>
-  <div id="navbar-container"></div>
-  <div class="container">
-    <div id="app-content"></div>
-  </div>
-  
+  <!-- Navbar -->
+      <div id="navbar-container"></div>
+  <!-- Main Content -->
+  <main>
+    <div id="app-content">
+      <!-- Content will be loaded here via JavaScript -->
+    </div>
+  </main>
 
-  <footer class="bg-dark text-light py-4 mt-5">
-    <div class="container text-center">
-      <div class="mb-3">
-        <a href="https://github.com/yourusername" class="text-light me-3" target="_blank" rel="noopener" aria-label="GitHub">
-          <i class="fab fa-github fa-lg"></i>
-        </a>
-        <a href="https://linkedin.com/in/yourusername" class="text-light me-3" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="fab fa-linkedin fa-lg"></i>
-        </a>
-        <a href="mailto:your@email.com" class="text-light me-3" target="_blank" rel="noopener" aria-label="Email">
-          <i class="fas fa-envelope fa-lg"></i>
-        </a>
-        <a href="https://twitter.com/yourusername" class="text-light" target="_blank" rel="noopener" aria-label="Twitter">
-          <i class="fab fa-x-twitter fa-lg"></i>
-        </a>
+  <!-- Footer -->
+  <footer class="text-light py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center mb-3">
+            <div class="brand-icon me-3">
+              <div class="brand-square"></div>
+            </div>
+            <h5 class="fw-bold mb-0">bret's corner</h5>
+          </div>
+          <p class="mb-0">Building innovative solutions through code and creativity. Let's connect and create something amazing together.</p>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <h6 class="fw-bold mb-3">Quick Links</h6>
+              <ul class="list-unstyled">
+                <li><a href="#home" class="text-light text-decoration-none">Home</a></li>
+                <li><a href="#about" class="text-light text-decoration-none">About</a></li>
+                <li><a href="#projects" class="text-light text-decoration-none">Projects</a></li>
+                <li><a href="#contact" class="text-light text-decoration-none">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <h6 class="fw-bold mb-3">Connect</h6>
+              <div class="d-flex flex-wrap gap-3">
+                <a href="https://github.com/yourusername" class="text-light fs-4" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" class="text-light fs-4" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:your@email.com" class="text-light fs-4" target="_blank" rel="noopener" aria-label="Email" title="Email">
+                  <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://twitter.com/yourusername" class="text-light fs-4" target="_blank" rel="noopener" aria-label="Twitter" title="Twitter">
+                  <i class="fab fa-x-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <small>bret's corner presents &copy; 2025 Bret's Portfolio. All rights reserved.</small>
+      
+      <hr class="my-4 opacity-25">
+      
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <small>&copy; 2025 bret's corner presents... Portfolio. All rights reserved.</small>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <small class="text-muted">
+            Made with <i class="fas fa-heart text-danger"></i> and lots of ☕
+          </small>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- JavaScript Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  
   <script>
-    AOS.init();
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 50
+    });
+
+    // Dark mode toggle functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const icon = darkModeToggle.querySelector('i');
+
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Update active navigation link on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Navbar background opacity on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.backgroundColor = body.classList.contains('dark-mode') 
+          ? 'rgba(45, 45, 45, 0.95)' 
+          : 'rgba(255, 255, 255, 0.95)';
+      } else {
+        navbar.style.backgroundColor = body.classList.contains('dark-mode') 
+          ? 'var(--navbar-bg)' 
+          : 'var(--navbar-bg)';
+      }
+    });
+
+    // Load home content by default
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add padding-top to body to account for fixed navbar
+      document.body.style.paddingTop = '80px';
+      
+      // You can load your home.html content here via fetch or include it directly
+      // For now, we'll assume the content is loaded via your existing JavaScript
+    });
   </script>
+  
+  <!-- Your existing script.js file -->
+  <script src="js/script.js"></script>
 </body>
 </html>
