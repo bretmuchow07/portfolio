@@ -1,10 +1,13 @@
-<section class="about-me-section py-5" data-aos="fade-up">
+<section class="py-5" data-aos="fade-up">
   <div class="container">
     <div class="row align-items-start g-5">
+      
       <!-- Profile & Intro -->
       <div class="col-lg-5 text-center text-lg-start">
-        <img src="assets/profile.jpg" alt="Bret Muchoni" class="img-fluid rounded-4 mb-4" width="250" />
-        <h2 class="fw-bold">About Me</h2>
+        <div class="profile-container mb-4">
+          <img src="assets/profile.jpg" alt="Bret Muchoni" class="img-fluid profile-img" width="250" />
+        </div>
+        <h2 class="fw-bold text-gradient">About Me</h2>
         <p class="text-muted">
           I'm Bret Muchoni, a final-year Computer Systems Engineering student and passionate software developer based in Zimbabwe.
         </p>
@@ -15,39 +18,43 @@
 
       <!-- Details -->
       <div class="col-lg-7">
+
         <!-- Skills -->
-        <div class="mb-4">
-          <h4 class="fw-semibold">Tech Stack</h4>
-          <ul class="list-inline">
-            <li class="list-inline-item badge bg-secondary me-2 mb-2">Flutter</li>
-            <li class="list-inline-item badge bg-secondary me-2 mb-2">Dart</li>
-            <li class="list-inline-item badge bg-secondary me-2 mb-2">Supabase</li>
-            <li class="list-inline-item badge bg-secondary me-2 mb-2">React</li>
-            <li class="list-inline-item badge bg-secondary me-2 mb-2">C# / ASP.NET</li>
-            <li class="list-inline-item badge bg-secondary me-2 mb-2">Bootstrap</li>
-            <li class="list-inline-item badge bg-secondary me-2 mb-2">HTML / CSS / JS</li>
-          </ul>
+        <div class="mb-5">
+          <h4 class="fw-semibold text-gradient">Tech Stack</h4>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-secondary">Flutter</span>
+            <span class="badge bg-secondary">Dart</span>
+            <span class="badge bg-secondary">Supabase</span>
+            <span class="badge bg-secondary">React</span>
+            <span class="badge bg-secondary">C# / ASP.NET</span>
+            <span class="badge bg-secondary">Bootstrap</span>
+            <span class="badge bg-secondary">HTML / CSS / JS</span>
+          </div>
         </div>
 
         <!-- Experience -->
-        <div class="mb-4">
-          <h4 class="fw-semibold">Experience</h4>
-          <p class="text-muted mb-1"><strong>Software Developer Intern</strong> — wCyber Solutions (Feb–Dec 2024)</p>
+        <div class="mb-5">
+          <h4 class="fw-semibold text-gradient">Experience</h4>
+          <p class="text-muted mb-1">
+            <strong>Software Developer Intern</strong> — wCyber Solutions (Feb–Dec 2024)
+          </p>
           <ul class="text-muted small">
-            <li>Worked on the <strong>CoLT Platform</strong> for Corperate training & certification</li>
+            <li>Worked on the <strong>CoLT Platform</strong> for corporate training & certification</li>
             <li>Built & enhanced features for <strong>FarmMaster</strong> and <strong>mPOS</strong></li>
             <li>Handled frontend/backend dev, bug fixing, and event demos</li>
           </ul>
         </div>
 
-        <!-- Fun or Philosophy -->
+        <!-- Extra -->
         <div>
-          <h4 class="fw-semibold">A Bit More</h4>
+          <h4 class="fw-semibold text-gradient">A Bit More</h4>
           <p class="text-muted">
             I’m the kind of developer who believes that functionality is nothing without empathy.
             I love learning new things, solving tricky problems, and occasionally building things just for fun (like <strong>Shona Wordle</strong>).
           </p>
         </div>
+
       </div>
     </div>
   </div>
