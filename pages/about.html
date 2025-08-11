@@ -1,61 +1,166 @@
-<section class="py-5" data-aos="fade-up">
+<link rel="stylesheet" href="/css/about.css">
+<section class="about-section py-5" data-aos="fade-up">
   <div class="container">
     <div class="row align-items-start g-5">
       
       <!-- Profile & Intro -->
       <div class="col-lg-5 text-center text-lg-start">
-        <div class="profile-container mb-4">
-          <img src="assets/profile.jpg" alt="Bret Muchoni" class="img-fluid profile-img" width="250" />
+        <div class="profile-container mb-4 position-relative">
+          <div class="profile-glow"></div>
+          <img src="assets/profile.jpg" alt="Bret Muchoni" class="img-fluid profile-img" width="280" />
+          <div class="profile-status">
+            <i class="fas fa-circle text-success me-1"></i>
+            <small class="fw-medium">Available for work</small>
+          </div>
         </div>
-        <h2 class="fw-bold text-gradient">About Me</h2>
-        <p class="text-muted">
-          I'm Bret Muchoni, a final-year Computer Systems Engineering student and passionate software developer based in Zimbabwe.
-        </p>
-        <p class="text-muted">
-          I enjoy building purposeful apps that solve real problems — from health, to education, to agriculture. My work spans mobile and web platforms, with a focus on user experience and clean code.
-        </p>
+        
+        <div class="intro-content">
+          <h2 class="fw-bold text-gradient mb-3">About Me</h2>
+          <div class="intro-text">
+            <p class="text-muted lead">
+              My name is <span class="text-highlight">Bret Muchoni</span>, a software developer and designer crafting full‑stack solutions with a focus on clean code, intuitive interfaces, and user‑centered design — all from the heart of <span class="location-tag">🇿🇼 Zimbabwe</span>.
+            </p>
+          <p class="text-muted"> I love creating <span class="text-highlight">purposeful applications</span> that make a difference — whether it’s in health, education, or even just something fun for everyday life. For me, it’s not just about the code; it’s about the joy of turning ideas into something people can actually use and enjoy. I work across mobile and web, blending good design with clean, maintainable code, because I want every project to feel as good to use as it was to build. </p>
+          </div>
+          
+          <!-- Quick Stats -->
+          <div class="stats-row d-flex justify-content-center justify-content-lg-start gap-4 mt-4">
+            <div class="stat-item text-center">
+              <div class="stat-number">3+</div>
+              <div class="stat-label">Years</div>
+            </div>
+            <div class="stat-item text-center">
+              <div class="stat-number">7</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item text-center">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Technologies</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Details -->
       <div class="col-lg-7">
-
         <!-- Skills -->
-        <div class="mb-5">
-          <h4 class="fw-semibold text-gradient">Tech Stack</h4>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="badge bg-secondary">Flutter</span>
-            <span class="badge bg-secondary">Dart</span>
-            <span class="badge bg-secondary">Supabase</span>
-            <span class="badge bg-secondary">React</span>
-            <span class="badge bg-secondary">C# / ASP.NET</span>
-            <span class="badge bg-secondary">Bootstrap</span>
-            <span class="badge bg-secondary">HTML / CSS / JS</span>
+        <div class="skills-section mb-5" data-aos="fade-left" data-aos-delay="100">
+          <div class="section-header mb-3">
+            <h4 class="fw-semibold text-gradient d-flex align-items-center">
+              <i class="fas fa-code me-2"></i>Tech Stack
+            </h4>
+            <p class="text-muted small mb-0">Technologies I love working with</p>
+          </div>
+          
+          <div class="tech-grid">
+            <div class="tech-category mb-4">
+              <h6 class="tech-category-title">Frontend</h6>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-badge frontend">
+                  <i class="fab fa-react me-1"></i>React
+                </span>
+                <span class="tech-badge frontend">
+                  <i class="fab fa-html5 me-1"></i>HTML/CSS
+                </span>
+                <span class="tech-badge frontend">
+                  <i class="fab fa-js-square me-1"></i>JavaScript
+                </span>
+                <span class="tech-badge frontend">
+                  <i class="fab fa-bootstrap me-1"></i>Bootstrap
+                </span>
+              </div>
+            </div>
+            
+            <div class="tech-category mb-4">
+              <h6 class="tech-category-title">Mobile & Backend</h6>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-badge mobile">
+                  <i class="fas fa-mobile-alt me-1"></i>Flutter
+                </span>
+                <span class="tech-badge mobile">
+                  <i class="fas fa-code me-1"></i>Dart
+                </span>
+                <span class="tech-badge backend">
+                  <i class="fas fa-server me-1"></i>C# / ASP.NET
+                </span>
+                <span class="tech-badge backend">
+                  <i class="fas fa-database me-1"></i>Supabase
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Experience -->
-        <div class="mb-5">
-          <h4 class="fw-semibold text-gradient">Experience</h4>
-          <p class="text-muted mb-1">
-            <strong>Software Developer Intern</strong> — wCyber Solutions (Feb–Dec 2024)
-          </p>
-          <ul class="text-muted small">
-            <li>Worked on the <strong>CoLT Platform</strong> for corporate training & certification</li>
-            <li>Built & enhanced features for <strong>FarmMaster</strong> and <strong>mPOS</strong></li>
-            <li>Handled frontend/backend dev, bug fixing, and event demos</li>
-          </ul>
+        <div class="experience-section mb-5" data-aos="fade-left" data-aos-delay="200">
+          <div class="section-header mb-3">
+            <h4 class="fw-semibold text-gradient d-flex align-items-center">
+              <i class="fas fa-briefcase me-2"></i>Experience
+            </h4>
+            <p class="text-muted small mb-0">Professional journey</p>
+          </div>
+          
+          <div class="experience-card">
+            <div class="experience-header">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <h5 class="fw-bold mb-1">Software Developer Intern</h5>
+                  <p class="company-name mb-0">
+                    <i class="fas fa-building me-2"></i>wCyber Solutions
+                  </p>
+                </div>
+                <div class="duration-badge">
+                  <i class="fas fa-calendar-alt me-1"></i>
+                  Feb 2024–Present
+                </div>
+              </div>
+            </div>
+            
+            <div class="experience-content">
+  <div class="achievements">
+    <div class="achievement-item">
+      <i class="fas fa-check-circle me-2"></i>
+      Lead full-stack development for the <span class="text-highlight">CoLT Platform</span>, adding training, certification, and multimedia learning features
+    </div>
+    <div class="achievement-item">
+      <i class="fas fa-check-circle me-2"></i>
+      Designed and enhanced <span class="text-highlight">FarmMaster</span> and <span class="text-highlight">mPOS</span> solutions, including UI/UX, multilingual support, and instructional content
+    </div>
+    <div class="achievement-item">
+      <i class="fas fa-check-circle me-2"></i>
+      Delivered bug fixes, performance optimizations, and represented products at exhibitions and client demos
+    </div>
+  </div>
+</div>
+
         </div>
 
-        <!-- Extra -->
-        <div>
-          <h4 class="fw-semibold text-gradient">A Bit More</h4>
-          <p class="text-muted">
-            I’m the kind of developer who believes that functionality is nothing without empathy.
-            I love learning new things, solving tricky problems, and occasionally building things just for fun (like <strong>Shona Wordle</strong>).
-          </p>
+        <!-- Philosophy -->
+        <div class="philosophy-section" data-aos="fade-left" data-aos-delay="300">
+          <div class="section-header mb-3">
+            <h4 class="fw-semibold text-gradient d-flex align-items-center">
+              <i class="fas fa-lightbulb me-2"></i>My Philosophy
+            </h4>
+            <p class="text-muted small mb-0">What drives my work</p>
+          </div>
+          
+          <div class="philosophy-card">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p class="philosophy-text">
+              I'm the kind of developer who believes that <span class="text-highlight">functionality is nothing without empathy</span>. 
+              I love learning new things, solving tricky problems, and occasionally building things just for fun 
+              (like <span class="project-mention">Shona Wordle</span> 🎮).
+            </p>
+            <div class="philosophy-footer">
+              <small class="text-muted">Code with purpose, build with heart</small>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </div>
+
+
 </section>
