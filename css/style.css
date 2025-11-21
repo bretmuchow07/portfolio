@@ -342,6 +342,39 @@ body.dark-mode footer {
   background: var(--brand-gradient) !important;
 }
 
+body.dark-mode .form-label {
+  color: var(--text-color) !important;
+}
+
+body.dark-mode .card-title,
+body.dark-mode .card-text {
+  color: var(--text-color) !important;
+}
+
+body.dark-mode .testimonial-card {
+  background: #363636 !important;
+}
+
+body.dark-mode h3 {
+  color: var(--text-color) !important;
+}
+
+.tech-badge {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .tech-badge {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.project-arrow {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .project-arrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .display-4 {
