@@ -258,16 +258,25 @@
       background: linear-gradient(135deg, rgba(102, 126, 234, 0.02), rgba(118, 75, 162, 0.02));
     }
 
+    /* Dark mode overrides for Bootstrap classes */
+    body.dark-mode .text-muted {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    body.dark-mode .text-dark {
+      color: var(--text-color) !important;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .stats-row {
         justify-content: center !important;
       }
-      
+
       .profile-img {
         width: 200px !important;
       }
-      
+
       .tech-badge {
         font-size: 0.8rem;
         padding: 6px 12px;

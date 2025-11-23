@@ -308,55 +308,45 @@ body.dark-mode {
   background-color: var(--dot-bg);
 }
 
-body.dark-mode .hero-section {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
-}
-
-body.dark-mode .bg-light {
-  background-color: #2d2d2d !important;
-}
-
-body.dark-mode .card {
-  background-color: #363636 !important;
-  border-color: #444 !important;
-}
-
-body.dark-mode .text-dark {
-  color: var(--text-color) !important;
-}
-
-body.dark-mode .text-muted {
-  color: #adb5bd !important;
-}
-
-body.dark-mode .navbar {
-  background-color: var(--navbar-bg) !important;
-}
-
-body.dark-mode .nav-link.active,
-body.dark-mode .nav-link:hover {
-  color: var(--link-color) !important;
-}
-
-body.dark-mode footer {
-  background: var(--brand-gradient) !important;
-}
-
-body.dark-mode .form-label {
-  color: var(--text-color) !important;
-}
-
-body.dark-mode .card-title,
-body.dark-mode .card-text {
-  color: var(--text-color) !important;
+/* Ensure testimonial section uses the default (light) colours even in dark mode,
+   and that testimonial cards match the same appearance as the skill cards. */
+body.dark-mode .testimonials-section {
+  background-color: transparent !important;
+  color: inherit !important;
 }
 
 body.dark-mode .testimonial-card {
-  background: #363636 !important;
+  /* match light-mode skill/card appearance */
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  backdrop-filter: none !important;
+}
+
+body.dark-mode .testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2) !important;
+  background: #ffffff !important;
 }
 
 body.dark-mode h3 {
   color: var(--text-color) !important;
+}
+
+body.dark-mode .testimonials-section {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode .testimonials-fade-left,
+body.dark-mode .testimonials-fade-right {
+  background: linear-gradient(to-r, #000000 0%, transparent 100%);
+}
+
+body.dark-mode .testimonials-fade-right {
+  background: linear-gradient(to-l, #000000 0%, transparent 100%);
 }
 
 .tech-badge {
@@ -373,6 +363,36 @@ body.dark-mode .tech-badge {
 
 body.dark-mode .project-arrow {
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* Bootstrap utility class overrides for dark mode */
+body.dark-mode .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.dark-mode .text-dark {
+  color: var(--text-color) !important;
+}
+
+body.dark-mode .bg-light {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .card {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-color) !important;
+}
+
+body.dark-mode .btn-outline-primary {
+  border-color: var(--bc-blue);
+  color: var(--bc-blue);
+}
+
+body.dark-mode .btn-outline-primary:hover {
+  background-color: var(--bc-blue);
+  border-color: var(--bc-blue);
+  color: white;
 }
 
 /* Responsive adjustments */
@@ -464,4 +484,113 @@ html {
   color: white;
   font-size: 1.5rem;
   flex-shrink: 0;
+}
+
+/* Testimonial Section */
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+}
+
+.testimonials-section {
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-title {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.testimonials-marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.testimonials-marquee {
+  display: flex;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+}
+
+.testimonials-marquee:hover {
+  animation-play-state: paused;
+}
+
+.testimonials-marquee-group {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 350px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.testimonial-author-handle {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}
+
+.testimonial-text {
+  margin-top: 1rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .testimonials-title {
+    font-size: 2rem;
+  }
+
+  .testimonial-card {
+    width: 300px;
+  }
 }

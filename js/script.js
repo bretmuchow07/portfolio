@@ -268,6 +268,18 @@ function addParallaxEffect() {
     });
 }
 
+function addAvatarFallback() {
+    document.querySelectorAll('.testimonial-avatar').forEach(img => {
+        img.addEventListener('error', () => {
+            img.style.display = 'none';
+            const fallback = img.nextElementSibling;
+            if (fallback && fallback.classList.contains('avatar-fallback')) {
+                fallback.style.display = 'flex';
+            }
+        });
+    });
+}
+
 // Inject CSS for ripple and small helpers once
 (function injectStyles() {
     if (document.getElementById('portfolio-enhancements-styles')) return;
@@ -312,6 +324,7 @@ window.addEventListener('DOMContentLoaded', () => {
     addTypingAnimation();
     enhanceContactForm();
     addParallaxEffect();
+    addAvatarFallback();
 
     // Load initial page based on hash
     const page = window.location.hash.replace('#', '') || 'home';
