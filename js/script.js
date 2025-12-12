@@ -1,45 +1,45 @@
 // Load navbar from components folder
 fetch('components/navbar.html')
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById('navbar-container').innerHTML = html;
-    attachNavEvents(); // Attach events after navbar loads
-  })
-  .catch(() => {
-    // fail silently; nav may be static in some environments
-  });
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+        attachNavEvents(); // Attach events after navbar loads
+    })
+    .catch(() => {
+        // fail silently; nav may be static in some environments
+    });
 
 // Utility functions for your routing system
 const PortfolioUtils = {
     // Smooth page transitions
-    transitionToPage: function(callback) {
+    transitionToPage: function (callback) {
         const content = document.getElementById('app-content');
         if (!content) return callback();
         content.style.opacity = '0';
         content.style.transform = 'translateY(20px)';
-        
+
         setTimeout(() => {
             callback();
             content.style.opacity = '1';
             content.style.transform = 'translateY(0)';
-            
+
             if (typeof AOS !== 'undefined') {
                 AOS.refresh();
             }
         }, 200);
     },
-    
+
     // Update page title and meta
-    updatePageMeta: function(title, description) {
+    updatePageMeta: function (title, description) {
         document.title = title;
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', description);
         }
     },
-    
+
     // Show loading state
-    showLoading: function(element) {
+    showLoading: function (element) {
         if (!element) return;
         element.innerHTML = `
             <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
@@ -49,9 +49,9 @@ const PortfolioUtils = {
             </div>
         `;
     },
-    
+
     // Show error state
-    showError: function(element, message = 'Something went wrong. Please try again.') {
+    showError: function (element, message = 'Something went wrong. Please try again.') {
         if (!element) return;
         element.innerHTML = `
             <div class="alert alert-danger text-center" role="alert">
@@ -64,80 +64,91 @@ const PortfolioUtils = {
 
 // Simple router
 function loadPage(page) {
-  const target = document.getElementById('app-content');
-  if (!target) return;
-  PortfolioUtils.transitionToPage(() => {
-    PortfolioUtils.showLoading(target);
-    fetch(`pages/${page}.html`)
-      .then(res => {
-        if (!res.ok) throw new Error('Page not found');
-        return res.text();
-      })
-      .then(html => {
-        target.innerHTML = html;
+    const target = document.getElementById('app-content');
+    if (!target) return;
+    PortfolioUtils.transitionToPage(() => {
+        PortfolioUtils.showLoading(target);
+        fetch(`pages/${page}.html`)
+            .then(res => {
+                if (!res.ok) throw new Error('Page not found');
+                return res.text();
+            })
+            .then(html => {
+                target.innerHTML = html;
 
-        // Initialize tooltips/popovers for newly loaded content
-        const newTooltips = target.querySelectorAll('[data-bs-toggle="tooltip"]');
-        newTooltips.forEach(t => new bootstrap.Tooltip(t));
-        const newPopovers = target.querySelectorAll('[data-bs-toggle="popover"]');
-        newPopovers.forEach(p => new bootstrap.Popover(p));
-        
-        if (typeof AOS !== 'undefined') AOS.refresh();
-      })
-      .catch(() => {
-        PortfolioUtils.showError(target, 'Page not found.');
-      });
-  });
+                // Initialize tooltips/popovers for newly loaded content
+                const newTooltips = target.querySelectorAll('[data-bs-toggle="tooltip"]');
+                newTooltips.forEach(t => new bootstrap.Tooltip(t));
+                const newPopovers = target.querySelectorAll('[data-bs-toggle="popover"]');
+                newPopovers.forEach(p => new bootstrap.Popover(p));
+
+                // Re-initialize UI enhancements for new content
+                if (typeof addButtonEnhancements === 'function') addButtonEnhancements();
+                if (typeof enhanceFormValidation === 'function') enhanceFormValidation();
+                if (typeof addCardAnimations === 'function') addCardAnimations();
+                if (typeof addAvatarFallback === 'function') addAvatarFallback();
+
+                // Initializes Contact Form if on contact page
+                if (page === 'contact' && typeof initializeContactForm === 'function') {
+                    initializeContactForm();
+                }
+
+                if (typeof AOS !== 'undefined') AOS.refresh();
+            })
+            .catch(() => {
+                PortfolioUtils.showError(target, 'Page not found.');
+            });
+    });
 }
 
 // Theme toggle logic
 function setTheme(dark) {
-  document.body.classList.toggle('dark-mode', dark);
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-  const btn = document.getElementById('theme-toggle');
-  if (btn) {
-    btn.innerHTML = dark
-      ? '<i class="fas fa-sun"></i>'
-      : '<i class="fas fa-moon"></i>';
-    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-  }
+    document.body.classList.toggle('dark-mode', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+        btn.innerHTML = dark
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+        btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
 }
 
 function attachThemeToggle() {
-  const btn = document.getElementById('theme-toggle');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      const isDark = !document.body.classList.contains('dark-mode');
-      setTheme(isDark);
-    });
-  }
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            const isDark = !document.body.classList.contains('dark-mode');
+            setTheme(isDark);
+        });
+    }
 }
 
 // Attach navigation events (called after navbar loads)
 function attachNavEvents() {
-  document.querySelectorAll('.nav-link[data-page]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const page = this.getAttribute('data-page');
-      if (page) {
-        loadPage(page);
-        // Update active class
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-        window.location.hash = page;
-      }
+    document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-page');
+            if (page) {
+                loadPage(page);
+                // Update active class
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                window.location.hash = page;
+            }
+        });
     });
-  });
-  attachThemeToggle();
+    attachThemeToggle();
 }
 
 // Handle browser navigation (back/forward)
 window.addEventListener('hashchange', () => {
-  const page = window.location.hash.replace('#', '') || 'home';
-  loadPage(page);
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.classList.toggle('active', link.getAttribute('data-page') === page);
-  });
+    const page = window.location.hash.replace('#', '') || 'home';
+    loadPage(page);
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-page') === page);
+    });
 });
 
 // Enhancement functions
@@ -146,20 +157,20 @@ function addButtonEnhancements() {
     buttons.forEach(button => {
         if (button._rippleBound) return; // avoid duplicate listeners
         button._rippleBound = true;
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
-            
+
             ripple.style.width = ripple.style.height = size + 'px';
             ripple.style.left = x + 'px';
             ripple.style.top = y + 'px';
             ripple.classList.add('ripple');
-            
+
             this.appendChild(ripple);
-            
+
             setTimeout(() => ripple.remove(), 600);
         });
     });
@@ -170,7 +181,7 @@ function enhanceFormValidation() {
     forms.forEach(form => {
         if (form._validationBound) return;
         form._validationBound = true;
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', function (event) {
             if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -204,7 +215,7 @@ function enhanceNavbar() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
     let lastScrollTop = 0;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop && scrollTop > 100) {
             navbar.style.transform = 'translateY(-100%)';
@@ -235,7 +246,7 @@ function enhanceContactForm() {
     const contactForm = document.querySelector('#contactForm');
     if (!contactForm || contactForm._contactBound) return;
     contactForm._contactBound = true;
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const submitBtn = this.querySelector('button[type="submit"]');
         if (!submitBtn) return;

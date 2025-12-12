@@ -24,20 +24,22 @@
                 <i class="fas fa-heartbeat"></i>
               </div>
             </div>
-            
+
             <!-- Project Content -->
             <h3 class="h4 fw-bold mb-3 project-title">DementiaCare App</h3>
             <p class="text-muted mb-3 flex-grow-1">
-              A compassionate mobile health application designed to support dementia patients and their caregivers through daily challenges, featuring medication reminders, cognitive exercises, and family connectivity tools.
+              A compassionate mobile health application designed to support dementia patients and their caregivers
+              through daily challenges, featuring medication reminders, cognitive exercises, and family connectivity
+              tools.
             </p>
-            
+
             <!-- Tech Stack -->
             <div class="tech-stack mb-3">
               <span class="tech-badge">Flutter</span>
               <span class="tech-badge">Supabase</span>
               <span class="tech-badge">Healthcare</span>
             </div>
-            
+
             <!-- Status Badge -->
             <div class="d-flex justify-content-between align-items-center">
               <span class="status-badge status-coming-soon">
@@ -62,13 +64,14 @@
                 <i class="fas fa-gamepad"></i>
               </div>
             </div>
-            
+
             <!-- Project Content -->
             <h3 class="h4 fw-bold mb-3 project-title">Shona Wordle</h3>
             <p class="text-muted mb-3 flex-grow-1">
-              A delightful local adaptation of the viral Wordle game, promoting Shona language learning through engaging gameplay. Features daily puzzles, streak tracking, and cultural references.
+              A delightful local adaptation of the viral Wordle game, promoting Shona language learning through engaging
+              gameplay. Features daily puzzles, streak tracking, and cultural references.
             </p>
-            
+
             <!-- Tech Stack -->
             <div class="tech-stack mb-3">
               <span class="tech-badge">HTML/CSS/JS</span>
@@ -76,7 +79,7 @@
               <span class="tech-badge">Game Design</span>
               <span class="tech-badge">Education</span>
             </div>
-            
+
             <!-- Status Badge -->
             <div class="d-flex justify-content-between align-items-center">
               <span class="status-badge status-available">
@@ -101,19 +104,20 @@
                 <i class="fas fa-graduation-cap"></i>
               </div>
             </div>
-            
+
             <!-- Project Content -->
             <h3 class="h5 fw-bold mb-3 project-title">CoLT Training Platform</h3>
             <p class="text-muted mb-3 flex-grow-1">
-              A comprehensive web-based training and certification system for cooperations, enabling efficient training delivery for companies.
+              A comprehensive web-based training and certification system for cooperations, enabling efficient training
+              delivery for companies.
             </p>
-            
+
             <!-- Tech Stack -->
             <div class="tech-stack mb-3">
               <span class="tech-badge">ASP.NET</span>
               <span class="tech-badge">C#</span>
             </div>
-            
+
             <!-- Status Badge -->
             <div class="d-flex justify-content-between align-items-center">
               <span class="status-badge status-internal">
@@ -138,19 +142,20 @@
                 <i class="fas fa-pen-fancy"></i>
               </div>
             </div>
-            
+
             <!-- Project Content -->
             <h3 class="h5 fw-bold mb-3 project-title">Personal Blog</h3>
             <p class="text-muted mb-3 flex-grow-1">
-              A modern, feature-rich blog platform with markdown editor, dark mode support, and seamless content management for sharing insights.
+              A modern, feature-rich blog platform with markdown editor, dark mode support, and seamless content
+              management for sharing insights.
             </p>
-            
+
             <!-- Tech Stack -->
             <div class="tech-stack mb-3">
               <span class="tech-badge">React</span>
               <span class="tech-badge">Supabase</span>
             </div>
-            
+
             <!-- Status Badge -->
             <div class="d-flex justify-content-between align-items-center">
               <span class="status-badge status-progress">
@@ -170,7 +175,8 @@
       <div class="cta-card glass-effect p-5">
         <h3 class="fw-bold mb-3">Ready to collaborate?</h3>
         <p class="text-muted mb-4">
-          I'm always excited to work on new projects and explore innovative solutions. Let's build something amazing together!
+          I'm always excited to work on new projects and explore innovative solutions. Let's build something amazing
+          together!
         </p>
         <a href="#contact" class="btn btn-gradient btn-lg">
           <i class="fas fa-rocket me-2"></i>Get In Touch
@@ -201,14 +207,21 @@
     }
 
     .project-card {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       border-radius: 20px;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-mode .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
     }
 
     .project-card::before {
@@ -218,12 +231,20 @@
       left: 0;
       right: 0;
       height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    }
+
+    body.dark-mode .project-card::before {
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     }
 
     .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+
+    body.dark-mode .project-card:hover {
       border-color: rgba(255, 255, 255, 0.3);
     }
 
@@ -233,10 +254,14 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+      background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.05), transparent);
       transform: rotate(-45deg) scale(0);
       transition: all 0.5s ease;
       pointer-events: none;
+    }
+
+    body.dark-mode .project-glow {
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
     }
 
     .project-card:hover .project-glow {
@@ -260,11 +285,25 @@
     }
 
     /* Icon Gradients */
-    .health-gradient { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
-    .game-gradient { background: linear-gradient(135deg, #a8e6cf, #7fcdcd); }
-    .education-gradient { background: linear-gradient(135deg, #667eea, #764ba2); }
-    .agriculture-gradient { background: linear-gradient(135deg, #11998e, #38ef7d); }
-    .blog-gradient { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); }
+    .health-gradient {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    }
+
+    .game-gradient {
+      background: linear-gradient(135deg, #a8e6cf, #7fcdcd);
+    }
+
+    .education-gradient {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .agriculture-gradient {
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+    }
+
+    .blog-gradient {
+      background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    }
 
     .tech-stack {
       display: flex;
@@ -274,18 +313,28 @@
 
     .tech-badge {
       padding: 4px 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 20px;
       font-size: 0.8rem;
       font-weight: 500;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--text-color);
       transition: all 0.3s ease;
     }
 
+    body.dark-mode .tech-badge {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+    }
+
     .tech-badge:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(37, 99, 235, 0.1);
       transform: translateY(-1px);
+    }
+
+    body.dark-mode .tech-badge:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .status-badge {
@@ -312,6 +361,7 @@
       background: linear-gradient(135deg, #11998e, #38ef7d);
       color: white;
     }
+
     .status-available {
       background: linear-gradient(135deg, #4facfe, #00f2fe);
       color: white;
@@ -321,55 +371,44 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.05);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
+    }
+
+    body.dark-mode .project-arrow {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .project-card:hover .project-arrow {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--bc-blue);
       transform: translateX(5px);
     }
 
+    body.dark-mode .project-card:hover .project-arrow {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
     .cta-card {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       border-radius: 24px;
       max-width: 600px;
       margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
-    .btn-gradient {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border: none;
-      color: white;
-      padding: 12px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-    }
-
-    .btn-gradient:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
-      color: white;
-    }
-
-    /* Dark mode compatibility */
-    body.dark-mode .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    body.dark-mode .tech-badge {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
+    body.dark-mode .cta-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: none;
     }
   </style>
 </section>

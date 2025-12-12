@@ -310,10 +310,7 @@ body.dark-mode {
 
 /* Ensure testimonial section uses the default (light) colours even in dark mode,
    and that testimonial cards match the same appearance as the skill cards. */
-body.dark-mode .testimonials-section {
-  background-color: transparent !important;
-  color: inherit !important;
-}
+/* match light-mode skill/card appearance */
 
 body.dark-mode .testimonial-card {
   /* match light-mode skill/card appearance */
