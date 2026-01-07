@@ -1,0 +1,73 @@
+<section class="project-detail-section py-5" data-aos="fade-up">
+    <div class="container">
+        <!-- Back Button -->
+        <div class="mb-4">
+            <a href="#projects" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left me-2"></i>Back to Projects
+            </a>
+        </div>
+
+        <!-- Header Section -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h1 class="display-4 fw-bold mb-3" id="project-title"></h1>
+                <p class="lead text-muted mb-4" id="project-description"></p>
+                <div class="d-flex gap-2 flex-wrap mb-4" id="project-badges">
+                    <!-- Badges injected here -->
+                </div>
+                <div class="d-flex gap-3" id="project-links">
+                    <!-- Links injected here -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="project-hero-image rounded-4 overflow-hidden shadow-lg border border-light bg-light d-flex align-items-center justify-content-center"
+                    style="min-height: 300px;" id="project-hero-container">
+                    <!-- Image or Icon injected here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Overview Section -->
+        <div class="row mb-5" id="project-overview-section">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm glass-effect p-4">
+                    <h3 class="fw-bold mb-4"><span class="text-gradient" id="project-overview-title"></span></h3>
+                    <div id="project-overview-content">
+                        <!-- Overview HTML injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Sections Container -->
+        <div id="project-dynamic-sections">
+            <!-- Dynamic sections injected here -->
+        </div>
+
+    </div>
+
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .glass-effect {
+            background: rgba(30, 30, 30, 0.7);
+        }
+
+        .shadow-hover {
+            transition: all 0.3s ease;
+        }
+
+        .shadow-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</section>
