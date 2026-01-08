@@ -343,6 +343,60 @@ function initializePageEnhancements(target, page) {
     if (page === 'contact' && typeof initializeContactForm === 'function') {
         initializeContactForm();
     }
+
+    // Initialize Testimonials if on home page
+    if (page === 'home' && typeof loadTestimonials === 'function') {
+        loadTestimonials();
+    }
+}
+
+function loadTestimonials() {
+    const container = document.getElementById('testimonials-container');
+    if (!container || typeof testimonialsData === 'undefined') return;
+
+    // Create a group of testimonials
+    const createGroup = () => {
+        const group = document.createElement('div');
+        group.className = 'testimonials-marquee-group';
+
+        testimonialsData.forEach(t => {
+            let cardHtml = '';
+            if (t.link && t.link !== '#') {
+                cardHtml = `
+                    <a class="testimonial-card" href="${t.link}" target="_blank">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                            <div>
+                                <h3 class="testimonial-author-name">${t.name}</h3>
+                                <p class="testimonial-author-handle">${t.handle}</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">${t.content}</p>
+                    </a>
+                `;
+            } else {
+                cardHtml = `
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                            <div>
+                                <h3 class="testimonial-author-name">${t.name}</h3>
+                                <p class="testimonial-author-handle">${t.handle}</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">${t.content}</p>
+                    </div>
+                `;
+            }
+            group.insertAdjacentHTML('beforeend', cardHtml);
+        });
+        return group;
+    };
+
+    // Clear and append duplicate groups for marquee effect
+    container.innerHTML = '';
+    container.appendChild(createGroup());
+    container.appendChild(createGroup()); // Duplicate for seamless loop
 }
 
 // Theme toggle logic
