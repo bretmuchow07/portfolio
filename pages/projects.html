@@ -13,6 +13,43 @@
 
     <!-- Projects Grid -->
     <div class="row g-4">
+      <!-- Project: Clipse Video Player -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="project-card glass-effect h-100 position-relative overflow-hidden">
+          <div class="project-glow"></div>
+          <div class="card-body p-4 d-flex flex-column h-100" onclick="window.location.hash = 'project-clipse-video-player'">
+            <!-- Project Icon -->
+            <div class="project-icon mb-3">
+              <div class="icon-wrapper video-gradient">
+                <i class="fas fa-play-circle"></i>
+              </div>
+            </div>
+
+            <!-- Project Content -->
+            <h3 class="h4 fw-bold mb-3 project-title">Clipse Video Player</h3>
+            <p class="text-muted mb-3 flex-grow-1">
+              A lightweight, fully customizable, and accessible video player component designed for the modern web.
+            </p>
+
+            <!-- Tech Stack -->
+            <div class="tech-stack mb-3">
+              <span class="tech-badge">Vanilla JS</span>
+              <span class="tech-badge">NPM</span>
+              <span class="tech-badge">Zero Deps</span>
+            </div>
+
+            <!-- Status Badge -->
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="status-badge status-available">
+                <i class="fas fa-rocket me-2"></i>v1.0.1
+              </span>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Project: Poster Maker -->
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
         <div class="project-card glass-effect h-100 position-relative overflow-hidden">
@@ -344,6 +381,10 @@
 
     .design-gradient {
       background: linear-gradient(135deg, #FF9A9E, #FECFEF);
+    }
+
+    .video-gradient {
+      background: linear-gradient(135deg, #8E2DE2, #4A00E0);
     }
 
     .tech-stack {

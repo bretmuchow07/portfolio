@@ -1,4 +1,75 @@
 const projectsData = {
+    "project-clipse-video-player": {
+        title: "Clipse Video Player",
+        description: "A lightweight, fully customizable, and accessible video player component designed for the modern web.",
+        badges: [
+            { text: "Vanilla JS", class: "bg-warning text-dark" },
+            { text: "NPM Package", class: "bg-danger" },
+            { text: "Accessible", class: "bg-success" },
+            { text: "Zero Deps", class: "bg-info text-dark" }
+        ],
+        links: [
+            { text: "Source Code", url: "https://github.com/bretmuchow07/clips-video-player", icon: "fab fa-github", class: "btn-primary" },
+            { text: "Live Demo", url: "https://clips-video-player-wlhg.vercel.app/", icon: "fas fa-external-link-alt", class: "btn-outline-primary" }
+        ],
+        heroImage: "assets/clipse-video-player-preview.png",
+        heroIcon: null,
+        overview: {
+            title: "The Modern Video Player",
+            content: `
+                <p class="mb-4">
+                    <strong>Clipse Video Player</strong> is a modern, lightweight interpretation of what a web video player should be.
+                    Designed for developers who need control without bloat, it offers a fully accessible and customizable experience
+                    right out of the box.
+                </p>
+                <p class="mb-4">
+                    With zero dependencies and a pure Vanilla JS core, it integrates seamlessly into any framework—whether you're
+                    rocking React, Vue, Svelte, or plain HTML. It's built for performance, ensuring your media loads fast and plays smooth.
+                </p>
+            `
+        },
+        sections: [
+            {
+                type: "features-grid",
+                title: "Everything You Need",
+                items: [
+                    { icon: "fas fa-sliders-h text-primary", title: "Smart Controls", desc: "Built-in quality selection and settings menu interfaces." },
+                    { icon: "fas fa-feather-alt text-success", title: "Lightweight Core", desc: "Zero-dependency architecture optimized for speed." },
+                    { icon: "fas fa-code-branch text-info", title: "Event-Driven API", desc: "Rich event emitter system for seamless integration." },
+                    { icon: "fas fa-mobile-alt text-warning", title: "Mobile Responsive", desc: "Touch-optimized controls for all devices." }
+                ]
+            },
+            {
+                type: "split-card",
+                left: {
+                    title: "Quick Start",
+                    content: [
+                        { icon: "fab fa-npm text-danger", title: "Install via NPM", desc: "npm install @clipse_video-player/video-player" },
+                        { icon: "fas fa-bolt text-warning", title: "Zero Config", desc: "Works instantly with default settings" },
+                        { icon: "fas fa-universal-access text-info", title: "Accessible", desc: "Full keyboard and screen reader support" }
+                    ]
+                },
+                right: {
+                    title: "Simple Implementation",
+                    bgClass: "bg-dark text-light",
+                    content: `
+                        <pre class="m-0"><code class="text-light" style="font-family: monospace;">
+// HTML
+// &lt;div id="player"&gt;&lt;/div&gt;
+
+// JavaScript
+import VideoPlayer from '@clipse_video-player/video-player';
+
+const player = new VideoPlayer({
+  container: '#player',
+  src: 'https://example.com/video.mp4'
+});
+                        </code></pre>
+                    `
+                }
+            }
+        ]
+    },
     "project-poster-maker": {
         title: "Poster Maker",
         description: "A modern, feature-rich album poster creator built with React and Fabric.js.",
