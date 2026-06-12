@@ -80,6 +80,47 @@ body {
   font-weight: 700;
 }
 
+.navbar-brand-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.navbar-brand-text .text-main {
+  color: #0f172a; /* Premium slate color for light mode */
+  transition: color 0.3s ease;
+}
+
+.navbar-brand-text .text-sub {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode overrides for navbar brand text */
+body.dark-mode .navbar-brand-text .text-main {
+  color: #ffffff;
+}
+
+/* Hover effects */
+.navbar-brand:hover .navbar-brand-text .text-main {
+  color: var(--bc-blue);
+}
+
+.navbar-brand:hover .navbar-brand-text .text-sub {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Footer brand icon */
 footer .brand-square {
   border-color: white;
@@ -306,6 +347,15 @@ body.dark-mode {
     linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
     var(--dot-color);
   background-color: var(--dot-bg);
+}
+
+body.dark-mode .nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+  color: #ffffff !important;
 }
 
 /* Ensure testimonial section uses the default (light) colours even in dark mode,

@@ -4,6 +4,13 @@ fetch('components/navbar.html')
     .then(html => {
         document.getElementById('navbar-container').innerHTML = html;
         attachNavEvents(); // Attach events after navbar loads
+        
+        // Update navbar logo based on the active theme
+        const isDark = document.body.classList.contains('dark-mode');
+        const logo = document.getElementById('navbar-logo');
+        if (logo) {
+            logo.src = isDark ? 'assets/logo-mark-dark.png' : 'assets/logo-mark-light.png';
+        }
     })
     .catch(() => {
         // fail silently; nav may be static in some environments
@@ -409,6 +416,10 @@ function setTheme(dark) {
             ? '<i class="fas fa-sun"></i>'
             : '<i class="fas fa-moon"></i>';
         btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    const logo = document.getElementById('navbar-logo');
+    if (logo) {
+        logo.src = dark ? 'assets/logo-mark-dark.png' : 'assets/logo-mark-light.png';
     }
 }
 
