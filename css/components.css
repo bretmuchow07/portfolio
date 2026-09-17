@@ -1,0 +1,663 @@
+/* css/components.css — Chamfered Panels, Window Headers, Sticker Badges & HUD Elements */
+
+/* ==========================================================================
+   1. HUD Navbar & Header Framing
+   ========================================================================== */
+.hud-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--nav-border);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.hud-brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hud-brand-mark {
+  width: 32px;
+  height: 32px;
+  background: var(--magenta);
+  border: 2px solid var(--paper);
+  box-shadow: 2px 2px 0 var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--paper);
+  transition: transform 0.15s ease;
+}
+
+.hud-navbar .navbar-brand:hover .hud-brand-mark {
+  transform: translate(-1px, -1px) scale(1.05);
+  box-shadow: 3px 3px 0 var(--acid-yellow);
+}
+
+.hud-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+}
+
+.hud-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+/* System Telemetry Core Status Strip */
+.hud-telemetry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel-black);
+  border: 1px solid var(--panel-border-color);
+  padding: 4px 10px;
+  font-family: var(--font-pixel);
+  font-size: 0.72rem;
+  color: var(--paper);
+  letter-spacing: 0.05em;
+}
+
+/* Tactical Navigation Links */
+.hud-nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary) !important;
+  padding: 8px 14px !important;
+  position: relative;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hud-nav-link:hover {
+  color: var(--cyan) !important;
+  background-color: rgba(0, 229, 255, 0.08);
+  text-decoration: none !important;
+}
+
+/* Active Indicator: Rotated Sticker Tag */
+.hud-nav-link.active {
+  color: var(--magenta) !important;
+}
+
+.hud-nav-link.active::after {
+  content: '[ACTIVE]';
+  font-family: var(--font-pixel);
+  font-size: 0.62rem;
+  color: var(--ink);
+  background: var(--acid-yellow);
+  padding: 2px 4px;
+  border: 1px solid var(--panel-black);
+  transform: rotate(-3deg);
+  display: inline-block;
+  margin-left: 4px;
+  line-height: 1;
+}
+
+/* Theme Toggle Button */
+.hud-theme-toggle {
+  background: var(--panel-surface);
+  color: var(--text-primary);
+  border: 2px solid var(--panel-border-color);
+  box-shadow: 2px 2px 0 var(--magenta);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.1s linear;
+}
+
+.hud-theme-toggle:hover {
+  background: var(--magenta);
+  color: var(--paper);
+  box-shadow: 2px 2px 0 var(--cyan);
+}
+
+.hud-theme-toggle:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 transparent;
+}
+
+
+/* ==========================================================================
+   2. Tactical Ticker Banner
+   ========================================================================== */
+.tactical-ticker-container {
+  width: 100%;
+  background: var(--panel-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid var(--panel-border-color);
+  overflow: hidden;
+  position: relative;
+  z-index: 1040;
+}
+
+.ticker-caution-strip {
+  height: 6px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--caution-stripe-1) 0,
+    var(--caution-stripe-1) 8px,
+    var(--caution-stripe-2) 8px,
+    var(--caution-stripe-2) 16px
+  );
+}
+
+.ticker-viewport {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ticker-marquee 32s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--paper);
+  padding: 0 1.5rem;
+}
+
+.ticker-separator {
+  color: var(--magenta);
+  font-weight: bold;
+}
+
+.ticker-alert {
+  color: var(--acid-yellow);
+}
+
+.ticker-highlight {
+  color: var(--cyan);
+}
+
+
+/* ==========================================================================
+   3. Chamfered Panel Architecture
+   ========================================================================== */
+.chamfer-panel-wrap {
+  position: relative;
+  background: var(--panel-border-color);
+  padding: 2px;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  filter: drop-shadow(4px 4px 0 var(--magenta));
+  transition: transform 0.15s ease-out, filter 0.15s ease-out;
+}
+
+body.light-mode .chamfer-panel-wrap {
+  filter: drop-shadow(4px 4px 0 var(--panel-black));
+}
+
+.chamfer-panel {
+  background: var(--panel-bg);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  padding: 1.5rem;
+  color: var(--text-primary);
+  height: 100%;
+}
+
+.chamfer-panel-wrap:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(6px 6px 0 var(--cyan));
+}
+
+
+/* ==========================================================================
+   4. Window Frame Headers (OS / Anime Terminal)
+   ========================================================================== */
+.window-card {
+  background: var(--panel-bg);
+  border: var(--panel-border);
+  box-shadow: var(--hard-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.window-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--cyan);
+}
+
+.window-card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 transparent !important;
+}
+
+.window-header {
+  background: var(--panel-black);
+  border-bottom: 2px solid var(--panel-border-color);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.window-action-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.action-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 0; /* Hard edged */
+  border: 1px solid var(--panel-black);
+  display: inline-block;
+}
+
+.action-dot-close {
+  background-color: var(--magenta);
+}
+
+.action-dot-min {
+  background-color: var(--acid-yellow);
+}
+
+.action-dot-max {
+  background-color: var(--cyan);
+}
+
+.window-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--paper);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.window-body {
+  padding: 1.5rem;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+
+/* ==========================================================================
+   5. Scanline Media Frame
+   ========================================================================== */
+.scanline-frame {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--panel-border-color);
+  background: var(--panel-black);
+}
+
+.scanline-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--scanline-overlay);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 200ms linear;
+  z-index: 2;
+}
+
+.scanline-frame:hover::after,
+.window-card:hover .scanline-frame::after {
+  opacity: 0;
+}
+
+
+/* ==========================================================================
+   6. Sticker Badges & Web 1.0 Micro-Stamps
+   ========================================================================== */
+.sticker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 2px solid var(--panel-border-color);
+  background: var(--panel-surface);
+  color: var(--text-primary);
+  box-shadow: 2px 2px 0 var(--magenta);
+  cursor: default;
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+/* Alternating tilts */
+.sticker-badge:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.sticker-badge:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.sticker-badge:hover {
+  transform: rotate(0deg) scale(1.05) !important;
+  box-shadow: 3px 3px 0 var(--cyan);
+}
+
+.sticker-badge.badge-cyan {
+  background: var(--cyan);
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 2px 2px 0 var(--paper);
+}
+
+.sticker-badge.badge-magenta {
+  background: var(--magenta);
+  color: var(--paper);
+  border-color: var(--paper);
+  box-shadow: 2px 2px 0 var(--cyan);
+}
+
+.sticker-badge.badge-acid {
+  background: var(--acid-yellow);
+  color: var(--ink);
+  border-color: var(--panel-black);
+  box-shadow: 2px 2px 0 var(--magenta);
+}
+
+/* Web 1.0 Micro-Stamp Badges (88x31 inspired ratio) */
+.web1-stamp {
+  width: 96px;
+  height: 32px;
+  border: 2px solid var(--paper);
+  background: var(--panel-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  line-height: 1.1;
+  color: var(--paper);
+  text-transform: uppercase;
+  box-shadow: 2px 2px 0 var(--magenta);
+  padding: 2px 4px;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.web1-stamp:hover {
+  transform: scale(1.08);
+  box-shadow: 3px 3px 0 var(--cyan);
+  background: var(--magenta);
+  color: var(--paper);
+}
+
+body.light-mode .web1-stamp {
+  border-color: var(--panel-black);
+  box-shadow: 2px 2px 0 var(--panel-black);
+}
+
+
+/* ==========================================================================
+   7. Tactile Buttons
+   ========================================================================== */
+.btn-tactical {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 20px;
+  border: 2px solid var(--panel-border-color);
+  background: var(--panel-surface);
+  color: var(--text-primary);
+  box-shadow: var(--hard-shadow);
+  cursor: pointer;
+  text-decoration: none !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 60ms linear, box-shadow 60ms linear, background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-tactical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--chrome-sheen);
+  pointer-events: none;
+}
+
+.btn-tactical:hover {
+  background: var(--cyan);
+  color: var(--ink) !important;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 var(--magenta);
+}
+
+.btn-tactical:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 0 0 0 transparent !important;
+}
+
+.btn-tactical-primary {
+  background: var(--magenta) !important;
+  color: var(--paper) !important;
+  border-color: var(--panel-border-color) !important;
+  box-shadow: 4px 4px 0 var(--cyan);
+}
+
+.btn-tactical-primary:hover {
+  background: #e02377 !important;
+  color: var(--paper) !important;
+  box-shadow: 6px 6px 0 var(--acid-yellow);
+}
+
+.btn-tactical-cyan {
+  background: var(--cyan) !important;
+  color: var(--ink) !important;
+  border-color: var(--panel-black);
+  box-shadow: 4px 4px 0 var(--magenta);
+}
+
+.btn-tactical-cyan:hover {
+  background: #00c4dc !important;
+  color: var(--ink) !important;
+  box-shadow: 6px 6px 0 var(--acid-yellow);
+}
+
+.btn-tactical-outline {
+  background: transparent !important;
+  border: 2px solid var(--panel-border-color);
+  color: var(--text-primary) !important;
+  box-shadow: 4px 4px 0 var(--magenta);
+}
+
+.btn-tactical-outline:hover {
+  background: var(--magenta) !important;
+  color: var(--paper) !important;
+  border-color: var(--magenta) !important;
+  box-shadow: 6px 6px 0 var(--cyan);
+}
+
+
+/* ==========================================================================
+   8. Tactical Form Inputs
+   ========================================================================== */
+.form-tactical-input {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background: var(--panel-surface);
+  color: var(--text-primary);
+  border: 2px solid var(--panel-border-color);
+  box-shadow: 3px 3px 0 var(--panel-black);
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-tactical-input:focus {
+  border-color: var(--cyan);
+  box-shadow: 4px 4px 0 var(--magenta);
+  background: var(--panel-black);
+  color: var(--paper);
+}
+
+.form-tactical-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 6px;
+  display: block;
+}
+
+
+/* ==========================================================================
+   9. Tactical Collaboration / Recommendation Showcase
+   ========================================================================== */
+.tactical-collab-panel {
+  background: var(--panel-surface);
+  border: 3px solid var(--panel-border-color);
+  box-shadow: 8px 8px 0 var(--magenta);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.tactical-collab-panel::before {
+  content: 'SEC_REC // FEEDBACK_SYS';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--panel-black);
+  border: 1px solid var(--panel-border-color);
+  color: var(--acid-yellow);
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  padding: 2px 8px;
+}
+
+.collab-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel-black);
+  border: 1px solid var(--panel-border-color);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--paper);
+  letter-spacing: 0.05em;
+}
+
+.pillar-chip-tactical {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  background: var(--panel-black);
+  border: 1px solid var(--panel-border-color);
+  box-shadow: 2px 2px 0 var(--cyan);
+  color: var(--paper);
+}
+
+/* ==========================================================================
+   10. Tactile Footer
+   ========================================================================== */
+.hud-footer {
+  background: var(--panel-black);
+  border-top: 3px solid var(--panel-border-color);
+  position: relative;
+}
+
+.hud-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--magenta) 0,
+    var(--magenta) 8px,
+    var(--cyan) 8px,
+    var(--cyan) 16px
+  );
+}
+
+/* Sub-panels & Channels */
+.tactical-subpanel,
+.tactical-channel-box {
+  background: var(--panel-surface);
+  border: 2px solid var(--panel-border-color);
+  color: var(--text-primary);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+body.light-mode .tactical-subpanel,
+body.light-mode .tactical-channel-box {
+  background: #ffffff !important;
+  border-color: #111114 !important;
+  color: #111114 !important;
+}
+
+.tactical-channel-box a,
+body.light-mode .tactical-channel-box a {
+  color: var(--text-primary);
+}

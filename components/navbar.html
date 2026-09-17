@@ -1,37 +1,57 @@
-<!-- navbar.html -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img id="navbar-logo" src="assets/logo-mark-light.png" alt="Logo" height="40" style="width: auto;">
-      <span class="navbar-brand-text">
-        <span class="text-main">bretmuchoni</span><span class="text-sub">.dev</span>
-      </span>
+<!-- components/navbar.html — Tactical Anime HUD Header (v2.2) -->
+<nav class="navbar navbar-expand-lg hud-navbar py-2" id="main-hud-nav">
+  <div class="container-fluid px-lg-4">
+    <!-- Brand Mark & OS Title -->
+    <a class="navbar-brand d-flex align-items-center me-3" href="#home">
+      <div class="hud-brand-container">
+        <div class="hud-brand-mark">
+          <span>B</span>
+        </div>
+        <div>
+          <span class="hud-brand-title">bretmuchoni</span><span class="hud-brand-sub">.dev</span>
+        </div>
+      </div>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+
+
+    <!-- Mobile Menu Toggle Button -->
+    <button class="navbar-toggler border-2 rounded-0 text-white" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+      style="border-color: var(--panel-border-color); background: var(--panel-black);">
+      <i class="fas fa-bars" style="color: var(--cyan);"></i>
     </button>
+
+    <!-- Navigation Menu Items -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav align-items-lg-center gap-1 my-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" data-page="home" href="#home">Home</a>
+          <a class="nav-link hud-nav-link active" data-page="home" href="#home">
+            <span class="font-mono text-muted-tactical me-1">01.</span>Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-page="projects" href="#projects">Projects</a>
+          <a class="nav-link hud-nav-link" data-page="projects" href="#projects">
+            <span class="font-mono text-muted-tactical me-1">02.</span>Projects
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-page="about" href="#about">About Me</a>
+          <a class="nav-link hud-nav-link" data-page="about" href="#about">
+            <span class="font-mono text-muted-tactical me-1">03.</span>About
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-page="contact" href="#contact">Contact</a>
+          <a class="nav-link hud-nav-link" data-page="contact" href="#contact">
+            <span class="font-mono text-muted-tactical me-1">04.</span>Contact
+          </a>
         </li>
-        <li class="nav-item">
-          <button class="btn btn-outline-primary btn-sm ms-2" id="theme-toggle" aria-label="Toggle dark mode">
-            <i class="fas fa-moon"></i>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <button class="hud-theme-toggle" id="theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle Theme">
+            <i class="fas fa-moon text-info" id="theme-icon"></i>
+            <span class="font-pixel" style="font-size: 0.65rem;" id="theme-text">DARK</span>
           </button>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>

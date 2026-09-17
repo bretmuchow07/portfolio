@@ -1,570 +1,191 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* css/style.css — Main Stylesheet combining tokens, base, components & animations */
 
-:root {
-  /* Light mode colors */
-  --dot-bg: #fff;
-  --dot-color: #f8f9fa;
-  --dot-size: 1px;
-  --dot-space: 22px;
-  --text-color: #212529;
-  --link-color: #2563eb;
-  --navbar-bg: #ffffff;
-  --footer-bg: #212529;
-  --footer-text: #ffffff;
-  
-  /* Bret's Corner Brand Colors */
-  --bc-blue: #2563eb;
-  --bc-pink: #ec4899;
-  --bc-red: #ef4444;
-  --bc-light-pink: #f9a8d4;
-  
-  /* Custom gradients using brand colors */
-  --primary-gradient: linear-gradient(135deg, var(--bc-blue) 0%, var(--bc-pink) 100%);
-  --accent-gradient: linear-gradient(135deg, var(--bc-pink) 0%, var(--bc-red) 100%);
-  --brand-gradient: linear-gradient(135deg, var(--bc-blue) 0%, var(--bc-pink) 50%, var(--bc-red) 100%);
-  --shadow-soft: 0 0.5rem 1rem rgba(37, 99, 235, 0.1);
-  --shadow-hover: 0 1rem 2rem rgba(37, 99, 235, 0.15);
+@import url('tokens.css');
+@import url('base.css');
+@import url('components.css');
+@import url('animations.css');
+
+/* ==========================================================================
+   Bootstrap and Utility Overrides for the v2.2 Aesthetic
+   ========================================================================== */
+
+/* Overwrite Bootstrap Card styling */
+.card {
+  background-color: var(--panel-bg) !important;
+  color: var(--text-primary) !important;
+  border: var(--panel-border) !important;
+  border-radius: 0 !important; /* Crisp comic panels */
+  box-shadow: var(--hard-shadow) !important;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out !important;
 }
 
-html, body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--cyan) !important;
 }
 
-body {
-  color: var(--text-color);
-  background:
-    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    var(--dot-color);
-  background-color: var(--dot-bg);
-  transition: all 0.3s ease;
+body.light-mode .card {
+  box-shadow: var(--hard-shadow) !important;
 }
 
-/* Bootstrap overrides for better typography */
-.display-4, .display-5 {
-  font-weight: 700;
+/* Background utilities */
+.bg-light {
+  background-color: var(--panel-surface) !important;
 }
 
-.lead {
-  font-weight: 500;
+body.light-mode .bg-light {
+  background-color: #eceae0 !important;
 }
 
-/* Brand Logo Styling */
-.brand-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.text-dark {
+  color: var(--text-primary) !important;
 }
 
-.brand-square {
-  width: 24px;
-  height: 24px;
-  border: 3px solid var(--bc-blue);
-  border-radius: 4px;
-  background: transparent;
-  position: relative;
+.text-muted {
+  color: var(--text-secondary) !important;
 }
 
-.navbar-brand .brand-square {
-  width: 28px;
-  height: 28px;
-  border-width: 3px;
+.border-primary {
+  border-color: var(--magenta) !important;
 }
 
-.brand-text {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-}
-
-.navbar-brand-text {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.5px;
-  display: inline-flex;
-  align-items: center;
-  margin-left: 10px;
-  user-select: none;
-}
-
-.navbar-brand-text .text-main {
-  color: #0f172a; /* Premium slate color for light mode */
-  transition: color 0.3s ease;
-}
-
-.navbar-brand-text .text-sub {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
-}
-
-/* Dark mode overrides for navbar brand text */
-body.dark-mode .navbar-brand-text .text-main {
-  color: #ffffff;
-}
-
-/* Hover effects */
-.navbar-brand:hover .navbar-brand-text .text-main {
-  color: var(--bc-blue);
-}
-
-.navbar-brand:hover .navbar-brand-text .text-sub {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Footer brand icon */
-footer .brand-square {
-  border-color: white;
-}
-
-/* Brand logo hover effect */
-.navbar-brand:hover .brand-square {
-  background: var(--primary-gradient);
-  transform: rotate(5deg);
-  transition: all 0.3s ease;
-}
-
-.navbar-brand:hover .brand-text {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Custom gradient text */
-.text-gradient {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Hero Section Styling */
-.hero-section {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.profile-container {
-  position: relative;
-}
-
-.profile-img {
-  border-radius: 2rem;
-  transition: all 0.4s ease;
-  border: 4px solid white;
-}
-
-.profile-img:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2) !important;
-}
-
-.profile-container::before {
-  content: '';
-  position: absolute;
-  top: -1rem;
-  left: -1rem;
-  right: -1rem;
-  bottom: -1rem;
-  background: var(--primary-gradient);
-  border-radius: 2.5rem;
-  z-index: -1;
-  opacity: 0.1;
-}
-
-/* Enhanced Bootstrap buttons */
+/* Override existing buttons to adopt the tactical feel */
 .btn {
-  font-weight: 600;
-  border-radius: 2rem;
-  padding: 0.75rem 2rem;
-  transition: all 0.3s ease;
-  border-width: 2px;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border: 2px solid var(--panel-border-color) !important;
+  box-shadow: 3px 3px 0 var(--panel-black) !important;
+  transition: transform 60ms linear, box-shadow 60ms linear !important;
+}
+
+.btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 0 0 0 transparent !important;
 }
 
 .btn-primary {
-  background: var(--primary-gradient);
-  border: none;
-  box-shadow: 0 0.25rem 0.75rem rgba(37, 99, 235, 0.3);
+  background: var(--magenta) !important;
+  color: var(--paper) !important;
+  border-color: var(--paper) !important;
+  box-shadow: 4px 4px 0 var(--cyan) !important;
 }
 
 .btn-primary:hover {
+  background: #e02377 !important;
   transform: translateY(-2px);
-  box-shadow: 0 0.5rem 1.5rem rgba(37, 99, 235, 0.4);
-  background: var(--primary-gradient);
-  border: none;
+  box-shadow: 6px 6px 0 var(--acid-yellow) !important;
 }
 
 .btn-outline-primary {
-  border-color: var(--bc-blue);
-  color: var(--bc-blue);
+  background: transparent !important;
+  color: var(--cyan) !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 3px 3px 0 var(--magenta) !important;
 }
 
 .btn-outline-primary:hover {
-  background: var(--primary-gradient);
-  border-color: transparent;
-  transform: translateY(-2px);
-  box-shadow: 0 0.5rem 1.5rem rgba(37, 99, 235, 0.3);
+  background: var(--cyan) !important;
+  color: var(--ink) !important;
+  border-color: var(--panel-black) !important;
+  box-shadow: 4px 4px 0 var(--paper) !important;
 }
 
-/* Skills Section */
-.skills-section {
+.btn-outline-secondary {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border-color: var(--panel-border-color) !important;
+  box-shadow: 3px 3px 0 var(--panel-black) !important;
+}
+
+.btn-outline-secondary:hover {
+  background: var(--panel-surface) !important;
+  border-color: var(--magenta) !important;
+  box-shadow: 4px 4px 0 var(--magenta) !important;
+}
+
+/* Badges */
+.badge {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 6px 10px !important;
+  border: 1px solid var(--panel-border-color) !important;
+}
+
+/* Profile Image Tactical Frame */
+.profile-tactical-frame {
   position: relative;
+  display: inline-block;
+  border: 3px solid var(--paper);
+  background: var(--panel-black);
+  box-shadow: 8px 8px 0 var(--magenta);
+  padding: 8px;
 }
 
-.skill-card {
-  transition: all 0.4s ease;
-  border-radius: 1.5rem !important;
-  overflow: hidden;
-  position: relative;
+.profile-tactical-frame img {
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  filter: contrast(1.05);
 }
 
-.skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-hover) !important;
-}
-
-.skill-card::before {
+.profile-tactical-frame::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--primary-gradient);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background: var(--scanline-overlay);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 200ms linear;
 }
 
-.skill-card:hover::before {
-  transform: scaleX(1);
+.profile-tactical-frame:hover::after {
+  opacity: 0;
 }
 
-.skill-icon {
-  transition: transform 0.3s ease;
-}
-
-.skill-card:hover .skill-icon {
-  transform: scale(1.1);
-}
-
-/* Projects Section */
-.project-card {
-  transition: all 0.4s ease;
-  border-radius: 1.5rem !important;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-hover) !important;
-}
-
-/* Testimonial Section */
-.testimonial-card {
-  border-radius: 1.5rem !important;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonial-quote {
-  position: relative;
-}
-
-/* Navbar Styling */
-.navbar {
-  background-color: var(--navbar-bg) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.nav-link {
-  font-weight: 600;
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.nav-link::after {
-  content: '';
+.frame-corner-tag {
   position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--primary-gradient);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
+  background: var(--panel-black);
+  border: 1px solid var(--panel-border-color);
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  color: var(--cyan);
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  z-index: 3;
 }
 
-.nav-link.active::after,
-.nav-link:hover::after {
-  width: 100%;
+.frame-corner-tag.tag-top-left {
+  top: -12px;
+  left: 12px;
 }
 
-.nav-link.active,
-.nav-link:hover {
-  color: var(--bc-blue) !important;
-  transform: translateY(-1px);
+.frame-corner-tag.tag-bottom-right {
+  bottom: -12px;
+  right: 12px;
+  color: var(--acid-yellow);
 }
 
-/* Footer */
-footer {
-  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%) !important;
-}
-
-footer a {
-  transition: all 0.3s ease;
-}
-
-footer a:hover {
-  transform: translateY(-2px);
-  color: #667eea !important;
-}
-
-/* Dark mode overrides */
-body.dark-mode {
-  --dot-bg: #1a1a1a;
-  --dot-color: #2d2d2d;
-  --text-color: #f8f9fa;
-  --link-color: #66b2ff;
-  --navbar-bg: #2d2d2d;
-  --footer-bg: #1a1a1a;
-  --footer-text: #f8f9fa;
-  
-  background:
-    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    var(--dot-color);
-  background-color: var(--dot-bg);
-}
-
-body.dark-mode .nav-link {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-body.dark-mode .nav-link:hover,
-body.dark-mode .nav-link.active {
-  color: #ffffff !important;
-}
-
-/* Ensure testimonial section uses the default (light) colours even in dark mode,
-   and that testimonial cards match the same appearance as the skill cards. */
-/* match light-mode skill/card appearance */
-
-body.dark-mode .testimonial-card {
-  /* match light-mode skill/card appearance */
-  background: #ffffff !important;
-  color: #1a1a1a !important;
-  border-radius: 1rem !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgba(0,0,0,0.06) !important;
-  backdrop-filter: none !important;
-}
-
-body.dark-mode .testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2) !important;
-  background: #ffffff !important;
-}
-
-body.dark-mode h3 {
-  color: var(--text-color) !important;
-}
-
-body.dark-mode .testimonials-section {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-body.dark-mode .testimonials-fade-left,
-body.dark-mode .testimonials-fade-right {
-  background: linear-gradient(to-r, #000000 0%, transparent 100%);
-}
-
-body.dark-mode .testimonials-fade-right {
-  background: linear-gradient(to-l, #000000 0%, transparent 100%);
-}
-
-.tech-badge {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-body.dark-mode .tech-badge {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.project-arrow {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-body.dark-mode .project-arrow {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Bootstrap utility class overrides for dark mode */
-body.dark-mode .text-muted {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-body.dark-mode .text-dark {
-  color: var(--text-color) !important;
-}
-
-body.dark-mode .bg-light {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-}
-
-body.dark-mode .card {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--text-color) !important;
-}
-
-body.dark-mode .btn-outline-primary {
-  border-color: var(--bc-blue);
-  color: var(--bc-blue);
-}
-
-body.dark-mode .btn-outline-primary:hover {
-  background-color: var(--bc-blue);
-  border-color: var(--bc-blue);
-  color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .display-4 {
-    font-size: 2.5rem;
-  }
-  
-  .display-5 {
-    font-size: 2rem;
-  }
-  
-  .profile-img {
-    width: 220px;
-    height: 220px;
-  }
-  
-  .btn {
-    padding: 0.625rem 1.5rem;
-    font-size: 0.9rem;
-  }
-  
-  .skill-card,
-  .project-card {
-    margin-bottom: 1.5rem;
-  }
-}
-
-/* Animation for floating effect */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-.profile-container {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Focus states for accessibility */
-.btn:focus,
-.nav-link:focus {
-  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
-  outline: none;
-}
-
-.social-link {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--primary-gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  font-size: 1.25rem;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-  color: white;
-}
-
-.contact-item {
-  transition: all 0.3s ease;
-  padding: 1rem;
-  border-radius: 1rem;
-}
-
-.contact-item:hover {
-  background: rgba(37, 99, 235, 0.05);
-  transform: translateX(10px);
-}
-.contact-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--primary-gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.5rem;
-  flex-shrink: 0;
-}
-
-/* Testimonial Section */
-/* Prevent horizontal overflow */
-body {
-  overflow-x: hidden;
-}
-
-.testimonials-section {
-  padding: 5rem 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonials-title {
-  color: var(--text-color);
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
+/* Marquee / Testimonial styling */
 .testimonials-marquee-container {
-  position: relative;
-  width: 100%;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  width: 100%;
+  position: relative;
+  padding: 1.5rem 0;
 }
 
 .testimonials-marquee {
   display: flex;
-  width: fit-content;
-  animation: scroll 40s linear infinite;
+  gap: 1.5rem;
+  width: max-content;
+  animation: ticker-marquee 35s linear infinite;
 }
 
 .testimonials-marquee:hover {
@@ -574,211 +195,209 @@ body {
 .testimonials-marquee-group {
   display: flex;
   gap: 1.5rem;
-  padding-right: 1.5rem;
-  flex-shrink: 0;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 .testimonial-card {
-  background: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  width: 350px;
+  width: 340px;
   flex-shrink: 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
-  color: inherit;
-  display: block;
+  background: var(--panel-surface);
+  border: 2px solid var(--panel-border-color);
+  box-shadow: 4px 4px 0 var(--magenta);
+  padding: 1.25rem;
+  text-decoration: none !important;
+  color: var(--text-primary) !important;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--cyan);
 }
 
 .testimonial-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 0;
+  border: 2px solid var(--cyan);
   object-fit: cover;
 }
 
 .testimonial-author-name {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-  color: #1a1a1a;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  color: var(--text-primary);
 }
 
 .testimonial-author-handle {
-  font-size: 0.875rem;
-  color: #666;
-  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  margin-bottom: 0;
 }
 
 .testimonial-text {
-  margin-top: 1rem;
-  color: #4a4a4a;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  margin-top: 0.75rem;
 }
 
-@media (max-width: 768px) {
-  .testimonials-title {
-    font-size: 2rem;
-  }
-
-  .testimonial-card {
-    width: 300px;
-  }
+/* App Content Top Clearance */
+#app-content {
+  min-height: 70vh;
 }
 
-/* Collaboration Card / Empty State */
-.collaboration-card {
+/* ==========================================================================
+   Light Mode Button & Surface Contrast Enforcements
+   ========================================================================== */
+body.light-mode main .btn-tactical,
+body.light-mode main .btn-tactical-outline,
+body.light-mode main .btn-outline-secondary {
+  background: #ffffff !important;
+  color: #111114 !important;
+  border: 2px solid #111114 !important;
+  box-shadow: 3px 3px 0 #111114 !important;
+}
+
+body.light-mode main .btn-tactical:hover,
+body.light-mode main .btn-tactical-outline:hover,
+body.light-mode main .btn-outline-secondary:hover {
+  background: #111114 !important;
+  color: #ffffff !important;
+  border-color: #111114 !important;
+  box-shadow: 5px 5px 0 var(--magenta) !important;
+}
+
+body.light-mode main .btn-tactical-primary {
+  background: var(--magenta) !important;
+  color: #ffffff !important;
+  border: 2px solid #111114 !important;
+  box-shadow: 4px 4px 0 #111114 !important;
+}
+
+body.light-mode main .btn-tactical-primary:hover {
+  background: #e02377 !important;
+  color: #ffffff !important;
+  box-shadow: 6px 6px 0 var(--cyan) !important;
+}
+
+body.light-mode .hud-theme-toggle {
+  background: #ffffff !important;
+  color: #111114 !important;
+  border: 2px solid #111114 !important;
+  box-shadow: 2px 2px 0 #111114 !important;
+}
+
+body.light-mode .hud-theme-toggle:hover {
+  background: #111114 !important;
+  color: #ffffff !important;
+  box-shadow: 3px 3px 0 var(--cyan) !important;
+}
+
+body.light-mode .sticker-badge {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 1.5rem;
-  padding: 3.5rem 2.5rem;
-  max-width: 860px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  color: #111114;
+  border-color: #111114;
+  box-shadow: 2px 2px 0 var(--magenta);
 }
 
-.collaboration-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #0d6efd, #0dcaf0);
+body.light-mode .form-tactical-input {
+  background: #ffffff;
+  color: #111114;
+  border-color: #111114;
 }
 
-.collaboration-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+body.light-mode .pillar-chip-tactical {
+  background: #ffffff;
+  color: #111114;
+  border-color: #111114;
+  box-shadow: 2px 2px 0 var(--magenta);
 }
 
-.collab-badge-pill {
+/* ==========================================================================
+   Footer Contrast Enforcements (Permanently Dark Terminal HUD)
+   ========================================================================== */
+.hud-footer {
+  background: var(--panel-black) !important;
+  color: var(--paper) !important;
+}
+
+.hud-footer .telemetry-header {
+  color: #a2a2b0 !important;
+}
+
+.hud-footer .telemetry-header span {
+  color: #a2a2b0 !important;
+}
+
+.hud-footer .telemetry-header .code-index {
+  color: var(--cyan) !important;
+}
+
+.hud-footer a {
+  color: var(--paper) !important;
+}
+
+.hud-footer a:hover {
+  color: var(--cyan) !important;
+}
+
+/* Dedicated Footer Social Buttons — High Contrast in BOTH Light & Dark Modes */
+.footer-social-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 50rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  background: rgba(25, 135, 84, 0.1);
-  color: #198754;
-  border: 1px solid rgba(25, 135, 84, 0.25);
-  letter-spacing: 0.02em;
-}
-
-.collab-badge-pill .status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #198754;
-  box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7);
-  animation: pulse-green 2s infinite;
-}
-
-@keyframes pulse-green {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 6px rgba(25, 135, 84, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(25, 135, 84, 0);
-  }
-}
-
-.collaboration-title {
-  color: var(--text-color, #1a1a1a);
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 14px;
+  border: 2px solid rgba(244, 242, 232, 0.45) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f4f2e8 !important;
+  box-shadow: 3px 3px 0 var(--cyan) !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: transform 60ms linear, box-shadow 60ms linear, background-color 0.15s ease, color 0.15s ease;
 }
 
-.collaboration-subtitle {
-  max-width: 680px;
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-.pillar-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.55rem 1.2rem;
-  border-radius: 50rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  background: rgba(13, 110, 253, 0.06);
-  border: 1px solid rgba(13, 110, 253, 0.18);
-  color: var(--text-color, #212529);
-  transition: all 0.2s ease;
-}
-
-.pillar-chip:hover {
-  background: rgba(13, 110, 253, 0.12);
+.footer-social-btn:hover {
+  background: var(--cyan) !important;
+  color: #0d0d12 !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 4px 4px 0 var(--magenta) !important;
   transform: translateY(-2px);
 }
 
-/* Dark Mode styles for collaboration card */
-body.dark-mode .collaboration-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.footer-social-btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 0 0 0 transparent !important;
 }
 
-body.dark-mode .collaboration-card:hover {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-  background: rgba(255, 255, 255, 0.07);
+/* Fallback for any other button in footer across both themes */
+.hud-footer .btn-tactical,
+.hud-footer .btn-tactical-outline,
+body.light-mode .hud-footer .btn-tactical,
+body.light-mode .hud-footer .btn-tactical-outline {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f4f2e8 !important;
+  border: 2px solid rgba(244, 242, 232, 0.45) !important;
+  box-shadow: 3px 3px 0 var(--cyan) !important;
 }
 
-body.dark-mode .collaboration-title {
-  color: #ffffff;
+.hud-footer .btn-tactical:hover,
+.hud-footer .btn-tactical-outline:hover,
+body.light-mode .hud-footer .btn-tactical:hover,
+body.light-mode .hud-footer .btn-tactical-outline:hover {
+  background: var(--cyan) !important;
+  color: #0d0d12 !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 4px 4px 0 var(--magenta) !important;
 }
-
-body.dark-mode .collab-badge-pill {
-  background: rgba(32, 201, 151, 0.15);
-  color: #20c997;
-  border-color: rgba(32, 201, 151, 0.35);
-}
-
-body.dark-mode .collab-badge-pill .status-dot {
-  background-color: #20c997;
-  box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7);
-}
-
-body.dark-mode .pillar-chip {
-  background: rgba(13, 110, 253, 0.14);
-  border-color: rgba(13, 110, 253, 0.3);
-  color: #e2e8f0;
-}
-
-body.dark-mode .pillar-chip:hover {
-  background: rgba(13, 110, 253, 0.22);
-}
-
-@media (max-width: 768px) {
-  .collaboration-card {
-    padding: 2rem 1.25rem;
-  }
-  .collaboration-title {
-    font-size: 1.75rem;
-  }
-}
