@@ -358,8 +358,80 @@ function initializePageEnhancements(target, page) {
 }
 
 function loadTestimonials() {
+    const wrapper = document.getElementById('testimonials-wrapper');
+    const section = document.getElementById('testimonials-section');
+    if (!wrapper && !section) return;
+
+    const target = wrapper || section;
+    const hasTestimonials = typeof testimonialsData !== 'undefined' && 
+                            Array.isArray(testimonialsData) && 
+                            testimonialsData.length > 0;
+
+    if (!hasTestimonials) {
+        // Render the inviting collaboration & recommendation showcase card
+        target.innerHTML = `
+            <div class="container" data-aos="fade-up">
+                <div class="collaboration-card mx-auto">
+                    <div class="collaboration-header text-center mb-4">
+                        <div class="collab-badge-pill mb-3">
+                            <span class="status-dot"></span> Open for Opportunities & Collaboration
+                        </div>
+                        <h2 class="display-6 fw-bold mb-3 collaboration-title">Recommendations & Collaboration</h2>
+                        <p class="lead text-muted collaboration-subtitle mx-auto">
+                            I'm always keen to build thoughtful digital experiences alongside passionate teams and clients.
+                            Have we collaborated on a project, engineering sprint, or hackathon? I'd love to feature your recommendation here.
+                        </p>
+                    </div>
+
+                    <div class="collaboration-pillars d-flex flex-wrap justify-content-center gap-3 my-4">
+                        <span class="pillar-chip"><i class="fas fa-code-branch me-2 text-primary"></i>Clean & Scalable Code</span>
+                        <span class="pillar-chip"><i class="fas fa-users me-2 text-primary"></i>Team-Oriented Mindset</span>
+                        <span class="pillar-chip"><i class="fas fa-rocket me-2 text-primary"></i>Fast, Reliable Delivery</span>
+                    </div>
+
+                    <div class="collaboration-actions d-flex flex-wrap justify-content-center gap-3 mt-4">
+                        <a href="mailto:bmuchow07@gmail.com?subject=Recommendation%20for%20Bret%20Muchoni&body=Hey%20Bret%2C%0A%0AHere%20is%20my%20recommendation%20%2F%20feedback%3A%0A%0A"
+                            class="btn btn-primary rounded-pill px-4 py-2">
+                            <i class="fas fa-pen-nib me-2"></i>Leave a Recommendation
+                        </a>
+                        <a href="https://www.linkedin.com/in/bret-muchoni-a16b40222/" target="_blank" rel="noopener"
+                            class="btn btn-outline-primary rounded-pill px-4 py-2">
+                            <i class="fab fa-linkedin me-2"></i>Connect on LinkedIn
+                        </a>
+                        <a href="#contact" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                            <i class="fas fa-envelope me-2"></i>Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        if (typeof AOS !== 'undefined') AOS.refresh();
+        return;
+    }
+
+    // If testimonials exist, render the continuous animated marquee
+    target.innerHTML = `
+        <div class="container-fluid" data-aos="fade-up">
+            <div class="d-flex justify-content-between align-items-center mb-4 px-4 flex-wrap gap-2">
+                <div>
+                    <h2 class="testimonials-title mb-1">What People Say</h2>
+                    <p class="text-muted small mb-0">Feedback from collaborators, clients, and teammates</p>
+                </div>
+                <a href="mailto:bmuchow07@gmail.com?subject=Testimonial%20for%20Bret%20Muchoni&body=Hey%20Bret%2C%0A%0AHere%20is%20my%20testimonial%3A%0A%0A"
+                    class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                    <i class="fas fa-pen-nib me-2"></i>Leave a Testimonial
+                </a>
+            </div>
+
+            <div class="testimonials-marquee-container">
+                <div class="testimonials-marquee" id="testimonials-container">
+                </div>
+            </div>
+        </div>
+    `;
+
     const container = document.getElementById('testimonials-container');
-    if (!container || typeof testimonialsData === 'undefined') return;
+    if (!container) return;
 
     // Create a group of testimonials
     const createGroup = () => {
@@ -367,15 +439,16 @@ function loadTestimonials() {
         group.className = 'testimonials-marquee-group';
 
         testimonialsData.forEach(t => {
+            const avatarUrl = t.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=0d6efd&color=fff`;
             let cardHtml = '';
             if (t.link && t.link !== '#') {
                 cardHtml = `
-                    <a class="testimonial-card" href="${t.link}" target="_blank">
+                    <a class="testimonial-card" href="${t.link}" target="_blank" rel="noopener">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                            <img src="${avatarUrl}" alt="${t.name}" class="testimonial-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=0d6efd&color=fff'">
                             <div>
                                 <h3 class="testimonial-author-name">${t.name}</h3>
-                                <p class="testimonial-author-handle">${t.handle}</p>
+                                <p class="testimonial-author-handle">${t.handle || ''}</p>
                             </div>
                         </div>
                         <p class="testimonial-text">${t.content}</p>
@@ -385,10 +458,10 @@ function loadTestimonials() {
                 cardHtml = `
                     <div class="testimonial-card">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+                            <img src="${avatarUrl}" alt="${t.name}" class="testimonial-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=0d6efd&color=fff'">
                             <div>
                                 <h3 class="testimonial-author-name">${t.name}</h3>
-                                <p class="testimonial-author-handle">${t.handle}</p>
+                                <p class="testimonial-author-handle">${t.handle || ''}</p>
                             </div>
                         </div>
                         <p class="testimonial-text">${t.content}</p>
@@ -400,10 +473,9 @@ function loadTestimonials() {
         return group;
     };
 
-    // Clear and append duplicate groups for marquee effect
-    container.innerHTML = '';
     container.appendChild(createGroup());
     container.appendChild(createGroup()); // Duplicate for seamless loop
+    if (typeof AOS !== 'undefined') AOS.refresh();
 }
 
 // Theme toggle logic
