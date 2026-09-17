@@ -1,0 +1,72 @@
+/* css/tokens.css — Design Tokens & Core Variables for v2.2 */
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=JetBrains+Mono:wght@400;500;700&family=Silkscreen&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Core Brand Tokens */
+  --ink: #0d0d12;
+  --paper: #f4f2e8;
+  --magenta: #ff2e88;
+  --cyan: #00e5ff;
+  --acid-yellow: #f5ff00;
+  --panel-black: #111114;
+  --panel-surface: #16161c;
+  --panel-white: #ffffff;
+  --muted-label: #6b6b7a;
+
+  /* Legacy aliases mapped to new aesthetic */
+  --bc-blue: var(--cyan);
+  --bc-pink: var(--magenta);
+  --bc-red: #ff3344;
+  --bc-light-pink: #ffa3cf;
+
+  /* Typography */
+  --font-display: 'Bungee', cursive, sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-pixel: 'Silkscreen', monospace;
+
+  /* Texture and FX Tokens */
+  --chrome-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 35%, transparent 60%);
+  --scanline-overlay: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0px, rgba(0, 0, 0, 0.22) 1px, transparent 1px, transparent 2px);
+  --dither-mask: radial-gradient(circle, var(--panel-black) 25%, transparent 26%);
+
+  /* Default Theme: Dark Mode */
+  --canvas-bg: var(--ink);
+  --panel-bg: var(--panel-surface);
+  --panel-border: 2px solid var(--paper);
+  --panel-border-color: var(--paper);
+  --text-primary: var(--paper);
+  --text-secondary: #a2a2b0;
+  --hard-shadow: 4px 4px 0 var(--magenta);
+  --hard-shadow-cyan: 4px 4px 0 var(--cyan);
+  --hard-shadow-neutral: 4px 4px 0 var(--paper);
+  --halftone-tone: rgba(244, 242, 232, 0.08);
+  --nav-bg: rgba(13, 13, 18, 0.92);
+  --nav-border: 3px solid var(--paper);
+  --card-bg: #16161c;
+  --code-bg: #111114;
+  --caution-stripe-1: var(--magenta);
+  --caution-stripe-2: var(--ink);
+}
+
+/* Light Mode Overrides */
+body.light-mode {
+  --canvas-bg: var(--paper);
+  --panel-bg: var(--panel-white);
+  --panel-surface: var(--panel-white);
+  --panel-border: 2px solid var(--panel-black);
+  --panel-border-color: var(--panel-black);
+  --text-primary: var(--panel-black);
+  --text-secondary: #585863;
+  --hard-shadow: 4px 4px 0 var(--panel-black);
+  --hard-shadow-cyan: 4px 4px 0 var(--magenta);
+  --hard-shadow-neutral: 4px 4px 0 var(--panel-black);
+  --halftone-tone: rgba(17, 17, 20, 0.06);
+  --nav-bg: rgba(244, 242, 232, 0.95);
+  --nav-border: 3px solid var(--panel-black);
+  --card-bg: #ffffff;
+  --code-bg: #eceae0;
+  --caution-stripe-1: var(--panel-black);
+  --caution-stripe-2: var(--acid-yellow);
+}

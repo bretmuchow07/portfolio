@@ -1,185 +1,151 @@
-<!-- Contact Section -->
-<section id="contact" class="contact-section py-5">
-  <div class="container">
-    <!-- Section Header -->
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="display-5 fw-bold text-dark mb-3">Let's Connect</h2>
-      <p class="lead text-muted">Ready to bring your ideas to life? Let's start a conversation.</p>
-      <div class="contact-divider mx-auto"></div>
+<!-- pages/contact.html — Tactical Transmission Terminal & Comms (v2.2) -->
+<section id="contact" class="contact-section py-5" data-aos="fade-up">
+  <div class="container py-lg-3">
+    <!-- Header -->
+    <div class="mb-5">
+      <div class="telemetry-header">
+        <span class="code-index">[COMMS_04]</span>
+        <span>TRANSMISSION_CHANNEL // SECURE_UPLINK</span>
+      </div>
+      <h1 class="hero-headline mb-2">INITIATE TRANSMISSION</h1>
+      <p class="font-mono text-muted-tactical small">
+        DIRECT OPERATOR INBOX &bull; CONTRACT INQUIRIES &bull; TECHNICAL DISPATCH
+      </p>
     </div>
 
     <div class="row g-5">
-      <!-- Contact Information -->
+      <!-- Contact Channels & System Coordinates -->
       <div class="col-lg-5" data-aos="fade-right">
-        <div class="contact-info">
-          <h3 class="fw-bold mb-4 text-gradient">Get in Touch</h3>
-          <p class="text-muted mb-4">
-            Whether you have a project in mind, want to collaborate, or just want to say hello,
-            I'd love to hear from you. Here are the best ways to reach me:
-          </p>
-
-          <!-- Contact Methods -->
-          <div class="contact-methods">
-            <div class="contact-item d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="contact-icon me-4">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-1">Email</h5>
-                <p class="text-muted mb-0">bmuchow07@gmail.com</p>
-                <small class="text-muted">I usually respond within 24 hours</small>
-              </div>
+        <!-- Communication Matrix Window Card -->
+        <div class="window-card mb-4">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
             </div>
-
-            <div class="contact-item d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="contact-icon me-4">
-                <i class="fab fa-linkedin"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-1">LinkedIn</h5>
-                <p class="text-muted mb-0">linkedin.com/in/bret-muchoni</p>
-                <small class="text-muted">Professional networking & opportunities</small>
-              </div>
-            </div>
-
-            <div class="contact-item d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="contact-icon me-4">
-                <i class="fab fa-github"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-1">GitHub</h5>
-                <p class="text-muted mb-0">github.com/bretmuchow07</p>
-                <small class="text-muted">Check out my latest projects & code</small>
-              </div>
-            </div>
-
-            <div class="contact-item d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="contact-icon me-4">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-1">Location</h5>
-                <p class="text-muted mb-0">Harare, Zimbabwe</p>
-                <small class="text-muted">Open to remote opportunities globally</small>
-              </div>
-            </div>
+            <span class="window-title">COMMS_MATRIX.LOG</span>
           </div>
+          <div class="window-body">
+            <p class="font-mono text-muted-tactical small mb-4">
+              Open to full-time engineering roles, high-velocity technical contracts, architectural consultations, and open-source collaborations. Responses transmitted within 24 hours.
+            </p>
 
-          <!-- Social Links -->
-          <div class="social-links mt-5" data-aos="fade-up" data-aos-delay="500">
-            <h5 class="fw-bold mb-3">Follow Me</h5>
-            <div class="d-flex gap-3">
-              <a href="https://github.com/bretmuchow07" class="social-link" target="_blank" rel="noopener"
-                aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/bret-muchoni-a16b40222/" class="social-link" target="_blank"
-                rel="noopener" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://twitter.com/bretmuchoni" class="social-link" target="_blank" rel="noopener"
-                aria-label="Twitter">
-                <i class="fab fa-x-twitter"></i>
-              </a>
-              <a href="mailto:bmuchow07@gmail.com" class="social-link" target="_blank" rel="noopener"
-                aria-label="Email">
-                <i class="fas fa-envelope"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact Form -->
-      <div class="col-lg-7" data-aos="fade-left">
-        <div class="contact-form-container">
-          <div class="card border-0 shadow-lg">
-            <div class="card-body p-5">
-              <h3 class="fw-bold mb-4 text-center">Send Me a Message</h3>
-
-              <form id="contactForm" action="https://formspree.io/f/xdkdpqzz" method="post" class="needs-validation"
-                novalidate>
-                <div class="row g-3">
-                  <!-- Name Field -->
-                  <div class="col-md-6">
-                    <label for="firstName" class="form-label fw-semibold">First Name</label>
-                    <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" required
-                      placeholder="Your first name">
-                    <div class="invalid-feedback">
-                      Please provide your first name.
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="lastName" class="form-label fw-semibold">Last Name</label>
-                    <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" required
-                      placeholder="Your last name">
-                    <div class="invalid-feedback">
-                      Please provide your last name.
-                    </div>
-                  </div>
-
-                  <!-- Email Field -->
-                  <div class="col-12">
-                    <label for="email" class="form-label fw-semibold">Email Address</label>
-                    <input type="email" class="form-control form-control-lg" id="email" name="email" required
-                      placeholder="your@email.com">
-                    <div class="invalid-feedback">
-                      Please provide a valid email address.
-                    </div>
-                  </div>
-
-                  <!-- Message Field -->
-                  <div class="col-12">
-                    <label for="message" class="form-label fw-semibold">Message</label>
-                    <textarea class="form-control form-control-lg" id="message" name="message" rows="5" required
-                      placeholder="Tell me about your project or what you'd like to discuss..."></textarea>
-                    <div class="invalid-feedback">
-                      Please provide a message.
-                    </div>
-                  </div>
-
-                  <!-- Submit Button -->
-                  <div class="col-12 mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg w-100">
-                      <i class="fas fa-paper-plane me-2"></i>
-                      Send Message
-                    </button>
+            <div class="d-flex flex-column gap-3">
+              <!-- Channel 1: Email -->
+              <div class="tactical-channel-box p-3" style="box-shadow: 3px 3px 0 var(--cyan);">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="fas fa-envelope text-cyan fs-4"></i>
+                  <div>
+                    <div class="font-pixel text-cyan" style="font-size: 0.68rem;">CHANNEL_01 // DIRECT_MAIL</div>
+                    <a href="mailto:bmuchow07@gmail.com" class="font-mono fw-bold d-block">bmuchow07@gmail.com</a>
                   </div>
                 </div>
-              </form>
+              </div>
 
-              <!-- Alternative Contact -->
-              <div class="text-center mt-4">
-                <p class="text-muted mb-0">
-                  Prefer a quick chat?
-                  <a href="mailto:bret@bretscorner.dev" class="text-decoration-none fw-semibold">
-                    Email me directly
-                  </a>
-                </p>
+              <!-- Channel 2: LinkedIn -->
+              <div class="tactical-channel-box p-3" style="box-shadow: 3px 3px 0 var(--magenta);">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="fab fa-linkedin text-magenta fs-4"></i>
+                  <div>
+                    <div class="font-pixel text-magenta" style="font-size: 0.68rem;">CHANNEL_02 // PROFESSIONAL</div>
+                    <a href="https://www.linkedin.com/in/bret-muchoni-a16b40222/" target="_blank" rel="noopener" class="font-mono fw-bold d-block">in/bret-muchoni</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Channel 3: GitHub -->
+              <div class="tactical-channel-box p-3" style="box-shadow: 3px 3px 0 var(--acid-yellow);">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="fab fa-github text-warning fs-4"></i>
+                  <div>
+                    <div class="font-pixel text-acid" style="font-size: 0.68rem;">CHANNEL_03 // REPOSITORIES</div>
+                    <a href="https://github.com/bretmuchow07" target="_blank" rel="noopener" class="font-mono fw-bold d-block">github.com/bretmuchow07</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Coordinates -->
+              <div class="tactical-channel-box p-3" style="box-shadow: 3px 3px 0 var(--panel-border-color);">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="fas fa-satellite-dish text-primary fs-4"></i>
+                  <div>
+                    <div class="font-pixel text-muted-tactical" style="font-size: 0.68rem;">NODE_LOC // BASE_STATION</div>
+                    <div class="font-mono fw-bold">Harare, Zimbabwe (UTC+2) &bull; Remote Capable</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Call to Action -->
-    <div class="row mt-5">
-      <div class="col-12">
-        <div class="cta-section text-center p-5 rounded-4" data-aos="fade-up">
-          <h3 class="fw-bold mb-3">Ready to Start Something Amazing?</h3>
-          <p class="lead text-muted mb-4">
-            Let's turn your ideas into reality. I'm always excited to work on new projects and collaborate with amazing
-            people.
-          </p>
-          <div class="d-flex flex-wrap justify-content-center gap-3">
-            <a href="assets/bret-muchoni.pdf" class="btn btn-outline-primary btn-lg" target="_blank">
-              <i class="fas fa-download me-2"></i>Download My CV
-            </a>
-            <a href="#projects" class="btn btn-primary btn-lg">
-              <i class="fas fa-folder-open me-2"></i>View My Work
-            </a>
+      <!-- Transmission Form -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="window-card">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
+            </div>
+            <span class="window-title">DISPATCH_TERMINAL.EXE</span>
+          </div>
+          <div class="window-body">
+            <h3 class="font-display h4 text-magenta mb-4">COMPOSE PACKET</h3>
+
+            <form id="contactForm" action="https://formspree.io/f/xdkdpqzz" method="post" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="firstName" class="form-tactical-label">SENDER_NAME [FIRST]</label>
+                  <input type="text" class="form-tactical-input" id="firstName" name="firstName" required
+                    placeholder="Enter first name...">
+                  <div class="invalid-feedback font-mono small">
+                    Please provide your name identifier.
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="lastName" class="form-tactical-label">SENDER_NAME [LAST]</label>
+                  <input type="text" class="form-tactical-input" id="lastName" name="lastName" required
+                    placeholder="Enter last name...">
+                  <div class="invalid-feedback font-mono small">
+                    Please provide your surname.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="email" class="form-tactical-label">RETURN_ROUTER [EMAIL]</label>
+                  <input type="email" class="form-tactical-input" id="email" name="email" required
+                    placeholder="your.callsign@network.com">
+                  <div class="invalid-feedback font-mono small">
+                    Valid email address required for routing response.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="message" class="form-tactical-label">TRANSMISSION_PAYLOAD [MESSAGE]</label>
+                  <textarea class="form-tactical-input" id="message" name="message" rows="5" required
+                    placeholder="Outline your project scope, technical specifications, or timeline requirements..."></textarea>
+                  <div class="invalid-feedback font-mono small">
+                    Payload content cannot be blank.
+                  </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn-tactical btn-tactical-primary w-100 py-3">
+                    <i class="fas fa-satellite-dish me-2"></i>BROADCAST_TRANSMISSION
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div class="text-center mt-4">
+              <span class="font-mono text-muted-tactical small">
+                DIRECT ENCRYPTED OVERRIDE:
+                <a href="mailto:bmuchow07@gmail.com" class="text-cyan fw-bold ms-1">bmuchow07@gmail.com</a>
+              </span>
+            </div>
           </div>
         </div>
       </div>

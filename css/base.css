@@ -1,0 +1,194 @@
+/* css/base.css — Typography Hierarchy, Resets & Global Canvas */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--canvas-bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Procedural Halftone Dot Background Canvas */
+body {
+  background-image: radial-gradient(var(--halftone-tone) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  background-position: 0 0;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Tactical Selection Highlight */
+::selection {
+  background-color: var(--magenta);
+  color: var(--paper);
+}
+
+::-moz-selection {
+  background-color: var(--magenta);
+  color: var(--paper);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--panel-black);
+  border-left: 1px solid var(--panel-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--magenta);
+  border: 2px solid var(--panel-black);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  letter-spacing: 0.02em;
+}
+
+.font-display {
+  font-family: var(--font-display) !important;
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+.font-pixel {
+  font-family: var(--font-pixel) !important;
+}
+
+/* Hero Headline: Bungee, magenta fill + cyan comic print offset shadow */
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.05;
+  color: var(--magenta);
+  text-shadow: 3px 3px 0 var(--cyan);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+body.light-mode .hero-headline {
+  color: var(--panel-black);
+  text-shadow: 3px 3px 0 var(--magenta);
+}
+
+/* Section Titles: Bungee, clamp(1.75rem, 3vw, 2.25rem) */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.section-title.title-magenta {
+  color: var(--magenta);
+  text-shadow: 2px 2px 0 var(--panel-black);
+}
+
+/* Telemetry Section Header Label */
+.telemetry-header {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted-label);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.telemetry-header .code-index {
+  color: var(--cyan);
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+}
+
+/* Body Paragraphs */
+p, .lead-tactical {
+  font-family: var(--font-body);
+  max-width: 68ch;
+}
+
+.lead-tactical {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.text-muted-tactical {
+  color: var(--text-secondary) !important;
+}
+
+/* Links */
+a {
+  color: var(--cyan);
+  text-decoration: none;
+  transition: all 0.15s ease-out;
+}
+
+a:hover {
+  color: var(--magenta);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Code and Inline Telemetry */
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+/* Core Tactical Color Utility Classes */
+.text-magenta {
+  color: var(--magenta) !important;
+}
+
+.text-cyan {
+  color: var(--cyan) !important;
+}
+
+.text-acid {
+  color: var(--acid-yellow) !important;
+}
+
+.text-paper {
+  color: var(--paper) !important;
+}
+
+.text-ink {
+  color: var(--ink) !important;
+}
+
+.bg-magenta {
+  background-color: var(--magenta) !important;
+}
+
+.bg-cyan {
+  background-color: var(--cyan) !important;
+}
+
+.bg-acid {
+  background-color: var(--acid-yellow) !important;
+}

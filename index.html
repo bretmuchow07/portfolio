@@ -4,17 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bret's Portfolio - Software Developer & Engineering Student</title>
+  <title>Bret Muchoni — Software Developer & Engineering Graduate</title>
   <meta name="description"
-    content="Portfolio of Bret Muchoni, Software Developer & Engineering Student specializing in web and mobile applications.">
+    content="Tactical developer portfolio of Bret Muchoni. Pop Art meets 90s tactical anime HUD UI. Full-stack engineering, web & mobile applications.">
 
-  <!-- CSS Dependencies -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <!-- Google Fonts Preconnect & Imports -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=JetBrains+Mono:wght@400;500;700&family=Silkscreen&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS (Hosted Locally — Zero CDN Tracking / Zero Dependencies) -->
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/vendor/all.min.css">
+
+  <!-- Tactical Design System v2.2 Modular CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Favicon -->
@@ -22,184 +31,192 @@
 
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Bret's Portfolio - Software Developer">
+  <meta property="og:title" content="Bret Muchoni // Software Developer Portfolio (v2.2)">
   <meta property="og:description"
-    content="Software Developer & Engineering Student specializing in web and mobile applications.">
-  <meta property="og:url" content="https://yourwebsite.com">
-  <meta property="og:image" content="https://yourwebsite.com/assets/profile.jpg">
+    content="Software Developer & Engineering Graduate specializing in high-performance web and mobile applications.">
+  <meta property="og:image" content="assets/profile.jpg">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bret's Portfolio - Software Developer">
+  <meta name="twitter:title" content="Bret Muchoni // Software Developer">
   <meta name="twitter:description"
-    content="Software Developer & Engineering Student specializing in web and mobile applications.">
-  <meta name="twitter:image" content="https://yourwebsite.com/assets/profile.jpg">
+    content="Software Developer & Engineering Graduate specializing in web and mobile applications.">
+  <meta name="twitter:image" content="assets/profile.jpg">
 </head>
 
-<body>
-  <!-- Navbar -->
+<body class="light-mode">
+  <!-- HUD Navigation Bar Container -->
   <div id="navbar-container"></div>
-  <!-- Main Content -->
-  <main>
+
+  <!-- Tactical Ticker Banner (Flanked by caution striping) -->
+  <div class="tactical-ticker-container" id="tactical-ticker" style="margin-top: 60px;">
+    <div class="ticker-caution-strip"></div>
+    <div class="ticker-viewport">
+      <div class="ticker-track">
+        <span class="ticker-item"><span class="ticker-alert"><span class="beacon-dot"></span> SYS_STATUS:</span>
+          OPERATIONAL</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-highlight">ACTIVE_STACK:</span> REACT &bull; TYPESCRIPT &bull; C#
+          .NET &bull; SUPABASE &bull; PYTHON</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-alert">BUILD_REV:</span> v2.2-TACTICAL</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-highlight">LOC:</span> HARARE, ZIMBABWE / REMOTE</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-alert">OPEN_FOR:</span> FULL-TIME &bull; CONTRACT &bull;
+          SPRINT</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-highlight">MEM_USAGE:</span> 12.8MB // ZERO_BLOAT</span>
+        <span class="ticker-separator">//</span>
+        <!-- Duplicate for smooth infinite scroll -->
+        <span class="ticker-item"><span class="ticker-alert"><span class="beacon-dot"></span> SYS_STATUS:</span>
+          OPERATIONAL</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-highlight">ACTIVE_STACK:</span> REACT &bull; TYPESCRIPT &bull; C#
+          .NET &bull; SUPABASE &bull; PYTHON</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-alert">BUILD_REV:</span> v2.2-TACTICAL</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-highlight">LOC:</span> HARARE, ZIMBABWE / REMOTE</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-alert">OPEN_FOR:</span> FULL-TIME &bull; CONTRACT &bull;
+          SPRINT</span>
+        <span class="ticker-separator">//</span>
+        <span class="ticker-item"><span class="ticker-highlight">MEM_USAGE:</span> 12.8MB // ZERO_BLOAT</span>
+        <span class="ticker-separator">//</span>
+      </div>
+    </div>
+    <div class="ticker-caution-strip"></div>
+  </div>
+
+  <!-- Main Viewport Container -->
+  <main class="py-4">
     <div id="app-content">
-      <!-- Content will be loaded here via JavaScript -->
+      <!-- SPA Content dynamically injected here -->
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-light py-5 mt-5">
+  <!-- Tactical Footer (v2.2 Web 1.0 & Anime HUD Hybrid) -->
+  <footer class="hud-footer py-5 mt-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <div class="d-flex align-items-center mb-3">
-            <div class="brand-icon me-3">
-              <div class="brand-square"></div>
-            </div>
-            <h5 class="fw-bold mb-0">bret's corner</h5>
+      <div class="row g-4 align-items-start mb-4">
+        <!-- Brand & Terminal Telemetry -->
+        <div class="col-lg-5">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="hud-brand-mark">B</div>
+            <h4 class="font-display mb-0" style="color: var(--paper); font-size: 1.25rem;">bret's corner</h4>
           </div>
-          <p class="mb-0">Building innovative solutions through code and creativity. Let's connect and create something
-            amazing together.</p>
+          <p class="font-mono text-muted-tactical small mb-3" style="line-height: 1.6;">
+            ENGINEERED WITH POP ART VIGOR & TACTICAL PRECISION.<br>
+            HIGH CONTRAST &bull; ZERO BLOAT &bull; RESPONSIVE ARCHITECTURE.
+          </p>
+
+          <!-- Web 1.0 88x31 Micro-Stamp Badges -->
+          <div class="d-flex flex-wrap gap-2 pt-2">
+            <div class="web1-stamp" title="Pure CSS Without Bloat">
+              PURE_CSS<br>// NO_BLOAT
+            </div>
+            <div class="web1-stamp" style="border-color: var(--cyan); color: var(--cyan);" title="Valid Modern HTML5">
+              HTML5<br>// VALID
+            </div>
+            <div class="web1-stamp" style="border-color: var(--acid-yellow); color: var(--acid-yellow);"
+              title="Zero Dependency Vanilla Runtime">
+              JS_CORE<br>// ZERO_DEPS
+            </div>
+            <div class="web1-stamp" style="border-color: var(--magenta); color: var(--magenta);"
+              title="Tactical UI Architecture">
+              TAC_UI<br>// v2.2 OK
+            </div>
+          </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <h6 class="fw-bold mb-3">Quick Links</h6>
-              <ul class="list-unstyled">
-                <li><a href="#home" class="text-light text-decoration-none">Home</a></li>
-                <li><a href="#about" class="text-light text-decoration-none">About</a></li>
-                <li><a href="#projects" class="text-light text-decoration-none">Projects</a></li>
-                <li><a href="#contact" class="text-light text-decoration-none">Contact</a></li>
-              </ul>
-            </div>
+        <!-- Quick Navigation -->
+        <div class="col-6 col-lg-3">
+          <div class="telemetry-header mb-3">
+            <span class="code-index">[DIR]</span>
+            <span>SYSTEM_INDEX</span>
+          </div>
+          <ul class="list-unstyled font-mono small d-flex flex-column gap-2 mb-0">
+            <li>
+              <a href="#home" class="d-inline-flex align-items-center gap-2">
+                <i class="fas fa-chevron-right text-magenta" style="font-size: 0.65rem;"></i>
+                01_INDEX.EXE
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="d-inline-flex align-items-center gap-2">
+                <i class="fas fa-chevron-right text-magenta" style="font-size: 0.65rem;"></i>
+                02_PROJECTS.LOG
+              </a>
+            </li>
+            <li>
+              <a href="#about" class="d-inline-flex align-items-center gap-2">
+                <i class="fas fa-chevron-right text-magenta" style="font-size: 0.65rem;"></i>
+                03_DOSSIER.MD
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="d-inline-flex align-items-center gap-2">
+                <i class="fas fa-chevron-right text-magenta" style="font-size: 0.65rem;"></i>
+                04_TRANSMIT.COM
+              </a>
+            </li>
+          </ul>
+        </div>
 
-            <div class="col-md-6 mb-3">
-              <h6 class="fw-bold mb-3">Connect</h6>
-              <div class="d-flex flex-wrap gap-3">
-                <a href="https://github.com/bretmuchow07" class="text-light fs-4" target="_blank" rel="noopener"
-                  aria-label="GitHub" title="GitHub">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/bret-muchoni-a16b40222/" class="text-light fs-4" target="_blank"
-                  rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:bmuchow07@gmail.com" class="text-light fs-4" target="_blank" rel="noopener"
-                  aria-label="Email" title="Email">
-                  <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://x.com/bret9844" class="text-light fs-4" target="_blank" rel="noopener"
-                  aria-label="Twitter" title="Twitter">
-                  <i class="fab fa-x-twitter"></i>
-                </a>
-              </div>
-            </div>
+        <!-- Connect Channels -->
+        <div class="col-6 col-lg-4">
+          <div class="telemetry-header mb-3">
+            <span class="code-index">[COM]</span>
+            <span>TELEMETRY_LINKS</span>
+          </div>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <a href="https://github.com/bretmuchow07" class="footer-social-btn" target="_blank" rel="noopener"
+              aria-label="GitHub">
+              <i class="fab fa-github"></i> GITHUB
+            </a>
+            <a href="https://www.linkedin.com/in/bret-muchoni-a16b40222/" class="footer-social-btn" target="_blank"
+              rel="noopener" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i> LINKEDIN
+            </a>
+            <a href="mailto:bmuchow07@gmail.com" class="footer-social-btn" target="_blank" rel="noopener"
+              aria-label="Email">
+              <i class="fas fa-envelope"></i> EMAIL
+            </a>
+            <a href="https://x.com/bret9844" class="footer-social-btn" target="_blank" rel="noopener"
+              aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i> X.COM
+            </a>
+          </div>
+          <div class="font-pixel text-muted-tactical" style="font-size: 0.65rem;">
+            SYS_PING // 12ms (NOMINAL)
           </div>
         </div>
       </div>
 
-      <hr class="my-4 opacity-25">
+      <hr style="border-color: var(--panel-border-color); opacity: 0.3;" class="my-4">
 
-      <div class="row align-items-center">
+      <div class="row align-items-center font-mono small text-muted-tactical">
         <div class="col-md-6">
-          <small>&copy; 2026 bret's corner presents... Portfolio. All rights reserved.</small>
+          &copy; 2026 BRET MUCHONI &bull; SYS.CORE v2.2 &bull; ALL RIGHTS RESERVED.
         </div>
-        <div class="col-md-6 text-md-end">
-          <small class="text-muted">
-            Made with <i class="fas fa-heart text-danger"></i> and lots of ☕
-          </small>
+        <div class="col-md-6 text-md-end mt-2 mt-md-0 font-pixel"
+          style="font-size: 0.68rem; color: var(--acid-yellow);">
+          BUILT WITH TACTICAL CODE & COFFEE // 100% SYNTAX INTEGRITY
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript Dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Vendor JS (Hosted Locally — Zero CDN Tracking / Zero Dependencies) -->
+  <script src="js/vendor/bootstrap.bundle.min.js"></script>
 
-  <script>
-    // Initialize AOS (Animate On Scroll)
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true,
-      offset: 50
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-          const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Update active navigation link on scroll
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    // Navbar background opacity on scroll
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.style.backgroundColor = document.body.classList.contains('dark-mode')
-          ? 'rgba(45, 45, 45, 0.95)'
-          : 'rgba(255, 255, 255, 0.95)';
-      } else {
-        navbar.style.backgroundColor = document.body.classList.contains('dark-mode')
-          ? 'var(--navbar-bg)'
-          : 'var(--navbar-bg)';
-      }
-    });
-
-    // Load home content by default
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add padding-top to body to account for fixed navbar
-      document.body.style.paddingTop = '80px';
-
-      // You can load your home.html content here via fetch or include it directly
-      // For now, we'll assume the content is loaded via your existing JavaScript
-    });
-  </script>
-
-  <!-- Your existing script.js file -->
-  <script src="js/contact.js"></script>
-  <!-- Project Data -->
+  <!-- Project & Testimonial Data -->
   <script src="js/projects-data.js"></script>
   <script src="js/testimonials-data.js"></script>
+  <script src="js/contact.js"></script>
 
-  <!-- Custom JS -->
+  <!-- Core App & Router Script -->
   <script src="js/script.js"></script>
 </body>
 

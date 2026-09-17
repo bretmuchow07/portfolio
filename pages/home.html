@@ -1,30 +1,63 @@
-<section class="hero-section py-5" data-aos="fade-up" style="min-height: 100vh;">
-  <div class="container">
-    <div class="row align-items-center">
-      <!-- Profile image -->
-      <div class="col-lg-5 text-center mb-5 mb-lg-0" data-aos="fade-right">
-        <div class="profile-container position-relative">
-          <img src="assets/profile.jpg" alt="Bret Muchoni" class="profile-img img-fluid shadow-lg" width="280"
-            height="280" />
+<!-- pages/home.html — Tactical Pop-Art Hero & Mission Overview (v2.2) -->
+
+<!-- Hero Section -->
+<section class="hero-section py-5" data-aos="fade-up">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <!-- Profile Column with Tactical Framing & Scanline Overlay -->
+      <div class="col-lg-5 text-center" data-aos="fade-right">
+        <div class="position-relative d-inline-block">
+          <div class="profile-tactical-frame">
+            <span class="frame-corner-tag tag-top-left">[AVATAR // BM-07]</span>
+            <span class="frame-corner-tag tag-bottom-right">LIVE // SCAN</span>
+            <img src="assets/profile.jpg" alt="Bret Muchoni" width="280" height="280" class="img-fluid" />
+          </div>
+          <!-- Sub-badge under portrait -->
+          <div class="mt-3 d-flex justify-content-center">
+            <div class="hud-telemetry-badge">
+              <span class="beacon-dot"></span>
+              <span>STATUS // READY TO SHIP</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Hero text -->
+      <!-- Hero Pitch & Telemetry Details -->
       <div class="col-lg-7" data-aos="fade-left">
-        <h1 class="display-4 fw-bold text-gradient mb-3">Hey, I'm Bret 👋</h1>
-        <h3 class="text-muted mb-4 fs-4">Software Developer & Computer Systems Engineering Graduate</h3>
-        <p class="lead mb-4">
-          I’m a versatile software developer with a passion for building seamless digital experiences. From architecting
-          full‑stack applications to designing intuitive user interfaces, I merge technical precision with creative
-          flair. My approach blends clean, efficient code with thoughtful design, ensuring every product is functional,
-          engaging, and user‑focused — with an occasional touch of graphic artistry to bring ideas to life.
+        <div class="telemetry-header">
+          <span class="code-index">[INIT_01]</span>
+          <span>IDENTITY_RECORD // FULL_STACK_DEV</span>
+        </div>
+
+        <h1 class="hero-headline">
+          HEY, I'M BRET!
+        </h1>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="sticker-badge badge-cyan">
+            <i class="fas fa-terminal me-1"></i>SOFTWARE_DEV
+          </span>
+          <span class="sticker-badge badge-magenta">
+            <i class="fas fa-microchip me-1"></i>SYSTEMS_ENG_GRAD
+          </span>
+          <span class="sticker-badge badge-acid">
+            <i class="fas fa-bolt me-1"></i>FULL_STACK
+          </span>
+        </div>
+
+        <p class="lead-tactical mb-4">
+          I am a versatile software developer and computer systems engineer specializing in high-performance digital
+          products. I engineer robust web and mobile applications with hard-edged technical precision and bold,
+          uncompromising visual flair. Clean architecture, dependable delivery, and zero fluff.
         </p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="#contact" class="btn btn-primary btn-lg px-4">
-            <i class="fas fa-envelope me-2"></i>Connect with Me
+
+        <!-- Tactile Action Buttons -->
+        <div class="d-flex flex-wrap gap-3 pt-2">
+          <a href="#contact" class="btn-tactical btn-tactical-primary">
+            <i class="fas fa-paper-plane me-2"></i>INITIATE_CONTACT
           </a>
-          <a href="assets/bret-muchoni.pdf" class="btn btn-outline-primary btn-lg px-4" target="_blank">
-            <i class="fas fa-download me-2"></i>Download CV
+          <a href="assets/bret-muchoni.pdf" target="_blank" class="btn-tactical btn-tactical-outline">
+            <i class="fas fa-download me-2"></i>DOWNLOAD_CV.PDF
           </a>
         </div>
       </div>
@@ -32,50 +65,113 @@
   </div>
 </section>
 
-<!-- Skills Overview -->
-<section class="skills-section py-5 bg-light" data-aos="fade-up">
+<!-- Skills Section / Core Modules -->
+<section class="skills-section py-5 my-4" data-aos="fade-up">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="display-5 fw-bold text-dark mb-3">What I Do</h2>
-      <p class="lead text-muted">Bringing ideas to life through code and design</p>
+      <div class="telemetry-header mx-auto">
+        <span class="code-index">[SEC_02]</span>
+        <span>TACTICAL_COMPETENCIES</span>
+      </div>
+      <h2 class="section-title">CORE CAPABILITIES</h2>
+      <p class="text-muted-tactical font-mono mx-auto small" style="max-width: 55ch;">
+        ENGINEERING SOLUTIONS ACROSS THE FULL SYSTEM LIFECYCLE
+      </p>
     </div>
 
     <div class="row g-4">
+      <!-- Module 1: Frontend Architecture -->
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="card skill-card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
-            <div class="skill-icon mb-3">
-              <i class="fas fa-palette fa-3x text-primary"></i>
+        <div class="window-card">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
             </div>
-            <h4 class="card-title fw-bold mb-3">Frontend</h4>
-            <p class="card-text text-muted">Crafting beautiful, responsive user interfaces with React, Tailwind CSS,
-              Bootstrap, and Flutter to create engaging user experiences.</p>
+            <span class="window-title">MOD_01 // FRONTEND.SYS</span>
+          </div>
+          <div class="window-body">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <i class="fas fa-layer-group text-magenta fs-2"></i>
+              <div>
+                <h4 class="font-display h5 mb-0">FRONTEND ARCHITECTURE</h4>
+                <span class="font-mono text-muted-tactical small">REACT &bull; FLUTTER &bull; TAILWIND</span>
+              </div>
+            </div>
+            <p class="font-mono text-muted-tactical small flex-grow-1 mb-3">
+              Crafting responsive, low-latency client interfaces and mobile applications. State management, component
+              modularity, and accessible UI interactions.
+            </p>
+            <div class="d-flex flex-wrap gap-1 mt-auto">
+              <span class="sticker-badge badge-cyan">REACT</span>
+              <span class="sticker-badge">FLUTTER</span>
+              <span class="sticker-badge">TYPESCRIPT</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Module 2: Backend & Distributed Data -->
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="card skill-card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
-            <div class="skill-icon mb-3">
-              <i class="fas fa-server fa-3x text-primary"></i>
+        <div class="window-card">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
             </div>
-            <h4 class="card-title fw-bold mb-3">Backend</h4>
-            <p class="card-text text-muted">Building robust server-side solutions with Supabase, ASP.NET Core, Node.js,
-              and PostgreSQL for scalable applications.</p>
+            <span class="window-title">MOD_02 // BACKEND.SRV</span>
+          </div>
+          <div class="window-body">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <i class="fas fa-server text-cyan fs-2"></i>
+              <div>
+                <h4 class="font-display h5 mb-0">BACKEND & DATA PIPELINES</h4>
+                <span class="font-mono text-muted-tactical small">C# .NET &bull; NODE &bull; POSTGRES</span>
+              </div>
+            </div>
+            <p class="font-mono text-muted-tactical small flex-grow-1 mb-3">
+              Building resilient REST APIs, microservices, and database layers with PostgreSQL, Supabase, and ASP.NET
+              Core. Secure auth, caching, and background workers.
+            </p>
+            <div class="d-flex flex-wrap gap-1 mt-auto">
+              <span class="sticker-badge badge-magenta">C# .NET</span>
+              <span class="sticker-badge">SUPABASE</span>
+              <span class="sticker-badge">POSTGRES</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Module 3: Systems & UX Engineering -->
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="card skill-card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
-            <div class="skill-icon mb-3">
-              <i class="fas fa-lightbulb fa-3x text-primary"></i>
+        <div class="window-card">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
             </div>
-            <h4 class="card-title fw-bold mb-3">Projects & UX</h4>
-            <p class="card-text text-muted">Designing intuitive dashboards, optimizing app architecture, conducting user
-              testing, and implementing A/B feedback loops.</p>
+            <span class="window-title">MOD_03 // SYSTEMS_UX.ENG</span>
+          </div>
+          <div class="window-body">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <i class="fas fa-microchip text-warning fs-2"></i>
+              <div>
+                <h4 class="font-display h5 mb-0">SYSTEMS & UX METRICS</h4>
+                <span class="font-mono text-muted-tactical small">PROTOTYPING &bull; A/B &bull; PERFORMANCE</span>
+              </div>
+            </div>
+            <p class="font-mono text-muted-tactical small flex-grow-1 mb-3">
+              Translating complex hardware/software problem spaces into intuitive operator dashboards. Performance
+              audits, automated testing, and zero UX drag.
+            </p>
+            <div class="d-flex flex-wrap gap-1 mt-auto">
+              <span class="sticker-badge badge-acid">TESTING</span>
+              <span class="sticker-badge">METRICS</span>
+              <span class="sticker-badge">DOCKER</span>
+            </div>
           </div>
         </div>
       </div>
@@ -83,113 +179,175 @@
   </div>
 </section>
 
-<!-- Featured Projects -->
-<section class="projects-section py-5" data-aos="fade-up">
+<!-- Featured Projects Grid -->
+<section class="projects-section py-5 my-4" data-aos="fade-up">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-5 fw-bold text-dark mb-3">Featured Work</h2>
-      <p class="lead text-muted">Here's a preview of some of my favorite projects.</p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="card project-card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="d-flex align-items-center mb-3">
-              <i class="fas fa-heart text-danger me-3 fs-3"></i>
-              <h5 class="card-title fw-bold mb-0">DementiaCare App</h5>
-            </div>
-            <p class="card-text text-muted mb-4">
-              A Flutter-based health support app connected to Supabase with mood and memory tracking features to assist
-              caregivers and patients living with dementia.
-            </p>
-            <a href="/#projects" class="btn btn-outline-primary">
-              <i class="fas fa-arrow-right me-2"></i>View Project
-            </a>
-          </div>
+    <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+      <div>
+        <div class="telemetry-header">
+          <span class="code-index">[SEC_03]</span>
+          <span>SYSTEM_DEPLOYMENTS</span>
         </div>
+        <h2 class="section-title mb-0">FEATURED OPERATIONS</h2>
       </div>
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="card project-card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="d-flex align-items-center mb-3">
-              <i class="fas fa-language text-info me-3 fs-3"></i>
-              <h5 class="card-title fw-bold mb-0">Shona Wordle</h5>
-            </div>
-            <p class="card-text text-muted mb-4">
-              A localized version of the NY Times Wordle game supporting the Shona language. Designed for both
-              entertainment and language preservation.
-            </p>
-            <a href="/#projects" class="btn btn-outline-primary">
-              <i class="fas fa-arrow-right me-2"></i>View Project
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="card project-card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="d-flex align-items-center mb-3">
-              <i class="fas fa-play-circle text-primary me-3 fs-3"></i>
-              <h5 class="card-title fw-bold mb-0">Clipse Video Player</h5>
-            </div>
-            <p class="card-text text-muted mb-4">
-              A lightweight, fully customizable, and accessible video player component designed for the modern web.
-              Built for production.
-            </p>
-            <a href="#project-clipse-video-player" class="btn btn-outline-primary">
-              <i class="fas fa-arrow-right me-2"></i>View Project
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
-      <a href="/#projects" class="btn btn-primary btn-lg px-4">
-        <i class="fas fa-folder-open me-2"></i>See All Projects
+      <a href="#projects" class="btn-tactical btn-tactical-outline mt-3 mt-md-0">
+        <i class="fas fa-folder-open me-2"></i>EXPLORE_ALL_REPOSITORIES
       </a>
     </div>
+
+    <div class="row g-4">
+      <!-- Featured Project 1: Clipse Video Player -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="window-card">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
+            </div>
+            <span class="window-title">PROJECT_01 // CLIPSE.JS</span>
+          </div>
+          <div class="window-body">
+            <div class="scanline-frame mb-3 p-3 text-center" style="background: var(--panel-black);">
+              <i class="fas fa-play-circle text-magenta display-4 my-2"></i>
+              <div class="font-pixel text-cyan small">STATUS // v1.0.1 STABLE</div>
+            </div>
+            <h4 class="font-display h5 mb-2">CLIPSE VIDEO PLAYER</h4>
+            <p class="font-mono text-muted-tactical small flex-grow-1 mb-3">
+              Lightweight, accessible, fully customizable video player component for modern web runtimes. Zero
+              dependencies.
+            </p>
+            <div class="d-flex justify-content-between align-items-center pt-2">
+              <div class="d-flex gap-1">
+                <span class="sticker-badge">JS</span>
+                <span class="sticker-badge">NPM</span>
+              </div>
+              <a href="#project-clipse-video-player" class="btn-tactical btn-tactical-primary py-1 px-3 small">
+                VIEW // EXEC
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Project 2: DementiaCare App -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="window-card">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
+            </div>
+            <span class="window-title">PROJECT_02 // DEMENTIA_CARE.APP</span>
+          </div>
+          <div class="window-body">
+            <div class="scanline-frame mb-3 p-3 text-center" style="background: var(--panel-black);">
+              <i class="fas fa-heartbeat text-danger display-4 my-2"></i>
+              <div class="font-pixel text-cyan small">TARGET // MOBILE_HEALTH</div>
+            </div>
+            <h4 class="font-display h5 mb-2">DEMENTIACARE APP</h4>
+            <p class="font-mono text-muted-tactical small flex-grow-1 mb-3">
+              Flutter and Supabase healthcare platform supporting dementia patients and caregivers with telemetry and
+              cognitive tracking.
+            </p>
+            <div class="d-flex justify-content-between align-items-center pt-2">
+              <div class="d-flex gap-1">
+                <span class="sticker-badge">FLUTTER</span>
+                <span class="sticker-badge">SUPABASE</span>
+              </div>
+              <a href="#project-dementia-care" class="btn-tactical btn-tactical-primary py-1 px-3 small">
+                VIEW // EXEC
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Project 3: Shona Wordle -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="window-card">
+          <div class="window-header">
+            <div class="window-action-dots">
+              <span class="action-dot action-dot-close"></span>
+              <span class="action-dot action-dot-min"></span>
+              <span class="action-dot action-dot-max"></span>
+            </div>
+            <span class="window-title">PROJECT_03 // SHONA_WORDLE.EXE</span>
+          </div>
+          <div class="window-body">
+            <div class="scanline-frame mb-3 p-3 text-center" style="background: var(--panel-black);">
+              <i class="fas fa-language text-cyan display-4 my-2"></i>
+              <div class="font-pixel text-acid small">LINGUISTICS // ACTIVE</div>
+            </div>
+            <h4 class="font-display h5 mb-2">SHONA WORDLE</h4>
+            <p class="font-mono text-muted-tactical small flex-grow-1 mb-3">
+              Localized cultural word-puzzle engine built for Bantu language preservation, algorithmic validation, and
+              tactile gameplay.
+            </p>
+            <div class="d-flex justify-content-between align-items-center pt-2">
+              <div class="d-flex gap-1">
+                <span class="sticker-badge">JS</span>
+                <span class="sticker-badge">LOCALIZATION</span>
+              </div>
+              <a href="#project-shona-wordle" class="btn-tactical btn-tactical-primary py-1 px-3 small">
+                VIEW // EXEC
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Testimonial / Collaboration Section -->
-<section class="testimonials-section py-5" id="testimonials-section">
+<!-- Tactical Collaboration & Testimonials Showcase -->
+<section class="testimonials-section py-5 my-4" id="testimonials-section">
   <div id="testimonials-wrapper">
-    <!-- Default / Fallback: Recommendations & Collaboration Showcase -->
     <div class="container" data-aos="fade-up">
-      <div class="collaboration-card mx-auto">
-        <div class="collaboration-header text-center mb-4">
-          <div class="collab-badge-pill mb-3">
-            <span class="status-dot"></span> Open for Opportunities & Collaboration
+      <div class="tactical-collab-panel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <div class="collab-status-badge mb-3">
+              <span class="beacon-dot"></span>
+              <span class="font-pixel" style="font-size: 0.72rem; color: var(--acid-yellow);">LIVE_SIGNAL: OPEN FOR CONTRACTS & COLLABORATION</span>
+            </div>
+            <h3 class="font-display h3 mb-3 text-magenta">RECOMMENDATIONS & DISPATCH</h3>
+            <p class="font-mono text-muted-tactical lead-tactical mb-4" style="font-size: 1rem;">
+              Have we collaborated on an engineering sprint, system deployment, hackathon, or client project? I am
+              always actively welcoming peer endorsements, code reviews, and partner recommendations to broadcast on
+              this terminal.
+            </p>
+
+            <!-- Working Pillars -->
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="pillar-chip-tactical">
+                <i class="fas fa-terminal text-cyan"></i> CLEAN & SCALABLE CODE
+              </span>
+              <span class="pillar-chip-tactical">
+                <i class="fas fa-users-cog text-magenta"></i> TEAM-ORIENTED MINDSET
+              </span>
+              <span class="pillar-chip-tactical">
+                <i class="fas fa-stopwatch text-warning"></i> RAPID, RELIABLE DELIVERY
+              </span>
+            </div>
           </div>
-          <h2 class="display-6 fw-bold mb-3 collaboration-title">Recommendations & Collaboration</h2>
-          <p class="lead text-muted collaboration-subtitle mx-auto">
-            I'm always keen to build thoughtful digital experiences alongside passionate teams and clients.
-            Have we collaborated on a project, engineering sprint, or hackathon? I'd love to feature your recommendation here.
-          </p>
-        </div>
 
-        <div class="collaboration-pillars d-flex flex-wrap justify-content-center gap-3 my-4">
-          <span class="pillar-chip"><i class="fas fa-code-branch me-2 text-primary"></i>Clean & Scalable Code</span>
-          <span class="pillar-chip"><i class="fas fa-users me-2 text-primary"></i>Team-Oriented Mindset</span>
-          <span class="pillar-chip"><i class="fas fa-rocket me-2 text-primary"></i>Fast, Reliable Delivery</span>
-        </div>
-
-        <div class="collaboration-actions d-flex flex-wrap justify-content-center gap-3 mt-4">
-          <a href="mailto:bmuchow07@gmail.com?subject=Recommendation%20for%20Bret%20Muchoni&body=Hey%20Bret%2C%0A%0AHere%20is%20my%20recommendation%20%2F%20feedback%3A%0A%0A"
-            class="btn btn-primary rounded-pill px-4 py-2">
-            <i class="fas fa-pen-nib me-2"></i>Leave a Recommendation
-          </a>
-          <a href="https://www.linkedin.com/in/bret-muchoni-a16b40222/" target="_blank" rel="noopener"
-            class="btn btn-outline-primary rounded-pill px-4 py-2">
-            <i class="fab fa-linkedin me-2"></i>Connect on LinkedIn
-          </a>
-          <a href="#contact" class="btn btn-outline-secondary rounded-pill px-4 py-2">
-            <i class="fas fa-envelope me-2"></i>Get in Touch
-          </a>
+          <div class="col-lg-4 text-lg-end">
+            <div class="d-flex flex-column gap-3">
+              <a href="mailto:bmuchow07@gmail.com?subject=Recommendation%20for%20Bret%20Muchoni&body=Hey%20Bret%2C%0A%0AHere%20is%20my%20recommendation%20%2F%20feedback%3A%0A%0A"
+                class="btn-tactical btn-tactical-primary py-3">
+                <i class="fas fa-pen-nib me-2"></i>LEAVE_FEEDBACK
+              </a>
+              <a href="https://www.linkedin.com/in/bret-muchoni-a16b40222/" target="_blank" rel="noopener"
+                class="btn-tactical btn-tactical-outline py-3">
+                <i class="fab fa-linkedin me-2"></i>LINKEDIN_CONNECT
+              </a>
+              <a href="#contact" class="btn-tactical py-2">
+                <i class="fas fa-envelope me-2"></i>DIRECT_DISPATCH
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
