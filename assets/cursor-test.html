@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cursor Preview</title>
+<style>
+  body {
+    background: #111;
+    color: #eee;
+    font-family: monospace;
+    padding: 2rem;
+    cursor: url('../assets/win95-cursor.png') 0 0, url('../assets/win95-cursor.svg') 0 0, auto;
+  }
+  .test-link, .test-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #ff2e88;
+    color: #fff;
+    border: 2px solid #00e5ff;
+    cursor: url('../assets/win95-pointer.png') 6 1, url('../assets/win95-pointer.svg') 6 1, pointer;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .test-input {
+    padding: 8px;
+    cursor: url('../assets/win95-text.png') 4 8, url('../assets/win95-text.svg') 4 8, text;
+  }
+  .preview-box {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .img-zoom {
+    image-rendering: pixelated;
+    width: 128px;
+    height: 128px;
+    border: 2px solid #333;
+    background: #222;
+  }
+</style>
+</head>
+<body>
+  <h1>Windows 95 Pixel Art Cursors</h1>
+  <div class="preview-box">
+    <div>
+      <h3>Arrow (0, 0)</h3>
+      <img class="img-zoom" src="../assets/win95-cursor.png">
+    </div>
+    <div>
+      <h3>Pointer Hand (6, 1)</h3>
+      <img class="img-zoom" src="../assets/win95-pointer.png">
+    </div>
+    <div>
+      <h3>I-Beam Text (4, 8)</h3>
+      <img class="img-zoom" src="../assets/win95-text.png">
+    </div>
+  </div>
+  <div>
+    <h3>Interactive Hover Test</h3>
+    <p>Move mouse over this text (uses default arrow cursor).</p>
+    <a href="#" class="test-link">Hover Me (Pointer)</a>
+    <button class="test-btn">Button (Pointer)</button>
+    <br><br>
+    <input class="test-input" type="text" placeholder="Text input hover (I-Beam)">
+  </div>
+</body>
+</html>

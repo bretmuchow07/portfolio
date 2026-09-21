@@ -208,7 +208,7 @@ const player = new VideoPlayer({
             { text: "Game Design", class: "bg-success" }
         ],
         links: [
-            { text: "Play Now", url: "#", icon: "fas fa-play", class: "btn-primary" },
+            { text: "Play Now", url: "https://shonawordle.co.zw/", icon: "fas fa-play", class: "btn-primary" },
             { text: "View Source", url: "#", icon: "fab fa-github", class: "btn-outline-primary" }
         ],
         heroIcon: { icon: "fas fa-gamepad", color: "text-success", text: "Game Interface Preview" },

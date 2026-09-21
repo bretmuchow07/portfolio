@@ -48,6 +48,11 @@
   --code-bg: #111114;
   --caution-stripe-1: var(--magenta);
   --caution-stripe-2: var(--ink);
+
+  /* Retro Pixel Art / Windows 95 Cursors */
+  --cursor-default: url('../assets/win95-cursor.cur') 0 0, url('../assets/win95-cursor.png') 0 0, url('../assets/win95-cursor.svg') 0 0, auto;
+  --cursor-pointer: url('../assets/win95-pointer.cur') 10 0, url('../assets/win95-pointer.png') 10 0, url('../assets/win95-pointer.svg') 10 0, pointer;
+  --cursor-text: url('../assets/win95-text.cur') 15 16, url('../assets/win95-text.png') 15 16, url('../assets/win95-text.svg') 15 16, text;
 }
 
 /* Light Mode Overrides */

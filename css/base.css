@@ -17,6 +17,49 @@ html, body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: var(--cursor-default);
+}
+
+/* Windows 95 Pixel Art Interactive Pointers */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+.btn,
+.btn-tactical,
+.nav-link,
+.hud-nav-link,
+.hud-theme-toggle,
+.portfolio-tab-btn,
+.interactive,
+.pointer,
+.theme-toggle-btn,
+.project-card,
+.testimonial-card,
+.hud-stamp-badge,
+.badge-pill,
+.badge,
+.hud-tab-btn,
+.filter-btn,
+.nav-item,
+summary {
+  cursor: var(--cursor-pointer) !important;
+}
+
+/* Windows 95 Pixel Art Text Inputs */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  cursor: var(--cursor-text) !important;
 }
 
 /* Procedural Halftone Dot Background Canvas */
@@ -135,6 +178,7 @@ p, .lead-tactical {
   line-height: 1.65;
   color: var(--text-primary);
   font-weight: 400;
+  min-height: 4.8em;
 }
 
 .text-muted-tactical {

@@ -296,13 +296,97 @@ function populateProjectTemplate(container, data) {
     }
 }
 
+let activeTypingTimeout = null;
+
+function initLeadTacticalTyping(container) {
+    const leadEl = (container ? container.querySelector('#hero-lead') : null) || 
+                   (container ? container.querySelector('.lead-tactical') : null) || 
+                   document.querySelector('#hero-lead') ||
+                   document.querySelector('.lead-tactical');
+    if (!leadEl) return;
+
+    // Respect user's reduced-motion preference
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
+    // Cancel any previous typing animation
+    if (activeTypingTimeout) {
+        clearTimeout(activeTypingTimeout);
+        activeTypingTimeout = null;
+    }
+
+    // Retrieve original text
+    const rawText = (leadEl.getAttribute('data-typed-text') || leadEl.textContent || '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    if (!rawText) return;
+
+    leadEl.setAttribute('data-typed-text', rawText);
+    leadEl.setAttribute('aria-label', rawText);
+
+    // Build markup with typed content container and blinking cursor
+    leadEl.innerHTML = '<span class="typed-content"></span><span class="tactical-typing-cursor" aria-hidden="true"></span>';
+    const textSpan = leadEl.querySelector('.typed-content');
+    const cursorSpan = leadEl.querySelector('.tactical-typing-cursor');
+
+    let charIndex = 0;
+    const totalChars = rawText.length;
+    const baseSpeed = 16; // Fast, snappy tactical terminal typing speed
+
+    function typeNextChar() {
+        if (charIndex < totalChars) {
+            textSpan.textContent += rawText.charAt(charIndex);
+            charIndex++;
+
+            const lastChar = rawText.charAt(charIndex - 1);
+            let delay = baseSpeed;
+            if (lastChar === '.' || lastChar === '!' || lastChar === '?') {
+                delay = baseSpeed * 6; // Brief pause on sentence boundaries
+            } else if (lastChar === ',') {
+                delay = baseSpeed * 3; // Micro-pause on comma
+            }
+            activeTypingTimeout = setTimeout(typeNextChar, delay);
+        } else {
+            // Typing complete: keep cursor blinking for 3.5s, then gracefully fade out
+            setTimeout(() => {
+                if (cursorSpan) {
+                    cursorSpan.style.transition = 'opacity 0.5s ease';
+                    cursorSpan.style.opacity = '0';
+                    setTimeout(() => {
+                        if (cursorSpan && cursorSpan.parentNode) {
+                            cursorSpan.parentNode.removeChild(cursorSpan);
+                        }
+                    }, 500);
+                }
+            }, 3500);
+        }
+    }
+
+    // Click to instantly complete typing
+    leadEl.onclick = () => {
+        if (charIndex < totalChars) {
+            if (activeTypingTimeout) clearTimeout(activeTypingTimeout);
+            textSpan.textContent = rawText;
+            charIndex = totalChars;
+            if (cursorSpan) cursorSpan.remove();
+        }
+    };
+
+    // Start typing after brief 200ms delay to sync with page transition
+    activeTypingTimeout = setTimeout(typeNextChar, 200);
+}
+
 function initializePageEnhancements(container, page) {
     if (page === 'contact' && typeof initializeContactForm === 'function') {
         initializeContactForm();
     }
 
-    if (page === 'home' && typeof loadTestimonials === 'function') {
-        loadTestimonials();
+    if (page === 'home') {
+        if (typeof loadTestimonials === 'function') {
+            loadTestimonials();
+        }
+        initLeadTacticalTyping(container);
     }
 }
 

@@ -121,7 +121,7 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   padding: 6px 12px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer, pointer);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -177,7 +177,7 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  animation: ticker-marquee 32s linear infinite;
+  animation: ticker-marquee 75s linear infinite;
 }
 
 .ticker-track:hover {
@@ -368,7 +368,7 @@ body.light-mode .chamfer-panel-wrap {
   background: var(--panel-surface);
   color: var(--text-primary);
   box-shadow: 2px 2px 0 var(--magenta);
-  cursor: default;
+  cursor: var(--cursor-default, default);
   transition: transform 150ms ease-out, box-shadow 150ms ease-out;
 }
 
@@ -459,7 +459,7 @@ body.light-mode .web1-stamp {
   background: var(--panel-surface);
   color: var(--text-primary);
   box-shadow: var(--hard-shadow);
-  cursor: pointer;
+  cursor: var(--cursor-pointer, pointer);
   text-decoration: none !important;
   position: relative;
   overflow: hidden;

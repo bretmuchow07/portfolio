@@ -83,6 +83,18 @@
   animation: beacon-pulse-green 2s infinite;
 }
 
+/* Tactical Terminal Typewriter Cursor */
+.tactical-typing-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.15em;
+  background-color: var(--cyan);
+  vertical-align: -0.18em;
+  margin-left: 2px;
+  animation: blink-cursor 0.75s step-end infinite;
+  box-shadow: 0 0 6px var(--cyan);
+}
+
 /* Reduced Motion Accessibility Guardrails */
 @media (prefers-reduced-motion: reduce) {
   *,
