@@ -1,0 +1,18 @@
+# Dependencies and build artifacts
+node_modules/
+dist/
+build/
+
+# Impeccable design tool artifacts
+.impeccable/
+
+# Environment and secrets
+.env
+.env.local
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

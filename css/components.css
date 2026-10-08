@@ -34,7 +34,7 @@
   justify-content: center;
   font-family: var(--font-display);
   font-size: 1rem;
-  color: var(--paper);
+  color: #0d0d12;
   transition: transform 0.15s ease;
 }
 
@@ -130,7 +130,7 @@
 
 .hud-theme-toggle:hover {
   background: var(--magenta);
-  color: var(--paper);
+  color: #0d0d12;
   box-shadow: 2px 2px 0 var(--cyan);
 }
 
@@ -154,47 +154,43 @@
 }
 
 .ticker-caution-strip {
-  height: 6px;
+  height: 2px;
   width: 100%;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--caution-stripe-1) 0,
-    var(--caution-stripe-1) 8px,
-    var(--caution-stripe-2) 8px,
-    var(--caution-stripe-2) 16px
-  );
+  background: var(--panel-border-color);
 }
 
 .ticker-viewport {
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 6px 0;
+  overflow-x: auto;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .ticker-track {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  white-space: nowrap;
-  animation: ticker-marquee 75s linear infinite;
+  justify-content: center;
+  row-gap: 6px;
+  column-gap: 12px;
+  animation: none;
 }
 
 .ticker-track:hover {
-  animation-play-state: paused;
+  animation-play-state: running;
 }
 
 .ticker-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: normal;
   color: var(--paper);
-  padding: 0 1.5rem;
+  padding: 2px 8px;
 }
 
 .ticker-separator {
@@ -334,16 +330,7 @@ body.light-mode .chamfer-panel-wrap {
 
 .scanline-frame::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--scanline-overlay);
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 200ms linear;
-  z-index: 2;
+  display: none;
 }
 
 .scanline-frame:hover::after,
@@ -360,7 +347,7 @@ body.light-mode .chamfer-panel-wrap {
   align-items: center;
   gap: 4px;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
   padding: 4px 10px;
@@ -395,7 +382,7 @@ body.light-mode .chamfer-panel-wrap {
 
 .sticker-badge.badge-magenta {
   background: var(--magenta);
-  color: var(--paper);
+  color: #0d0d12;
   border-color: var(--paper);
   box-shadow: 2px 2px 0 var(--cyan);
 }
@@ -409,34 +396,38 @@ body.light-mode .chamfer-panel-wrap {
 
 /* Web 1.0 Micro-Stamp Badges (88x31 inspired ratio) */
 .web1-stamp {
-  width: 96px;
-  height: 32px;
-  border: 2px solid var(--paper);
-  background: var(--panel-black);
+  min-width: 104px;
+  height: auto;
+  min-height: 34px;
+  border: 1.5px solid var(--paper);
+  background: var(--panel-black) !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  line-height: 1.1;
-  color: var(--paper);
+  font-size: 0.75rem; /* 12px, passes 11px floor */
+  line-height: 1.25;
+  color: var(--paper) !important;
   text-transform: uppercase;
   box-shadow: 2px 2px 0 var(--magenta);
-  padding: 2px 4px;
+  padding: 4px 8px;
   user-select: none;
+  image-rendering: pixelated;
   transition: all 0.15s ease;
 }
 
 .web1-stamp:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
   box-shadow: 3px 3px 0 var(--cyan);
-  background: var(--magenta);
-  color: var(--paper);
+  background: var(--magenta) !important;
+  color: #0d0d12 !important;
 }
 
 body.light-mode .web1-stamp {
-  border-color: var(--panel-black);
+  border-color: var(--paper);
+  background: var(--panel-black) !important;
+  color: var(--paper) !important;
   box-shadow: 2px 2px 0 var(--panel-black);
 }
 
@@ -455,6 +446,7 @@ body.light-mode .web1-stamp {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 10px 20px;
+  min-height: 44px;
   border: 2px solid var(--panel-border-color);
   background: var(--panel-surface);
   color: var(--text-primary);
@@ -491,27 +483,28 @@ body.light-mode .web1-stamp {
 
 .btn-tactical-primary {
   background: var(--magenta) !important;
-  color: var(--paper) !important;
+  color: #0d0d12 !important;
+  font-weight: 700;
   border-color: var(--panel-border-color) !important;
   box-shadow: 4px 4px 0 var(--cyan);
 }
 
 .btn-tactical-primary:hover {
-  background: #e02377 !important;
-  color: var(--paper) !important;
+  background: var(--cyan) !important;
+  color: #0d0d12 !important;
   box-shadow: 6px 6px 0 var(--acid-yellow);
 }
 
 .btn-tactical-cyan {
   background: var(--cyan) !important;
-  color: var(--ink) !important;
+  color: #0d0d12 !important;
   border-color: var(--panel-black);
   box-shadow: 4px 4px 0 var(--magenta);
 }
 
 .btn-tactical-cyan:hover {
   background: #00c4dc !important;
-  color: var(--ink) !important;
+  color: #0d0d12 !important;
   box-shadow: 6px 6px 0 var(--acid-yellow);
 }
 
@@ -523,10 +516,10 @@ body.light-mode .web1-stamp {
 }
 
 .btn-tactical-outline:hover {
-  background: var(--magenta) !important;
-  color: var(--paper) !important;
-  border-color: var(--magenta) !important;
-  box-shadow: 6px 6px 0 var(--cyan);
+  background: var(--cyan) !important;
+  color: #0d0d12 !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 6px 6px 0 var(--magenta);
 }
 
 
@@ -577,7 +570,7 @@ body.light-mode .web1-stamp {
 }
 
 .tactical-collab-panel::before {
-  content: 'SEC_REC // FEEDBACK_SYS';
+  content: 'COLLABORATION // DISPATCH';
   position: absolute;
   top: -12px;
   left: 20px;
@@ -599,7 +592,7 @@ body.light-mode .web1-stamp {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--paper);
-  letter-spacing: 0.05em;
+  letter-spacing: normal;
 }
 
 .pillar-chip-tactical {
@@ -621,24 +614,12 @@ body.light-mode .web1-stamp {
    ========================================================================== */
 .hud-footer {
   background: var(--panel-black);
-  border-top: 3px solid var(--panel-border-color);
+  border-top: 2px solid var(--panel-border-color);
   position: relative;
 }
 
 .hud-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--magenta) 0,
-    var(--magenta) 8px,
-    var(--cyan) 8px,
-    var(--cyan) 16px
-  );
+  display: none !important;
 }
 
 /* Sub-panels & Channels */
@@ -660,4 +641,173 @@ body.light-mode .tactical-channel-box {
 .tactical-channel-box a,
 body.light-mode .tactical-channel-box a {
   color: var(--text-primary);
+}
+
+
+/* ==========================================================================
+   11. Responsive Layout Adaptations (Mobile & Tablet)
+   ========================================================================== */
+
+/* Tablet & Mobile Nav Drawer (below 992px) */
+@media (max-width: 991.98px) {
+  .hud-navbar .navbar-collapse {
+    background: var(--panel-black);
+    border: 2px solid var(--panel-border-color);
+    box-shadow: 4px 4px 0 var(--panel-black);
+    padding: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  body.light-mode .hud-navbar .navbar-collapse {
+    background: #ffffff;
+    border-color: #111114;
+    box-shadow: 4px 4px 0 #111114;
+  }
+
+  .hud-navbar .hud-nav-link {
+    display: flex;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  body.light-mode .hud-navbar .hud-nav-link {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .hud-navbar .hud-theme-toggle {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    margin-top: 0.75rem;
+  }
+}
+
+/* Mobile Devices (below 768px) */
+@media (max-width: 767.98px) {
+  /* Ticker Status Strip */
+  .tactical-ticker-container {
+    margin-top: 56px;
+  }
+
+  .ticker-viewport {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: flex-start;
+  }
+
+  .ticker-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ticker-track {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .ticker-item {
+    white-space: nowrap;
+    font-size: 0.76rem;
+    flex-shrink: 0;
+  }
+
+  .ticker-separator {
+    flex-shrink: 0;
+  }
+
+  /* Cards & Frames */
+  .window-body {
+    padding: 1.25rem 1rem;
+  }
+
+  .window-card {
+    box-shadow: 4px 4px 0 var(--magenta);
+  }
+
+  .profile-tactical-frame {
+    max-width: 100%;
+    box-shadow: 4px 4px 0 var(--magenta);
+    padding: 6px;
+  }
+
+  .profile-tactical-frame img {
+    max-width: 240px;
+    height: auto;
+  }
+
+  .frame-corner-tag {
+    font-size: 0.65rem;
+    padding: 2px 5px;
+  }
+
+  .tactical-collab-panel {
+    padding: 1.5rem 1rem !important;
+    box-shadow: 4px 4px 0 var(--magenta) !important;
+  }
+
+  /* Form Inputs (prevent iOS Safari zoom with 16px font-size) */
+  .form-tactical-input {
+    font-size: 16px;
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  /* Footer touch targets */
+  .footer-social-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Small Phones (below 576px) */
+@media (max-width: 575.98px) {
+  /* Touch-friendly full-width buttons in hero and project actions */
+  .hero-section .d-flex.flex-wrap.gap-3 a,
+  .hero-section .btn-tactical {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .window-body .d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch !important;
+  }
+
+  .window-body .d-flex.justify-content-between.align-items-center .btn-tactical {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .tactical-channel-box {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .pillar-chip-tactical {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Touch screen interaction polish: remove sticky hover states */
+@media (hover: none) and (pointer: coarse) {
+  .btn-tactical:hover,
+  .card:hover,
+  .window-card:hover {
+    transform: none !important;
+  }
+
+  .btn-tactical:active,
+  .window-card:active {
+    transform: translate(2px, 2px) !important;
+    box-shadow: 0 0 0 transparent !important;
+  }
 }

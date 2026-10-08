@@ -68,13 +68,14 @@ body.light-mode .bg-light {
 
 .btn-primary {
   background: var(--magenta) !important;
-  color: var(--paper) !important;
+  color: #0d0d12 !important;
   border-color: var(--paper) !important;
   box-shadow: 4px 4px 0 var(--cyan) !important;
 }
 
 .btn-primary:hover {
   background: #e02377 !important;
+  color: #0d0d12 !important;
   transform: translateY(-2px);
   box-shadow: 6px 6px 0 var(--acid-yellow) !important;
 }
@@ -134,20 +135,7 @@ body.light-mode .bg-light {
 }
 
 .profile-tactical-frame::after {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  bottom: 8px;
-  background: var(--scanline-overlay);
-  pointer-events: none;
-  opacity: 0.7;
-  transition: opacity 200ms linear;
-}
-
-.profile-tactical-frame:hover::after {
-  opacity: 0;
+  display: none;
 }
 
 .frame-corner-tag {
@@ -175,7 +163,7 @@ body.light-mode .bg-light {
 
 /* Marquee / Testimonial styling */
 .testimonials-marquee-container {
-  overflow: hidden;
+  overflow-x: auto;
   width: 100%;
   position: relative;
   padding: 1.5rem 0;
@@ -183,13 +171,14 @@ body.light-mode .bg-light {
 
 .testimonials-marquee {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
-  width: max-content;
-  animation: ticker-marquee 35s linear infinite;
+  width: 100%;
+  animation: none;
 }
 
 .testimonials-marquee:hover {
-  animation-play-state: paused;
+  animation-play-state: running;
 }
 
 .testimonials-marquee-group {
@@ -275,14 +264,14 @@ body.light-mode main .btn-outline-secondary:hover {
 
 body.light-mode main .btn-tactical-primary {
   background: var(--magenta) !important;
-  color: #ffffff !important;
+  color: #0d0d12 !important;
   border: 2px solid #111114 !important;
   box-shadow: 4px 4px 0 #111114 !important;
 }
 
 body.light-mode main .btn-tactical-primary:hover {
   background: #e02377 !important;
-  color: #ffffff !important;
+  color: #0d0d12 !important;
   box-shadow: 6px 6px 0 var(--cyan) !important;
 }
 
@@ -347,6 +336,11 @@ body.light-mode .pillar-chip-tactical {
   color: var(--cyan) !important;
 }
 
+.hud-footer .text-muted-tactical,
+body.light-mode .hud-footer .text-muted-tactical {
+  color: #a2a2b0 !important;
+}
+
 /* Dedicated Footer Social Buttons — High Contrast in BOTH Light & Dark Modes */
 .footer-social-btn {
   display: inline-flex;
@@ -368,6 +362,8 @@ body.light-mode .pillar-chip-tactical {
   transition: transform 60ms linear, box-shadow 60ms linear, background-color 0.15s ease, color 0.15s ease;
 }
 
+.hud-footer .footer-social-btn:hover,
+.hud-footer a.footer-social-btn:hover,
 .footer-social-btn:hover {
   background: var(--cyan) !important;
   color: #0d0d12 !important;
@@ -376,6 +372,8 @@ body.light-mode .pillar-chip-tactical {
   transform: translateY(-2px);
 }
 
+.hud-footer .footer-social-btn:active,
+.hud-footer a.footer-social-btn:active,
 .footer-social-btn:active {
   transform: translate(2px, 2px) !important;
   box-shadow: 0 0 0 transparent !important;
