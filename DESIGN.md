@@ -149,7 +149,3 @@ portfolio/
 - Visual Clarity Guarantee: Interactive project screenshots never employ destructive halftone masking over core software UI demonstrations.
 
 - Semantic Fallbacks: Chamfered layouts retain standard fallback rectangular boxes for older browsers lacking polygon clip-path support.
-
----
-
-Would you like the corresponding starter code for tokens.css and components.css to begin building this?

@@ -67,20 +67,27 @@
   animation: panel-slam 380ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Steady Status Indicator (Calm, Deterministic Telemetry) */
 .beacon-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: var(--acid-yellow);
-  border-radius: 50%;
   display: inline-block;
-  animation: beacon-pulse 2s infinite;
   vertical-align: middle;
   flex-shrink: 0;
+  border: 1px solid var(--panel-black);
+  margin-right: 4px;
 }
 
 .beacon-dot-cyan {
   background-color: var(--cyan);
-  animation: beacon-pulse-green 2s infinite;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  border: 1px solid var(--panel-black);
+  margin-right: 4px;
 }
 
 /* Tactical Terminal Typewriter Cursor */
@@ -92,7 +99,6 @@
   vertical-align: -0.18em;
   margin-left: 2px;
   animation: blink-cursor 0.75s step-end infinite;
-  box-shadow: 0 0 6px var(--cyan);
 }
 
 /* Reduced Motion Accessibility Guardrails */
@@ -108,6 +114,5 @@
   .ticker-track {
     animation: none !important;
     transform: none !important;
-    overflow-x: auto !important;
   }
 }
