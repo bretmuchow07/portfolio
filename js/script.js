@@ -22,19 +22,240 @@ fetch('components/navbar.html')
         console.error('Navbar load error:', err);
     });
 
+/**
+ * HyperFrames Tactical Motion Engine (v2.2)
+ * High-performance, zero-dependency implementation of HyperFrames animation patterns:
+ * - hacker-flip-3d: Deterministic character 3D flip & decrypt
+ * - tactical-shutter: Mechanical scanline blade scene transitions
+ * - split-tilt-cards: Smooth 3D gyro perspective tilt with parallax depth
+ * - press-release-spring: Mechanical switch recoil on tactile buttons & stamps
+ * - chromatic-glitch: Controlled RGB-split slice effect
+ */
+const HyperFramesTacticalMotion = {
+    reducedMotion: typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+
+    GLYPHS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789//_#[]<>*!=+%',
+
+    // Pseudo-random character generator seeded deterministically
+    pseudoGlyph: function (seed) {
+        const h = ((seed * 9301 + 49297) % 233280) / 233280;
+        return this.GLYPHS[Math.floor(h * this.GLYPHS.length)];
+    },
+
+    // 1. hacker-flip-3d Decryption Reveal
+    decryptText: function (element, options) {
+        if (!element || this.reducedMotion) return;
+        if (element._decrypting) return;
+        element._decrypting = true;
+
+        options = options || {};
+        const originalText = element.getAttribute('data-raw-text') || element.textContent.trim();
+        element.setAttribute('data-raw-text', originalText);
+        if (!originalText) {
+            element._decrypting = false;
+            return;
+        }
+
+        const duration = options.duration || 320; // ms
+        const stagger = options.stagger || 15;    // ms per char
+        const chars = [...originalText];
+
+        // Wrap characters in slots to preserve exact width and enable 3D flip
+        element.innerHTML = '';
+        const charSlots = chars.map((ch, idx) => {
+            const slot = document.createElement('span');
+            slot.className = 'hacker-char-slot';
+            if (ch === ' ') {
+                slot.textContent = '\u00A0';
+                element.appendChild(slot);
+                return null;
+            }
+            const charSpan = document.createElement('span');
+            charSpan.className = 'hacker-char';
+            charSpan.textContent = this.pseudoGlyph(idx * 7);
+            charSpan.style.transform = 'rotateX(90deg)';
+            charSpan.style.opacity = '0';
+            slot.appendChild(charSpan);
+            element.appendChild(slot);
+            return { span: charSpan, target: ch, idx: idx };
+        });
+
+        const activeSlots = charSlots.filter(Boolean);
+        const startTime = performance.now();
+
+        const tick = (now) => {
+            const elapsed = now - startTime;
+            let allFinished = true;
+
+            activeSlots.forEach(({ span, target, idx }) => {
+                const charStart = idx * stagger;
+                if (elapsed < charStart) {
+                    allFinished = false;
+                    return;
+                }
+                const progress = Math.min((elapsed - charStart) / duration, 1);
+                if (progress < 1) {
+                    allFinished = false;
+                    // Flip 90deg to 0deg
+                    const angle = 90 * (1 - progress);
+                    span.style.transform = `rotateX(${angle.toFixed(1)}deg)`;
+                    span.style.opacity = Math.min(1, progress * 2).toFixed(2);
+                    // Decrypt glyph below 70% threshold
+                    if (progress < 0.7) {
+                        const seed = idx * 1000 + Math.floor(progress * 40);
+                        span.textContent = this.pseudoGlyph(seed);
+                    } else {
+                        span.textContent = target;
+                    }
+                } else {
+                    span.style.transform = 'rotateX(0deg)';
+                    span.style.opacity = '1';
+                    span.textContent = target;
+                }
+            });
+
+            if (!allFinished) {
+                requestAnimationFrame(tick);
+            } else {
+                element._decrypting = false;
+            }
+        };
+
+        requestAnimationFrame(tick);
+    },
+
+    // 2. Scan and run decryption on page telemetry & headers
+    initDecryptionOnContainer: function (container) {
+        if (this.reducedMotion) return;
+        const root = container || document;
+
+        // Telemetry headers (last child usually holds the text string)
+        const telemetryHeaders = root.querySelectorAll('.telemetry-header span:last-child');
+        telemetryHeaders.forEach((el, i) => {
+            setTimeout(() => this.decryptText(el, { duration: 300, stagger: 14 }), i * 50);
+        });
+
+        // Section titles & Hero headlines
+        const titles = root.querySelectorAll('.section-title, .hero-headline');
+        titles.forEach((el, i) => {
+            if (el.classList.contains('hero-headline')) {
+                el.classList.add('gradient-sweep-active');
+            }
+            setTimeout(() => this.decryptText(el, { duration: 360, stagger: 16 }), 80 + i * 60);
+        });
+
+        // Window titles & sticker badges
+        const badges = root.querySelectorAll('.window-title');
+        badges.forEach((el, i) => {
+            setTimeout(() => this.decryptText(el, { duration: 240, stagger: 10 }), 120 + i * 30);
+        });
+    },
+
+    // 3. split-tilt-cards: Smooth 3D perspective gyro tilt
+    initCardTilt: function (container) {
+        if (this.reducedMotion) return;
+        const root = container || document;
+        const cards = root.querySelectorAll('.window-card, .profile-tactical-frame, .tactical-collab-panel');
+
+        cards.forEach(card => {
+            if (card._tiltAttached) return;
+            card._tiltAttached = true;
+            card.classList.add('tactical-3d-card');
+
+            let ticking = false;
+
+            const onMouseMove = (e) => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    // Clamped to ±3.5 degrees for stable readability
+                    const rotateX = ((centerY - y) / centerY) * 3.5;
+                    const rotateY = ((x - centerX) / centerX) * 3.5;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
+                    ticking = false;
+                });
+            };
+
+            const onMouseLeave = () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+            };
+
+            card.addEventListener('mousemove', onMouseMove, { passive: true });
+            card.addEventListener('mouseleave', onMouseLeave, { passive: true });
+        });
+    },
+
+    // 4. press-release-spring: Tactile Cherry-MX style recoil on buttons & stamps
+    initButtonSpringPhysics: function (container) {
+        const root = container || document;
+        const interactables = root.querySelectorAll('.btn-tactical, .web1-stamp, .hud-theme-toggle, .btn, .footer-social-btn');
+
+        interactables.forEach(el => {
+            if (el._springAttached) return;
+            el._springAttached = true;
+
+            el.addEventListener('click', () => {
+                el.classList.remove('btn-spring-recoil');
+                void el.offsetWidth;
+                el.classList.add('btn-spring-recoil');
+                setTimeout(() => {
+                    el.classList.remove('btn-spring-recoil');
+                }, 260);
+            }, { passive: true });
+        });
+    },
+
+    // 5. Tactical Shutter Transition Execution
+    executeShutterTransition: function (callback) {
+        const shutter = document.getElementById('tactical-shutter');
+        const content = document.getElementById('app-content');
+
+        if (!shutter || this.reducedMotion) {
+            if (content) {
+                content.style.opacity = '0';
+                setTimeout(() => {
+                    callback();
+                    content.style.opacity = '1';
+                    content.classList.remove('animate-tactical-slam');
+                    void content.offsetWidth;
+                    content.classList.add('animate-tactical-slam');
+                }, 60);
+            } else {
+                callback();
+            }
+            return;
+        }
+
+        // Phase 1: Shutter Closes (60ms)
+        shutter.classList.add('active');
+
+        setTimeout(() => {
+            // Phase 2: Domestic DOM Swap
+            callback();
+
+            // Phase 3: Shutter Opens & Panels Slam In (80ms)
+            setTimeout(() => {
+                shutter.classList.remove('active');
+                if (content) {
+                    content.classList.remove('animate-tactical-slam');
+                    void content.offsetWidth;
+                    content.classList.add('animate-tactical-slam');
+                }
+            }, 70);
+        }, 80);
+    }
+};
+
 // Utility functions for routing and animations
 const PortfolioUtils = {
     transitionToPage: function (callback) {
-        const content = document.getElementById('app-content');
-        if (!content) return callback();
-        content.style.opacity = '0';
-        content.style.transform = 'translateY(12px)';
-
-        setTimeout(() => {
-            callback();
-            content.style.opacity = '1';
-            content.style.transform = 'translateY(0)';
-        }, 150);
+        HyperFramesTacticalMotion.executeShutterTransition(callback);
     },
 
     updatePageMeta: function (title, description) {
@@ -332,6 +553,29 @@ function initializePageEnhancements(container, page) {
         }
         initLeadTacticalTyping(container);
     }
+
+    // HyperFrames Tactical Motion Patterns (v2.2)
+    HyperFramesTacticalMotion.initDecryptionOnContainer(container);
+    HyperFramesTacticalMotion.initCardTilt(container);
+    HyperFramesTacticalMotion.initButtonSpringPhysics(container);
+
+    // In-page anchor routing (e.g., href="#projects", href="#contact")
+    const inPageLinks = (container || document).querySelectorAll('a[href^="#"]');
+    inPageLinks.forEach(link => {
+        if (link._routeBound) return;
+        link._routeBound = true;
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#' || this.classList.contains('hud-nav-link')) return;
+            const targetPage = href.replace('#', '');
+            if (targetPage) {
+                e.preventDefault();
+                loadPage(targetPage);
+                window.location.hash = targetPage;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    });
 }
 
 function loadTestimonials() {
@@ -509,6 +753,7 @@ function attachNavEvents() {
         });
     });
     attachThemeToggle();
+    HyperFramesTacticalMotion.initButtonSpringPhysics(document);
 }
 
 // Handle browser navigation (back/forward)
@@ -532,6 +777,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Initial page load
     const page = window.location.hash.replace('#', '') || 'home';
     loadPage(page);
+    HyperFramesTacticalMotion.initButtonSpringPhysics(document);
 });
 
 if (typeof module !== 'undefined' && module.exports) {

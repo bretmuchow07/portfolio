@@ -101,6 +101,216 @@
   animation: blink-cursor 0.75s step-end infinite;
 }
 
+/* ==========================================================================
+   HyperFrames Tactical Motion Patterns (v2.2 Architecture)
+   ========================================================================== */
+
+/* 1. Tactical Shutter & Scene Transition Overlay */
+.tactical-shutter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 80ms linear;
+}
+
+.tactical-shutter-overlay.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.shutter-blade-top,
+.shutter-blade-bottom,
+.shutter-telemetry {
+  pointer-events: none;
+}
+
+.tactical-shutter-overlay.active .shutter-blade-top,
+.tactical-shutter-overlay.active .shutter-blade-bottom,
+.tactical-shutter-overlay.active .shutter-telemetry {
+  pointer-events: auto;
+}
+
+.shutter-blade-top,
+.shutter-blade-bottom {
+  height: 50%;
+  width: 100%;
+  background: var(--ink);
+  position: relative;
+  transition: transform 100ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.shutter-blade-top {
+  transform: translateY(-100%);
+  border-bottom: 2px solid var(--magenta);
+}
+
+.shutter-blade-bottom {
+  transform: translateY(100%);
+  border-top: 2px solid var(--cyan);
+}
+
+.tactical-shutter-overlay.active .shutter-blade-top {
+  transform: translateY(0);
+}
+
+.tactical-shutter-overlay.active .shutter-blade-bottom {
+  transform: translateY(0);
+}
+
+.shutter-telemetry {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: var(--panel-black);
+  border: 1px solid var(--acid-yellow);
+  padding: 6px 14px;
+  color: var(--paper);
+  font-family: var(--font-pixel);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 15px rgba(245, 255, 0, 0.25);
+  opacity: 0;
+  transition: opacity 60ms linear;
+}
+
+.tactical-shutter-overlay.active .shutter-telemetry {
+  opacity: 1;
+}
+
+/* 2. Tactical Panel Slam In */
+@keyframes tactical-slam-in {
+  0% {
+    transform: scale(1.025) translateY(6px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-tactical-slam {
+  animation: tactical-slam-in 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3. Hacker Flip 3D Reveal Characters */
+.hacker-char-slot {
+  display: inline-block;
+  perspective: 600px;
+  transform-style: preserve-3d;
+  vertical-align: baseline;
+  white-space: pre;
+}
+
+.hacker-char {
+  display: inline-block;
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: transform 60ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 4. Tactile Spring Button & Stamp Physics */
+@keyframes spring-recoil {
+  0% {
+    transform: translate(2px, 2px) scale(0.97);
+  }
+  50% {
+    transform: translate(-1px, -1px) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.btn-spring-recoil {
+  animation: spring-recoil 240ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+/* 5. Interactive 3D Perspective Card Tilt */
+.tactical-3d-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.14s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.14s ease;
+}
+
+.tactical-3d-card .window-header,
+.tactical-3d-card .sticker-badge,
+.tactical-3d-card .web1-stamp {
+  transform: translateZ(10px);
+  transform-style: preserve-3d;
+}
+
+/* 6. Chromatic Glitch on Brand Mark & High-Priority Alerts */
+@keyframes chromatic-slice {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+    clip-path: inset(0 0 0 0);
+  }
+  25% {
+    transform: translate(-2px, 1px);
+    text-shadow: 2px 0 var(--cyan), -2px 0 var(--magenta);
+    clip-path: inset(15% 0 35% 0);
+  }
+  50% {
+    transform: translate(2px, -1px);
+    text-shadow: -2px 0 var(--acid-yellow), 2px 0 var(--cyan);
+    clip-path: inset(55% 0 10% 0);
+  }
+  75% {
+    transform: translate(-1px, 0);
+    text-shadow: 1px 0 var(--magenta), -1px 0 var(--cyan);
+    clip-path: inset(5% 0 65% 0);
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: none;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.hud-brand-mark:hover,
+.glitch-on-hover:hover {
+  animation: chromatic-slice 180ms steps(2, end) forwards;
+}
+
+/* 7. High-Chroma Gradient Text Sweep */
+@keyframes gradient-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-sweep-active {
+  background: linear-gradient(90deg, var(--magenta) 0%, var(--acid-yellow) 40%, var(--cyan) 70%, var(--magenta) 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-sweep 4s linear infinite;
+}
+
 /* Reduced Motion Accessibility Guardrails */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -454,6 +454,8 @@ body.light-mode .web1-stamp {
   cursor: var(--cursor-pointer, pointer);
   text-decoration: none !important;
   position: relative;
+  z-index: 5;
+  white-space: nowrap;
   overflow: hidden;
   transition: transform 60ms linear, box-shadow 60ms linear, background-color 0.15s ease, color 0.15s ease;
 }
