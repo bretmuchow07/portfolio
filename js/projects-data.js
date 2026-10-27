@@ -81,7 +81,7 @@ const player = new VideoPlayer({
         ],
         links: [
             { text: "Source Code", url: "https://github.com/bretmuchow07/poster-maker", icon: "fab fa-github", class: "btn-primary" },
-            { text: "Live Demo", url: "#", icon: "fas fa-external-link-alt", class: "btn-outline-primary disabled" }
+            { text: "Live Demo", url: "https://poster-maker-iota.vercel.app/", icon: "fas fa-external-link-alt", class: "btn-outline-primary disabled" }
         ],
         heroImage: "assets/poster-maker-preview.png",
         heroIcon: null, // If no image, use icon
