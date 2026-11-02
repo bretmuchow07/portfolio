@@ -106,15 +106,20 @@ This document defines the visual identity and structural tokens for the portfoli
 
 ---
 
-## 5. Motion Catalog & Interaction Rules
+## 5. Motion Catalog & Interaction Rules (HyperFrames Patterns)
 
-| **Trigger**    | **Name**         | **Duration**     | **Implementation Behavior**                                              |
-| -------------- | ---------------- | ---------------- | ------------------------------------------------------------------------ |
-| Page Load      | `panel-slam`     | `380ms ease-out` | Panels scale from 1.05 to 1.0 with a crisp hard stop; staggered by 40ms. |
-| Hover          | `sticker-align`  | `150ms ease-out` | Tilted badges rotate to `0deg`.                                          |
-| Hover          | `scanline-clear` | `200ms linear`   | Media scanline layer drops opacity from 1.0 to 0.0.                      |
-| Active / Click | `hard-press`     | `60ms linear`    | Element translates into its solid drop shadow; shadow offset zeroed out. |
-| Continuous     | `beacon-pulse`   | `2s infinite`    | Singular acid-yellow pulse dot next to availability status.              |
+| **Trigger**       | **Name**                 | **Duration**     | **Implementation Behavior**                                              |
+| ----------------- | ------------------------ | ---------------- | ------------------------------------------------------------------------ |
+| Page Load / Route | `tactical-shutter`       | `160ms linear`   | Dual-blade scanline shutter clamps shut (60ms), swaps DOM, decompresses.  |
+| Page Load / Route | `hacker-flip-3d`         | `320ms power3`   | Telemetry headers flip down from 90° rotating through deterministic glyphs.|
+| Page Load / Route | `tactical-slam`          | `220ms ease-out` | Panels scale from 1.025 to 1.0 with a crisp hard stop; zero layout shift.|
+| Continuous        | `gradient-sweep`         | `4s linear`      | High-chroma gradient sweeps smoothly through Bungee hero letterforms.    |
+| Mousemove         | `split-tilt-cards`       | Real-time        | Interactive 3D perspective tilt clamped to ±3.5deg with Z-space depth.   |
+| Hover             | `chromatic-slice`        | `180ms steps(2)` | 2-frame RGB channel offset (cyan/magenta split) on brand mark & alerts.  |
+| Hover             | `sticker-align`          | `150ms ease-out` | Tilted badges rotate to `0deg`.                                          |
+| Hover             | `scanline-clear`         | `200ms linear`   | Media scanline layer drops opacity from 1.0 to 0.0.                      |
+| Active / Click    | `press-release-spring`   | `240ms spring`   | Instant dip into shadow followed by elastic `back.out(2)` recoil bounce. |
+| Continuous        | `beacon-pulse`           | `2s infinite`    | Singular acid-yellow pulse dot next to availability status.              |
 
 ## 6. Directory Structure
 

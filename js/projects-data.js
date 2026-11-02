@@ -115,7 +115,7 @@ const unbind = player.on('play', () => console.log('Playing'));
         ],
         links: [
             { text: "Source Code", url: "https://github.com/bretmuchow07/poster-maker", icon: "fab fa-github", class: "btn-primary" },
-            { text: "Studio Overview", url: "https://github.com/bretmuchow07/poster-maker#features", icon: "fas fa-layer-group", class: "btn-outline-primary" }
+            { text: "Live Demo", url: "https://poster-maker-iota.vercel.app/", icon: "fas fa-external-link-alt", class: "btn-outline-primary disabled" }
         ],
         heroImage: "assets/poster-maker-preview.png",
         heroIcon: null, // If no image, use icon
