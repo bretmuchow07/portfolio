@@ -1,69 +1,99 @@
 const projectsData = {
     "project-clipse-video-player": {
         title: "Clipse Video Player",
-        description: "A lightweight, fully customizable, and accessible video player component designed for the modern web.",
+        description: "A modular, zero-dependency HTML5 video player component (<14 kB gzipped) engineered for 60fps RAF scrubbing, WCAG AAA accessibility, YouTube hotkeys, and guaranteed zero memory leaks in SPAs.",
         badges: [
             { text: "Vanilla JS", class: "bg-warning text-dark" },
-            { text: "NPM Package", class: "bg-danger" },
-            { text: "Accessible", class: "bg-success" },
-            { text: "Zero Deps", class: "bg-info text-dark" }
+            { text: "NPM v1.1.0", class: "bg-danger" },
+            { text: "TypeScript", class: "bg-primary" },
+            { text: "WCAG AAA", class: "bg-success" },
+            { text: "Zero Deps", class: "bg-info text-dark" },
+            { text: "60 FPS Scrubbing", class: "bg-secondary" }
         ],
         links: [
             { text: "Source Code", url: "https://github.com/bretmuchow07/clips-video-player", icon: "fab fa-github", class: "btn-primary" },
-            { text: "Live Demo", url: "https://clips-video-player-wlhg.vercel.app/", icon: "fas fa-external-link-alt", class: "btn-outline-primary" }
+            { text: "Live Demo", url: "https://clips-video-player-wlhg.vercel.app/", icon: "fas fa-external-link-alt", class: "btn-outline-primary" },
+            { text: "NPM Registry", url: "https://www.npmjs.com/package/@clipse_video-player/video-player", icon: "fab fa-npm", class: "btn-outline-primary" }
         ],
         heroImage: "assets/clipse-video-player-preview.png",
         heroIcon: null,
         overview: {
-            title: "The Modern Video Player",
+            title: "Production-Grade HTML5 Video Engine (v1.1.0)",
             content: `
                 <p class="mb-4">
-                    <strong>Clipse Video Player</strong> is a modern, lightweight interpretation of what a web video player should be.
-                    Designed for developers who need control without bloat, it offers a fully accessible and customizable experience
-                    right out of the box.
+                    <strong>Clipse Video Player (v1.1.0)</strong> delivers a major architectural overhaul designed for developers who demand
+                    rock-solid playback reliability, buttery 60fps timeline scrubbing, and complete lifecycle teardown for single-page application
+                    environments (React, Vue, Svelte, or Next.js).
                 </p>
                 <p class="mb-4">
-                    With zero dependencies and a pure Vanilla JS core, it integrates seamlessly into any framework—whether you're
-                    rocking React, Vue, Svelte, or plain HTML. It's built for performance, ensuring your media loads fast and plays smooth.
+                    The core is pure vanilla JavaScript with full TypeScript definitions, requiring zero external dependencies and compiling
+                    to under <strong>14 kB gzipped</strong> (with the npm package trimmed by 99% down to 132 kB). It delivers out-of-the-box
+                    <strong>WCAG AAA accessibility</strong> (slider ARIA semantics and high-contrast visible focus rings), YouTube-standard
+                    hotkey bindings, dynamic multi-resolution quality switching, native WebVTT subtitle track parsing with CSS <code>::cue</code>
+                    styling, and automatic iOS Safari fullscreen fallbacks.
                 </p>
             `
         },
         sections: [
             {
+                type: "highlight-box",
+                title: "Architectural Focus: Zero Leaks & Hardware Decoder Safety",
+                icon: "fas fa-shield-alt text-cyan",
+                content: `"Engineered specifically for single-page applications where components mount and unmount dynamically. Calling player.destroy() systematically purges every DOM listener, active animation frame, and child component subscription. In parallel, seeking utilizes unified Pointer Capture throttled via requestAnimationFrame to guarantee smooth 60fps tracking without decoder lockups or dropped audio frames."`
+            },
+            {
                 type: "features-grid",
-                title: "Everything You Need",
+                title: "Core Capabilities & Performance",
                 items: [
-                    { icon: "fas fa-sliders-h text-primary", title: "Smart Controls", desc: "Built-in quality selection and settings menu interfaces." },
-                    { icon: "fas fa-feather-alt text-success", title: "Lightweight Core", desc: "Zero-dependency architecture optimized for speed." },
-                    { icon: "fas fa-code-branch text-info", title: "Event-Driven API", desc: "Rich event emitter system for seamless integration." },
-                    { icon: "fas fa-mobile-alt text-warning", title: "Mobile Responsive", desc: "Touch-optimized controls for all devices." }
+                    { icon: "fas fa-tachometer-alt text-cyan", title: "60fps RAF Scrubbing", desc: "Pointer Capture API with RAF throttling keeps scrubbing seamless even if cursor exits the window." },
+                    { icon: "fas fa-universal-access text-success", title: "WCAG AAA Accessible", desc: "Full ARIA slider semantics (valuenow, valuetext), popup menu roles, and high-contrast focus rings." },
+                    { icon: "fas fa-keyboard text-warning", title: "YouTube Hotkeys", desc: "Space/K to toggle, M to mute, F for fullscreen, J/L for ±5s seek, 0–9 jumps, and Esc menu dismissal." },
+                    { icon: "fas fa-recycle text-info", title: "Zero SPA Leaks", desc: "Coordinated disposer pattern systematically clears DOM listeners, timers, and emitters on player.destroy()." },
+                    { icon: "fas fa-closed-captioning text-magenta", title: "Subtitles & Qualities", desc: "Dynamic multi-resolution switching with time retention plus native WebVTT subtitles with CSS ::cue styling." },
+                    { icon: "fas fa-mobile-alt text-primary", title: "iOS & Safari Hardened", desc: "Automatic webkitEnterFullscreen redirection and iPhone hardware volume override protection." },
+                    { icon: "fab fa-js-square text-warning", title: "TypeScript First", desc: "First-class typings in types/index.d.ts covering player options, events, methods, and track objects." },
+                    { icon: "fas fa-box-open text-acid", title: "99% Smaller NPM Size", desc: "Optimized package manifest trimmed tarball distribution from 10.3 MB down to 132 kB (<14 kB gzipped)." }
                 ]
             },
             {
                 type: "split-card",
                 left: {
-                    title: "Quick Start",
+                    title: "Package & Integration Specs",
                     content: [
-                        { icon: "fab fa-npm text-danger", title: "Install via NPM", desc: "npm install @clipse_video-player/video-player" },
-                        { icon: "fas fa-bolt text-warning", title: "Zero Config", desc: "Works instantly with default settings" },
-                        { icon: "fas fa-universal-access text-info", title: "Accessible", desc: "Full keyboard and screen reader support" }
+                        { icon: "fab fa-npm text-danger", title: "NPM Registry", desc: "npm install @clipse_video-player/video-player" },
+                        { icon: "fas fa-feather-alt text-success", title: "Bundle Footprint", desc: "<14 kB gzipped | Zero runtime dependencies" },
+                        { icon: "fas fa-code text-info", title: "Type Definitions", desc: "Full TypeScript definitions bundled out of the box" },
+                        { icon: "fas fa-globe text-cyan", title: "CDN Distribution", desc: "Unpkg & jsDelivr UMD/ESM builds ready for vanilla HTML" }
                     ]
                 },
                 right: {
-                    title: "Simple Implementation",
+                    title: "Modern SPA Implementation & Teardown",
                     bgClass: "bg-dark text-light",
                     content: `
-                        <pre class="m-0"><code class="text-light" style="font-family: monospace;">
-// HTML
-// &lt;div id="player"&gt;&lt;/div&gt;
-
-// JavaScript
+                        <pre class="m-0 p-3" style="background: #111114 !important; color: #f4f2e8 !important; border: 2px solid #111114; border-radius: 4px; overflow-x: auto;"><code style="font-family: var(--font-mono); color: #f4f2e8 !important; background: transparent !important;">
 import VideoPlayer from '@clipse_video-player/video-player';
+import '@clipse_video-player/video-player/dist/video-player.css';
 
+// Initialize with multi-quality & accessibility
 const player = new VideoPlayer({
-  container: '#player',
-  src: 'https://example.com/video.mp4'
+  container: '#player-container',
+  src: 'https://example.com/video-1080p.mp4',
+  keyboard: true,
+  qualities: [
+    { label: '1080p', src: 'https://example.com/1080p.mp4', res: 1080 },
+    { label: '720p',  src: 'https://example.com/720p.mp4',  res: 720  }
+  ],
+  tracks: [
+    { label: 'English', src: 'subs.vtt', srclang: 'en', default: true }
+  ]
 });
+
+// Subscribe to events (returns unsubscribe disposer)
+const unbind = player.on('play', () => console.log('Playing'));
+
+// Coordinated Teardown (e.g. React useEffect return / Vue onUnmounted)
+// unbind();
+// player.destroy();
                         </code></pre>
                     `
                 }
@@ -71,58 +101,127 @@ const player = new VideoPlayer({
         ]
     },
     "project-poster-maker": {
-        title: "Poster Maker",
-        description: "A modern, feature-rich album poster creator built with React and Fabric.js.",
+        title: "Poster Maker — Album Poster Studio",
+        description: "A professional, privacy-first web studio for designing iconic album art posters with 4 modernist layout archetypes, color quantization, and 300 DPI print-ready export.",
         badges: [
-            { text: "React", class: "bg-primary" },
-            { text: "Next.js", class: "bg-dark" },
-            { text: "Fabric.js", class: "bg-info text-dark" },
-            { text: "Zustand", class: "bg-success" }
+            { text: "Next.js 16 (App Router)", class: "bg-dark" },
+            { text: "React 19", class: "bg-primary" },
+            { text: "TypeScript 5", class: "bg-info text-dark" },
+            { text: "Fabric.js 7.1", class: "bg-warning text-dark" },
+            { text: "Tailwind CSS v4", class: "bg-cyan text-dark" },
+            { text: "Zustand 5", class: "bg-success" },
+            { text: "300 DPI Print Export", class: "bg-danger" },
+            { text: "100% In-Browser Privacy", class: "bg-secondary" }
         ],
         links: [
             { text: "Source Code", url: "https://github.com/bretmuchow07/poster-maker", icon: "fab fa-github", class: "btn-primary" },
-            { text: "Live Demo", url: "#", icon: "fas fa-external-link-alt", class: "btn-outline-primary disabled" }
+            { text: "Studio Overview", url: "https://github.com/bretmuchow07/poster-maker#features", icon: "fas fa-layer-group", class: "btn-outline-primary" }
         ],
         heroImage: "assets/poster-maker-preview.png",
         heroIcon: null, // If no image, use icon
         overview: {
-            title: "About This Project",
+            title: "Iconic Album Art Poster Studio",
             content: `
                 <p class="mb-4">
-                    <strong>Poster Maker</strong> is a specialized web application designed to help users create
-                    stunning, professional-grade album posters effortlessly. Whether you're a musician looking to
-                    promote your latest release or a fan creating art for your favorite albums, this tool provides a
-                    powerful, intuitive interface to bring your vision to life.
+                    <strong>Poster Maker</strong> is a specialized, privacy-first web application engineered for creating
+                    professional, print-ready album art posters directly in the browser. Designed for musicians, visual artists,
+                    and audiophiles, it replaces complex graphic design suites with an intuitive, modernist studio workflow—featuring
+                    <strong>zero accounts, zero cookies/tracking, and zero watermarks</strong>.
                 </p>
                 <p class="mb-4">
-                    The application features a robust canvas editor powered by Fabric.js, allowing for precise
-                    manipulation of text, images, and shapes. Users can choose from a variety of pre-designed
-                    templates or start from scratch. Key features include drag-and-drop functionality, real-time
-                    preview, high-resolution export, and a customizable theme system.
+                    The studio provides <strong>4 iconic layout archetypes</strong>: Swiss Palette Grid, Brutalist Inset Rule,
+                    Cinematic Split (with baked alpha edge blending), and Modern Studio. With a built-in <strong>smart tracklist auto-parser</strong>,
+                    users can paste raw tracklists directly from Spotify, Apple Music, Bandcamp, or Wikipedia to generate balanced multi-column typography.
+                    Artwork undergoes real-time client-side <strong>5-color palette quantization</strong> via ColorThief to produce movable color swatches.
                 </p>
                 <p>
-                    It handles complex state management for the canvas and UI using Zustand, ensuring a smooth and
-                    responsive user experience even with complex designs.
+                    Built with <strong>Next.js 16 (Turbopack)</strong>, <strong>React 19</strong>, and <strong>Fabric.js 7.1</strong>, the studio supports
+                    high-precision canvas manipulation, full undo/redo state history via Zustand, and export to <strong>300 DPI ISO A-Series (A4/A3/A2)
+                    and US Retail frames (12x12\", 18x24\", 24x36\")</strong> in PNG, JPG, or Vector PDF formats.
                 </p>
             `
         },
         sections: [
             {
                 type: "highlight-box",
-                title: "The Goal",
-                icon: "fas fa-lightbulb text-warning",
-                content: `"To bridge the gap between complex graphic design software and simple, restrictive templates. Poster Maker aims to give users the creative freedom they need with the ease of use they want."`
+                title: "Creative Manifesto: Zero Server Uploads & Print Integrity",
+                icon: "fas fa-print text-magenta",
+                content: `"Every canvas calculation, median-cut color quantization, and 300 DPI vector PDF generation happens strictly client-side in browser memory. Artists maintain total privacy over unreleased artwork while achieving exact millimeter print tolerances with toggleable bleed margins and safe-zone guides."`
+            },
+            {
+                type: "features-grid",
+                title: "Studio Capabilities & Modernist Tools",
+                items: [
+                    { icon: "fas fa-th-large text-primary", title: "4 Layout Archetypes", desc: "Swiss Palette Grid, Brutalist Inset Rule, Cinematic Split with alpha fade, and Modern Studio with QR streaming badge." },
+                    { icon: "fas fa-palette text-warning", title: "5-Color Palette Extraction", desc: "Median-cut color quantization extracts 5 dominant swatches; movable swatch groups support square, rounded, or circle shapes." },
+                    { icon: "fas fa-list-ol text-cyan", title: "Bulk Tracklist Auto-Parser", desc: "Paste raw text from streaming services; auto-detects timestamps and numbers to format balanced two-column typography." },
+                    { icon: "fas fa-file-pdf text-danger", title: "300 DPI Print Export", desc: "True print-resolution export to Vector PDF, PNG, or JPG for ISO A4/A3/A2 and US 12x12\", 18x24\", and 24x36\" frames." },
+                    { icon: "fas fa-crop-alt text-info", title: "Print Proofing Guides", desc: "Toggleable 3mm bleed margin boundaries and 10mm safe-zone overlays ensure flawless guillotine cutting." },
+                    { icon: "fas fa-link text-success", title: "Deep-Link Launching", desc: "URL parameter engine pre-loads templates, artist names, and album titles directly into the studio editor." },
+                    { icon: "fas fa-adjust text-magenta", title: "Darkroom & Gallery Light", desc: "Deep carbon studio (#121214) or warm archival linen finish (#f9f8f5) with FOUT-proof synchronous theme initialization." },
+                    { icon: "fas fa-user-shield text-acid", title: "100% Private & In-Browser", desc: "Zero server uploads, zero analytics cookies, and local persistence with full undo/redo canvas history." }
+                ]
             },
             {
                 type: "split-card",
                 left: {
-                    title: "Tech Stack",
+                    title: "Studio Architectural Stack",
                     content: [
-                        { icon: "fab fa-react text-primary", title: "React + Next.js", desc: "Modern frontend framework for performance and scalability" },
-                        { icon: "fas fa-paint-brush text-warning", title: "Fabric.js", desc: "Interactive HTML5 canvas library" },
-                        { icon: "fas fa-database text-success", title: "Zustand", desc: "Small, fast and scalable bearbones state-management solution" }
+                        { icon: "fab fa-react text-primary", title: "React 19 & Next.js 16", desc: "App Router architecture powered by Turbopack compilation" },
+                        { icon: "fas fa-paint-brush text-warning", title: "Fabric.js 7.1 Engine", desc: "Interactive HTML5 canvas with non-destructive alpha edge blending" },
+                        { icon: "fas fa-database text-success", title: "Zustand 5 Store", desc: "Persistent local state management with comprehensive undo/redo history" },
+                        { icon: "fas fa-file-export text-danger", title: "jsPDF 3.0 & Canvas API", desc: "High-resolution vector PDF generation with custom DPI scaling" }
                     ]
                 },
+                right: {
+                    title: "Print & Sizing Matrix",
+                    bgClass: "bg-dark text-light",
+                    content: `
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm table-borderless font-mono small mb-0">
+                                <thead>
+                                    <tr class="text-cyan border-bottom border-secondary">
+                                        <th>Format</th>
+                                        <th>Dimensions</th>
+                                        <th>DPI Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ISO A4</td>
+                                        <td>210 × 297 mm</td>
+                                        <td class="text-acid">72 / 150 / 300 DPI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ISO A3</td>
+                                        <td>297 × 420 mm</td>
+                                        <td class="text-acid">72 / 150 / 300 DPI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ISO A2</td>
+                                        <td>420 × 594 mm</td>
+                                        <td class="text-acid">72 / 150 / 300 DPI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vinyl Sleeve</td>
+                                        <td>12 × 12 in (305 mm)</td>
+                                        <td class="text-acid">72 / 150 / 300 DPI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gallery Frame</td>
+                                        <td>18 × 24 in (457 mm)</td>
+                                        <td class="text-acid">72 / 150 / 300 DPI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Concert Poster</td>
+                                        <td>24 × 36 in (610 mm)</td>
+                                        <td class="text-acid">72 / 150 / 300 DPI</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    `
+                }
             }
         ]
     },

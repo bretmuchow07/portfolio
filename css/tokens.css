@@ -47,6 +47,8 @@
   --nav-border: 2px solid var(--paper);
   --card-bg: #16161c;
   --code-bg: #111114;
+  --code-text: #f4f2e8;
+  --telemetry-code: var(--cyan);
   --caution-stripe-1: var(--magenta);
   --caution-stripe-2: var(--ink);
 
@@ -72,7 +74,9 @@ body.light-mode {
   --nav-bg: rgba(236, 238, 242, 0.96);
   --nav-border: 2px solid var(--panel-black);
   --card-bg: #ffffff;
-  --code-bg: #e2e4ea;
+  --code-bg: #111114;
+  --code-text: #f4f2e8;
+  --telemetry-code: #007688;
   --caution-stripe-1: var(--panel-black);
   --caution-stripe-2: var(--acid-yellow);
 }

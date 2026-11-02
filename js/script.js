@@ -266,6 +266,8 @@ function populateProjectTemplate(container, data) {
                 });
                 leftContent += `</ul>`;
 
+                const rightBg = (section.right && section.right.bgClass) ? section.right.bgClass : '';
+
                 sectionHtml = `
                     <div class="row g-4 mb-5">
                         <div class="col-md-6">
@@ -283,8 +285,58 @@ function populateProjectTemplate(container, data) {
                                 <div class="window-header">
                                     <span class="window-title">${section.right ? section.right.title : 'TECHNICAL_METRICS'}</span>
                                 </div>
-                                <div class="window-body p-4 font-mono small">
+                                <div class="window-body p-4 font-mono small ${rightBg}">
                                     ${section.right ? section.right.content : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (section.type === 'split-list-code') {
+                let leftContent = `<ul class="list-unstyled font-mono small d-flex flex-column gap-2 mb-0">`;
+                (section.left.items || section.left.content || []).forEach(item => {
+                    leftContent += `
+                        <li class="p-2 border border-secondary d-flex align-items-center gap-2" style="background: var(--panel-black);">
+                            <i class="${item.icon} text-cyan"></i>
+                            <div>
+                                <strong class="text-paper">${item.title}:</strong>
+                                <span class="text-muted-tactical ms-1">${item.desc}</span>
+                            </div>
+                        </li>
+                    `;
+                });
+                leftContent += `</ul>`;
+
+                let rightContent = `<div class="d-flex flex-column gap-2">`;
+                (section.right.code || []).forEach(item => {
+                    rightContent += `
+                        <div class="p-2 border border-secondary d-flex align-items-baseline justify-content-between flex-wrap gap-2" style="background: #111114;">
+                            <span class="text-cyan font-weight-bold" style="font-family: var(--font-mono);">${item.label}:</span>
+                            <code style="font-family: var(--font-mono); font-size: 0.85rem; color: #f4f2e8 !important; background: transparent; border: none; padding: 0;">${item.content}</code>
+                        </div>
+                    `;
+                });
+                rightContent += `</div>`;
+
+                sectionHtml = `
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6">
+                            <div class="window-card h-100">
+                                <div class="window-header">
+                                    <span class="window-title">${section.left.title}</span>
+                                </div>
+                                <div class="window-body p-4">
+                                    ${leftContent}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="window-card h-100">
+                                <div class="window-header">
+                                    <span class="window-title">${section.right ? section.right.title : 'DATABASE_STRUCTURE'}</span>
+                                </div>
+                                <div class="window-body p-4 font-mono small">
+                                    ${rightContent}
                                 </div>
                             </div>
                         </div>
