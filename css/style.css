@@ -308,6 +308,38 @@ body.light-mode .pillar-chip-tactical {
   box-shadow: 2px 2px 0 var(--magenta);
 }
 
+/* Code Blocks, Pre, and Code Indices Contrast Enforcements in Light Mode */
+body.light-mode pre,
+body.light-mode .window-card pre {
+  background: #111114 !important;
+  color: #f4f2e8 !important;
+  border: 2px solid #111114 !important;
+  box-shadow: 4px 4px 0 #111114 !important;
+}
+
+body.light-mode pre code,
+body.light-mode pre code.text-light,
+body.light-mode .window-card pre code,
+body.light-mode .window-card pre code.text-light {
+  color: #f4f2e8 !important;
+  background: transparent !important;
+}
+
+body.light-mode .code-index,
+body.light-mode .telemetry-header .code-index {
+  color: #007688 !important;
+}
+
+body.light-mode .window-body.bg-dark {
+  background: #111114 !important;
+  color: #f4f2e8 !important;
+}
+
+body.light-mode .window-body.bg-dark code,
+body.light-mode .window-body.bg-dark pre {
+  color: #f4f2e8 !important;
+}
+
 /* ==========================================================================
    Footer Contrast Enforcements (Permanently Dark Terminal HUD)
    ========================================================================== */
