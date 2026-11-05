@@ -752,6 +752,15 @@ function attachNavEvents() {
             }
         });
     });
+    document.querySelectorAll('#navbarNav a:not([data-page])').forEach(link => {
+        link.addEventListener('click', function () {
+            const collapse = document.getElementById('navbarNav');
+            if (collapse && collapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(collapse);
+                if (bsCollapse) bsCollapse.hide();
+            }
+        });
+    });
     attachThemeToggle();
     HyperFramesTacticalMotion.initButtonSpringPhysics(document);
 }

@@ -277,55 +277,71 @@ const player = new VideoPlayer({
         ]
     },
     "project-personal-blog": {
-        title: "Bret's Corner",
-        description: "A digital playground and collection of side quests, experiments, and creative coding projects.",
+        title: "Bret's Blog",
+        description: "My personal digital playground and corner of the web for whatever I want — side quests, creative experiments, hot takes, late-night coding, and honest thoughts.",
         badges: [
-            { text: "React", class: "bg-primary" },
-            { text: "Bootstrap", class: "bg-secondary" },
-            { text: "Framer Motion", class: "bg-warning text-dark" },
-            { text: "Context API", class: "bg-info text-dark" }
+            { text: "Side Quests", class: "bg-primary" },
+            { text: "Experiments", class: "bg-warning text-dark" },
+            { text: "Creative Code", class: "bg-info text-dark" },
+            { text: "Live", class: "bg-success" }
         ],
         links: [
-            { text: "Source Code", url: "#", icon: "fab fa-github", class: "btn-primary disabled" },
-            { text: "Live Demo", url: "#", icon: "fas fa-external-link-alt", class: "btn-outline-primary disabled" }
+            { text: "Visit Blog (blog.bretmuchoni.dev)", url: "https://blog.bretmuchoni.dev", icon: "fas fa-external-link-alt", class: "btn-primary" },
+            { text: "GitHub Profile", url: "https://github.com/bretmuchow07", icon: "fab fa-github", class: "btn-outline-primary" }
         ],
-        heroIcon: { icon: "fas fa-laptop-code", color: "text-muted", text: "Interactive Portfolio Preview" },
+        heroIcon: { icon: "fas fa-pen-nib", color: "text-cyan", text: "blog.bretmuchoni.dev" },
         overview: {
             title: "About This Space",
             content: `
                 <p class="mb-4">
-                    <strong>Bret’s Corner</strong> is my little digital playground — a cozy spot on the web where I
-                    stash the cool things I’ve been working on. It’s not meant to be overly formal or polished —
-                    just a collection of side quests, late-night coding sprints, and ideas I couldn’t shake.
+                    <strong>blog.bretmuchoni.dev</strong> is my little digital playground — a cozy spot on the web
+                    where I write about whatever I feel like. It's not meant to be an overly formal corporate publication —
+                    just a collection of side quests, late-night coding sprints, creative experiments, and ideas I couldn't shake.
                 </p>
                 <p class="mb-4">
-                    Some projects are done, some are forever “in progress,” and others are just experiments I had
-                    fun with. Whether it's a quick app, a weird concept, or something I'm surprisingly proud of —
-                    it's all here, under one roof.
+                    Some posts are about software, some are about tools and experiments, and others are just thoughts
+                    on tech, life, and whatever caught my attention. If I found it interesting, it goes up here.
                 </p>
                 <p>
-                    This isn’t just a portfolio — it’s a corner of the internet that feels like me.
+                    Check it out at <a href="https://blog.bretmuchoni.dev" target="_blank" rel="noopener" class="text-cyan fw-bold">blog.bretmuchoni.dev</a>.
                 </p>
             `
         },
         sections: [
             {
-                type: "highlight-box",
-                title: "Why This Exists",
-                icon: "fas fa-lightbulb text-warning",
-                content: `"Because not every project needs to be production-grade. Sometimes you just want to make stuff, learn stuff, and share the journey. Bret’s Corner is exactly that."`
+                type: "features-grid",
+                title: "What You'll Find There",
+                items: [
+                    { icon: "fas fa-gamepad text-primary", title: "Side Quests & Builds", desc: "Fun prototypes, experiments, and tools built just for the joy of making things." },
+                    { icon: "fas fa-flask text-success", title: "Experiments & Hacks", desc: "Late-night coding sessions, unexpected bug discoveries, and creative code." },
+                    { icon: "fas fa-lightbulb text-warning", title: "Thoughts & Takes", desc: "Honest perspectives on software, development workflows, and tech life." },
+                    { icon: "fas fa-mug-hot text-info", title: "Whatever I Want", desc: "Zero corporate filters, zero rigid editorial agendas — just genuine curiosity." }
+                ]
             },
             {
                 type: "split-card",
                 left: {
-                    title: "Tech Stack",
+                    title: "The Vibe",
                     content: [
-                        { icon: "fab fa-react text-primary", title: "React + Bootstrap", desc: "Core frontend framework and styling" },
-                        { icon: "fas fa-magic text-warning", title: "Framer Motion", desc: "Slick animations and transitions" },
-                        { icon: "fas fa-moon text-dark", title: "Context API", desc: "State management for themes/dark mode" }
-                    ],
-                    footer: `<p class="mt-3 mb-0 small text-muted"><i class="fas fa-mug-hot me-2"></i>And a bunch of coffee, probably.</p>`
+                        { icon: "fas fa-globe text-primary", title: "Live at blog.bretmuchoni.dev", desc: "My independent home on the web" },
+                        { icon: "fas fa-bolt text-warning", title: "Unfiltered & Casual", desc: "Honest writing without corporate jargon or fluff" },
+                        { icon: "fas fa-check-circle text-success", title: "Free & Open", desc: "Read, browse, and explore anytime" }
+                    ]
                 },
+                right: {
+                    title: "Visit The Blog",
+                    bgClass: "bg-dark text-light",
+                    content: `
+                        <div class="p-3 text-center">
+                            <i class="fas fa-pen-nib text-cyan display-4 mb-3"></i>
+                            <h5 class="font-display text-white mb-2">blog.bretmuchoni.dev</h5>
+                            <p class="font-mono text-muted-tactical small mb-4">Click below to explore the latest posts and experiments.</p>
+                            <a href="https://blog.bretmuchoni.dev" target="_blank" rel="noopener" class="btn-tactical btn-tactical-primary">
+                                <i class="fas fa-external-link-alt me-2"></i>GO TO BLOG
+                            </a>
+                        </div>
+                    `
+                }
             }
         ]
     }
